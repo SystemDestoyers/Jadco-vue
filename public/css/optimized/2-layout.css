@@ -1,0 +1,191 @@
+/**
+ * LAYOUT STYLES
+ * This file contains common layout elements and animations
+ */
+
+/* Global Section Styles */
+html, body {
+    overflow-x: hidden;
+    position: relative;
+    width: 100%;
+}
+
+/* Prevent scrollbar jumps during animations */
+body {
+    margin-right: 0 !important; /* Prevent auto margin adjustments */
+    overflow-y: scroll !important; /* Always show scrollbar */
+    scrollbar-gutter: stable; /* Modern browsers: reserve space for scrollbar */
+}
+
+/* Common section styles */
+section {
+    min-height: 100vh;
+    padding: 80px 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    position: relative;
+    overflow: hidden;
+}
+
+/* Section titles */
+.section-title {
+    font-size: 4rem;
+    font-weight: 400;
+    margin-bottom: 30px;
+}
+
+/* Transition class for section animations */
+/* .section-animate {
+    animation: sectionFadeIn 1.5s ease forwards;
+} */
+
+/* Animation keyframes */
+@keyframes sectionFadeIn {
+    0% {
+        opacity: 0.8;
+        transform: translateY(20px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes fadeInOut {
+    0%, 100% { opacity: 0; }
+    50% { opacity: 1; }
+}
+
+@keyframes preloaderBackInUp {
+    0% {
+        transform: translateY(600px) scale(0.7);
+        opacity: 0.7;
+    }
+    80% {
+        transform: translateY(-20px) scale(1);
+        opacity: 1;
+    }
+    100% {
+        transform: translateY(0) scale(1);
+        opacity: 1;
+    }
+}
+
+@keyframes preloaderBackOutUp {
+    0% {
+        transform: translateY(0) scale(1);
+        opacity: 1;
+    }
+    20% {
+        transform: translateY(-20px) scale(1);
+        opacity: 1;
+    }
+    100% {
+        transform: translateY(-200px) scale(0.7);
+        opacity: 0.7;
+    }
+}
+
+/* Common animation classes */
+.animate-element-left {
+    animation: fadeInLeft 1.2s ease-out forwards;
+    will-change: transform, opacity;
+}
+
+.animate-element-right {
+    animation: fadeInRight 1.2s ease-out forwards;
+    will-change: transform, opacity;
+}
+
+/* Vertical Scroll Indicator */
+.scroll-indicator-container {
+    position: fixed;
+    right: 50px;
+    top: 50%;
+    transform: translateY(-50%);
+    height: 100px;
+    width: 2px;
+    background-color: rgba(41, 67, 89, 0.2);
+    z-index: 999;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    opacity: 1;
+}
+
+/* Hide scroll indicator when in header or first section */
+body.at-top .scroll-indicator-container,
+section:first-of-type.is-active ~ .scroll-indicator-container,
+.about-section.is-active ~ .scroll-indicator-container {
+    opacity: 0;
+    pointer-events: none;
+}
+
+/* Expanded hover area */
+.scroll-indicator-container::before {
+    content: '';
+    position: absolute;
+    top: -15px;
+    left: -15px;
+    right: -15px;
+    bottom: -15px;
+    background-color: transparent;
+}
+
+/* Text label */
+.scroll-indicator-container::after {
+    content: 'SCROLL';
+    position: absolute;
+    right: -7px;
+    top: -70px;
+    transform: rotate(270deg);
+    transform-origin: bottom right;
+    font-size: 0.7rem;
+    letter-spacing: 1px;
+    color: var(--dark-color);
+    font-weight: 500;
+    transition: all 0.3s ease;
+}
+
+/* Scroll indicator fill */
+.scroll-indicator {
+    width: 100%;
+    background-color: var(--primary-color);
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 0%;
+    border-radius: 4px;
+    transition: height 0.1s ease-out;
+}
+
+/* Preloader Styles */
+.preloader {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: var(--light-color);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;
+    transition: opacity 0.5s;
+}
+
+.preloader.fade-out {
+    opacity: 0;
+    pointer-events: none;
+}
+
+.preloader-logo {
+    width: 50%;
+    max-width: 800px;
+    animation: preloaderBackInUp .8s ease-out forwards;
+}
+
+.preloader-logo.fade-out {
+    animation: preloaderBackOutUp .6s ease-in forwards;
+}

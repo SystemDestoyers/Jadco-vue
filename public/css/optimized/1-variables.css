@@ -1,0 +1,87 @@
+/* Font Face Declarations */
+@font-face {
+    font-family: 'Outfit';
+    src: url('../../fonts/OutfitRegular.ttf') format('truetype');
+    font-weight: 200;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Outfit';
+    src: url('../../fonts/OutfitMedium.ttf') format('truetype');
+    font-weight: 500;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Outfit';
+    src: url('../../fonts/OutfitSemiBold.ttf') format('truetype');
+    font-weight: 600;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Outfit';
+    src: url('../../fonts/OutfitBold.ttf') format('truetype');
+    font-weight: 700;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Outfit';
+    src: url('../../fonts/OutfitExtraBold.ttf') format('truetype');
+    font-weight: 800;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Outfit';
+    src: url('../../fonts/OutfitBlack.ttf') format('truetype');
+    font-weight: 900;
+    font-style: normal;
+}
+
+/* Global Variables */
+:root {
+    /* Colors */
+    --primary-color: #d01c51;
+    --dark-color: #294359;
+    --light-color: #ffffff;
+    --gray-color: #63809a;
+    --light-gray: #f8f9fa;
+    --light-gray-2: #DFE3E6;
+    
+    /* Font weights */
+    --font-weight-light: 200;
+    --font-weight-regular: 400;
+    --font-weight-medium: 500;
+    --font-weight-semibold: 600;
+    --font-weight-bold: 700;
+    --font-weight-extrabold: 800;
+    --font-weight-black: 900;
+    
+    /* Font sizes */
+    --font-size-small: 0.875rem;
+    --font-size-base: 1rem;
+    --font-size-medium: 1.25rem;
+    --font-size-large: 1.5rem;
+    --font-size-xlarge: 2rem;
+    --font-size-xxlarge: 3rem;
+    --font-size-huge: 4rem;
+    
+    /* Spacing */
+    --spacing-xs: 0.25rem;
+    --spacing-sm: 0.5rem;
+    --spacing-md: 1rem;
+    --spacing-lg: 2rem;
+    --spacing-xl: 3rem;
+    --spacing-xxl: 4rem;
+    
+    /* Animation */
+    --transition-speed: 0.3s;
+    --transition-timing: ease;
+    
+    /* Layout */
+    --container-max-width: 1660px;
+    --border-radius-sm: 4px;
+} 

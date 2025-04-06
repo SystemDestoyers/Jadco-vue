@@ -1,0 +1,100 @@
+.educational-services .service-name, .service-item.active .service-name {
+    padding: 0;
+    color: var(--dark-color)
+}
+.service-content-wrapper{
+    margin-bottom: 0;
+}
+.service-item {
+    margin-bottom: 0;
+    border: none;
+}
+.educational-services {
+    padding: 0;
+}
+.service-content-wrapper{
+    padding: 0;
+}
+.service-item {
+    padding: 0;
+}
+.service-item .head-content {
+    align-items: center;
+    align-content: center;
+}
+
+/* Make these selectors more specific to the education page */
+.service-hero-section .service-list {
+    margin-top: 6rem;
+    margin-bottom: 1rem;
+    font-size: 1.2rem;
+    font-weight: 200;
+    list-style: none;
+    padding-left: 0;
+}
+
+.service-hero-section .service-list li {
+    position: relative;
+    padding-left: 15px;
+    margin-bottom: 10px;
+}
+
+.service-hero-section .service-list li:before {
+    content: "-";
+    position: absolute;
+    left: 0;
+    top: 0;
+    color: var(--dark-color);
+    font-weight: 400;
+}
+
+.service-num {
+    color: var(--light-gray-2);
+    font-size: 6rem;
+    font-weight: 400;
+
+}
+.service-desc {
+    /* display: block; */
+    opacity: 1;
+    overflow: visible;
+    max-height: 100%;
+}
+
+/* STEM Section Styling */
+/* section.service-hero-section:nth-of-type(2) {
+    background-color: #f9f9f9;
+    border-top: 1px solid #eee;
+    border-bottom: 1px solid #eee;
+} */
+
+section.service-hero-section:nth-of-type(2) .service-list {
+    margin-top: 1rem;
+}
+
+section.service-hero-section:nth-of-type(2) .service-list li p {
+    font-size: 1.2rem;
+    line-height: 1.6;
+    color: var(--dark-color);
+}
+
+@media (max-width: 767px) {
+    section.service-hero-section:nth-of-type(2) .col-lg-6:last-child {
+        margin-top: 2rem;
+    }
+}
+
+/* K-12 International Schools Section Styling */
+section.service-hero-section:nth-of-type(3) .service-list {
+    margin-top: 6rem;
+}
+/* Responsive adjustments */
+@media (max-width: 991px) {
+    .service-hero-section .service-list {
+        margin-top: 2rem;
+    }
+    
+    section.service-hero-section .row {
+        padding: 1rem 0;
+    }
+}

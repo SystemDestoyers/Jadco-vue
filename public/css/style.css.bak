@@ -1,0 +1,1826 @@
+/* 
+ * Main CSS file - contains styles not in modular CSS files
+ * Font faces and variables have been moved to css/optimized/1-variables.css
+ * Responsive styles are in css/optimized/responsive.css
+ */
+
+/* Vertical Scroll Indicator */
+.scroll-indicator-container {
+    position: fixed;
+    right: 50px;
+    top: 50%;
+    transform: translateY(-50%);
+    height: 100px;
+    width: 2px;
+    background-color: rgba(41, 67, 89, 0.2);
+    z-index: 999;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: all var(--transition-speed) var(--transition-timing);
+    opacity: 1;
+}
+
+/* Hide scroll indicator when at top of page */
+body.at-top .scroll-indicator-container {
+    opacity: 0;
+    pointer-events: none;
+}
+
+body {
+    font-family: 'Outfit', sans-serif;
+    color: var(--dark-color);
+    overflow-x: hidden;
+    width: 100%; /* Ensure body doesn't expand beyond viewport */
+} 
+
+a {
+    text-decoration: none;
+    color: var(--dark-color);
+    transition: all var(--transition-speed) var(--transition-timing);
+}
+
+a:hover {
+    color: var(--primary-color);
+}
+
+.btn {
+    border-radius: 0;
+    padding: 10px 25px;
+    font-weight: var(--font-weight-semibold);
+    transition: all var(--transition-speed) var(--transition-timing);
+}
+
+.btn-talk {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 300px;
+    height: 50px;
+    background-color: var(--primary-color);
+    color: var(--light-color);
+    font-size: 1.625rem;
+    font-weight: var(--font-weight-semibold);
+    transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    text-transform: none;
+    position: relative;
+    overflow: hidden;
+    z-index: 1;
+}
+
+.btn-talk::before {
+    content: '';
+    position: absolute;
+    top: -100%;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: var(--dark-color);
+    transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    z-index: -1;
+}
+
+.btn-talk:hover {
+    color: var(--light-color);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+}
+
+.btn-talk:hover::before {
+    top: 0;
+}
+
+.section-title {
+    font-size: var(--font-size-huge);
+    font-weight: var(--font-weight-regular);
+    margin-bottom: 30px;
+}
+
+.section-title span {
+    font-weight: var(--font-weight-light);
+    opacity: 0.5;
+}
+
+.container {
+    max-width: var(--container-max-width) !important;
+    padding-left: 15px !important;
+    padding-right: 15px !important;
+    box-sizing: border-box;
+}
+
+.container-fluid {
+    padding-right: 4px;
+    padding-left: 4px;
+}
+
+/* Header Styles */
+.header {
+    position: relative;
+    background-color: var(--light-color);
+    overflow: hidden;
+}
+
+/* Navbar animation - fade in from top */
+@keyframes fadeInFromTop {
+    0% {
+        transform: translateY(-80px);
+        opacity: 0;
+    }
+    100% {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+/* Header element animations */
+@keyframes fadeInRight {
+    0% {
+        transform: translateX(80px);
+        opacity: 0;
+    }
+    100% {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+@keyframes fadeInRightFurther {
+    0% {
+        transform: translateX(100px);
+        opacity: 0;
+        visibility: hidden;
+    }
+    100% {
+        transform: translateX(0);
+        opacity: 1;
+        visibility: visible;
+    }
+}
+
+@keyframes fadeOutLeft {
+    0% {
+        transform: translateX(0);
+        opacity: 1;
+        visibility: visible;
+    }
+    100% {
+        transform: translateX(-100px);
+        opacity: 0;
+        visibility: hidden;
+    }
+}
+
+/* Navbar animation classes */
+.navbar {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    min-height: 100px;
+    position: relative;
+    z-index: 1050;
+    opacity: 0;
+}
+
+.navbar.animate {
+    animation: fadeInFromTop 0.8s ease-out forwards;
+}
+
+/* Logo animation */
+.navbar-brand {
+    padding: 0;
+    opacity: 0;
+}
+
+.navbar-brand.animate {
+    animation: fadeInFromTop 0.8s ease-out forwards;
+    animation-delay: 0.2s;
+}
+
+.logo {
+    width: 220.8px;
+    max-height: 120px;
+    max-width: 100%;
+    transition: all var(--transition-speed) var(--transition-timing);
+}
+
+.navbar-nav {
+    display: flex;
+    align-items: center;
+}
+
+/* Nav items animation */
+.navbar-nav .nav-item {
+    padding-right: 9.6rem;
+    opacity: 0;
+}
+
+.navbar-nav .nav-item.animate {
+    animation: fadeInFromTop 0.8s ease-out forwards;
+}
+
+/* COMPLETELY REWRITTEN: Heading Text Animations */
+.heading {
+    width: 100%;
+    margin: 0;
+}
+
+.main-heading {
+    width: 100%;
+    font-size: 4.9rem;
+    font-weight: 650;
+    line-height: 1.26;
+    text-align: left;
+    color: var(--dark-color);
+    margin-bottom: 2rem;
+    word-wrap: break-word;
+    padding-top: 2.5rem;
+    position: relative;
+    max-height: 350px;
+    overflow: hidden;
+    height: 100%;
+    opacity: 0;
+    transform: translateX(80px);
+}
+
+.main-heading.animate {
+    animation: fadeInRight 0.8s ease-out forwards;
+}
+
+/* Base state for all heading texts */
+.heading-text {
+    position: absolute;
+    top: 40px;
+    left: 0;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateX(100px);
+    width: 100%;
+}
+
+/* Active slide - base animation */
+.heading-text.active {
+    animation: fadeInRightFurther 0.8s ease-out forwards;
+}
+
+/* Active slide with initial animation delay for page load */
+.heading-text.active.animate-delay {
+    animation-delay: 0.7s;
+}
+
+/* Normal active slide (during carousel transition) */
+.heading-text.active:not(.animate-delay) {
+    animation-delay: 0s;
+}
+
+/* Exiting slide */
+.heading-text.was-active {
+    animation: fadeOutLeft 0.8s ease-out forwards;
+}
+
+/* Services menu in header */
+.heading .services-menu {
+    width: 100%;
+    margin-top: 4.6rem;
+    opacity: 0;
+    transform: translateX(80px);
+}
+
+.heading .services-menu.animate {
+    animation: fadeInRight 0.8s ease-out forwards;
+}
+
+.heading .services-menu h3 {
+    font-size: 2.8125rem;
+    font-weight: 200;
+    line-height: 1.33;
+    color: var(--dark-color);
+    margin-bottom: 1.25rem;
+}
+
+/* Header image animation */
+.header-image {
+    width: 100%;
+    overflow: hidden;
+    float: right;
+    max-height: 811px;
+    position: relative;
+    height: 811px;
+    opacity: 0;
+    transform: translateX(80px);
+}
+
+.header-image.animate {
+    animation: fadeInRight 1s ease-out forwards;
+}
+
+.header-image img {
+    width: 100%;
+    height: 100%;
+    background-size: contain;
+    object-fit: cover;
+    max-height: 811px;
+}
+
+#headerCarousel, 
+#headerCarousel .carousel-inner, 
+#headerCarousel .carousel-item {
+    height: 811px;
+    width: 100%;
+    max-height: 811px;
+}
+
+#headerCarousel .carousel-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+}
+
+/* Carousel Styles */
+.carousel-indicators {
+    bottom: -10px;
+    display: none; /* Hide default indicators since we're using custom ones */
+}
+
+.carousel-indicators button {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    margin: 0 5px;
+    background-color: rgba(255, 255, 255, 0.5);
+    opacity: 0.5;
+}
+
+.carousel-indicators button.active {
+    background-color: var(--primary-color);
+    opacity: 1;
+}
+
+/* Custom Carousel Navigation */
+.carousel-nav-numbers {
+    position: absolute;
+    bottom: 30px;
+    left: 30px;
+    display: flex;
+    align-items: center;
+    z-index: 10;
+    padding: 10px 20px;
+    border-radius: 4px;
+}
+
+.nav-number {
+    font-size: 26px;
+    font-weight: lighter;
+    color: var(--light-color);
+    cursor: pointer;
+    transition: color 0.3s ease;
+    min-width: 30px;
+    text-align: center;
+    margin: 0 10px;
+}
+
+.nav-number.active {
+    color: var(--primary-color);
+    opacity: 1;
+}
+
+.nav-line {
+    width: 40px;
+    height: 2px;
+    background-color: rgba(41, 67, 89, 0.3);
+    margin: 0 8px;
+    position: relative;
+    overflow: hidden;
+    display: none; /* Initially hidden */
+}
+
+.nav-line-fill {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 0%;
+    background-color: var(--primary-color);
+    transition: width 0.1s linear;
+}
+
+.nav-line.active .nav-line-fill {
+    width: 100%;
+    transition: width 5s linear; /* Match carousel interval */
+}
+
+.nav-line.active {
+    display: block;
+}
+
+.carousel-control-prev, .carousel-control-next {
+    width: 50px;
+    height: 50px;
+    background-color: rgba(255, 255, 255, 0.5);
+    border-radius: 50%;
+    top: 50%;
+    transform: translateY(-50%);
+    opacity: 0.8;
+}
+
+.carousel-control-prev {
+    left: 20px;
+}
+
+.carousel-control-next {
+    right: 20px;
+}
+
+.carousel-control-prev:hover, .carousel-control-next:hover {
+    background-color: var(--primary-color);
+    opacity: 1;
+}
+
+.carousel-control-prev-icon, .carousel-control-next-icon {
+    width: 20px;
+    height: 20px;
+}
+
+/* Custom Carousel Transition */
+.custom-transition .carousel-inner {
+    overflow: hidden;
+    height: 100%;
+}
+
+.custom-transition .carousel-item {
+    position: absolute;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    transition: transform 1.5s ease-in-out;
+    display: none; /* Hide all carousel items by default */
+}
+
+/* Only show active, next and previous slides */
+.custom-transition .carousel-item.active,
+.custom-transition .carousel-item-next,
+.custom-transition .carousel-item-prev {
+    display: block; /* Show only these items */
+}
+
+/* Keep proper z-index to prevent overlapping */
+.custom-transition .carousel-item.active {
+    position: relative;
+    z-index: 1;
+}
+
+.custom-transition .carousel-item-next,
+.custom-transition .carousel-item-prev {
+    z-index: 2; /* Put transitioning slides on top */
+}
+
+/* Initial position for next slide (off-screen) */
+.custom-transition .carousel-item-next {
+    transform: translateX(100%);
+}
+
+/* Initial position for prev slide (off-screen) */
+.custom-transition .carousel-item-prev {
+    transform: translateX(-100%);
+}
+
+/* Ensure non-transitioning slides are fully hidden */
+.custom-transition .carousel-item:not(.active):not(.carousel-item-next):not(.carousel-item-prev) {
+    display: none !important;
+    opacity: 0 !important;
+    visibility: hidden !important;
+}
+
+/* Animation for next slide coming in */
+.custom-transition .carousel-item-next.carousel-item-start {
+    animation: slideInPushRight 1.5s ease-in-out forwards;
+}
+
+/* Animation for prev slide coming in */
+.custom-transition .carousel-item-prev.carousel-item-end {
+    animation: slideInPushLeft 1.5s ease-in-out forwards;
+}
+
+/* Animation for current slide being pushed out by next slide */
+.custom-transition .active.carousel-item-start {
+    animation: pushOutLeft 1.5s ease-in-out forwards;
+}
+
+/* Animation for current slide being pushed out by prev slide */
+.custom-transition .active.carousel-item-end {
+    animation: pushOutRight 1.5s ease-in-out forwards;
+}
+
+@keyframes slideInPushRight {
+    0% {
+        transform: translateX(100%);
+    }
+    100% {
+        transform: translateX(0);
+    }
+}
+
+@keyframes slideInPushLeft {
+    0% {
+        transform: translateX(-100%);
+    }
+    100% {
+        transform: translateX(0);
+    }
+}
+
+@keyframes pushOutLeft {
+    0% {
+        transform: translateX(0);
+    }
+    60% {
+        transform: translateX(0);
+    }
+    100% {
+        transform: translateX(-25%);
+    }
+}
+
+@keyframes pushOutRight {
+    0% {
+        transform: translateX(0);
+    }
+    60% {
+        transform: translateX(0);
+    }
+    100% {
+        transform: translateX(25%);
+    }
+}
+
+/* *********************************************************************** */
+/* Global Section Styles for Sticky Scrolling */
+section {
+    scroll-margin-top: 0;
+    transition: all 0.5s ease;
+    position: relative;
+    overflow: hidden;
+    min-height: 100vh; /* Ensure all sections are at least full viewport height */
+    padding: 80px 0; /* Consistent padding */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+/* Transition class for section animations */
+.section-animate {
+    animation: sectionFadeIn 1.5s ease forwards;
+}
+
+@keyframes sectionFadeIn {
+    0% {
+        opacity: 0.8;
+        transform: translateY(20px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Red Scroll indicator for sections */
+section:after {
+    display: none;
+}
+
+/* Services animation for backInUp effect */
+@keyframes backInUp {
+    0% {
+        transform: translateY(1200px) scale(1);
+        opacity: 1;
+    }
+    80% {
+        transform: translateY(-20px) scale(1);
+        opacity: 1;
+    }
+    100% {
+        transform: translateY(0) scale(1);
+        opacity: 1;
+    }
+}
+
+/* Services animation for backOutUp effect (when scrolling up) */
+@keyframes backOutUp {
+    0% {
+        transform: translateY(0) scale(1);
+        opacity: 1;
+    }
+    20% {
+        transform: translateY(-20px) scale(1);
+        opacity: 1;
+    }
+    100% {
+        transform: translateY(-1200px) scale(1);
+        opacity: 1;
+    }
+}
+
+.hide {
+    opacity: 0;
+}
+
+.show {
+    opacity: 1;
+}
+/* Ensure services section scroll is locked */
+.services-section {
+    position: relative;
+    background-color: var(--light-color);
+    height: 400vh; /* Tall enough for scrolling through all services */
+    overflow: visible; /* Allow scroll effect to work */
+    display: block;
+    unicode-bidi: isolate;
+    justify-content: center;
+    align-items: center;
+    z-index: 99;
+}
+
+/* Services Layer Container */
+.services-layer-container {
+    height: 100vh;
+    width: 100%; /* This will be constrained by the parent container */
+    position: absolute;
+    top: 0;
+    left: 0;
+    overflow: hidden;
+    max-width: var(--container-max-width);
+    margin: 0 auto;
+    right: 0; /* This helps center the container */
+}
+
+.services-layer-container.fixed {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    margin: 0 auto;
+    max-width: var(--container-max-width);
+}
+
+/* Service items container styles */
+.service-stack-item {
+    height: 100vh;
+    width: 100%;
+    position: absolute;
+    overflow: hidden;
+    display: flex;
+    align-items: flex-start;
+    transition: height 0.3s ease-out, box-shadow 0.3s ease-out;
+    background-color: var(--light-color);
+    top: 0;
+    max-width: 100%; /* Ensure it doesn't exceed parent width */
+}
+
+/* Remove container-fluid padding that might cause overflow */
+.service-stack-item .container-fluid {
+    padding-right: 0;
+    padding-left: 0;
+}
+
+.service-item-wrapper {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    position: relative;
+    transform-origin: top center;
+}
+
+.service-stack-item .row {
+    width: 100% !important;
+    height: 100% !important;
+    margin: 0 !important;
+    display: flex !important;
+    align-items: center !important; /* Center items vertically */
+}
+
+.full-screen {
+    height: 100vh;
+}
+
+/* Service column styling - simplified */
+.service-stack-item .col-lg-6 {
+    height: 100vh !important; /* Keep !important as this is critical for layout */
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start; /* Changed from center */
+    align-items: flex-start; /* Changed from center */
+    position: relative !important; /* Keep !important to prevent JS position changes */
+    padding: 0;
+}
+
+/* Service content styling - fixed height approach */
+.service-content {
+    padding: 60px 30px;
+    height: 600px !important; /* Keep !important for fixed height consistency */
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start; /* Changed from center */
+    width: 100%;
+    position: relative !important; /* Keep !important to prevent JS position changes */
+    top: 0 !important; /* Keep !important to prevent JS positioning */
+    transform: none !important; /* Keep !important to prevent JS transforms */
+    margin-top: 50px; /* Fixed top margin */
+}
+
+/* Adjust content for first service with multiple buttons */
+.first-service .service-content .service-description {
+    margin-bottom: 20px; /* Reduced margin to account for extra button height */
+}
+
+.first-service .service-buttons {
+    display: flex;
+    flex-direction: row; /* Ensure buttons are side by side */
+    gap: 15px;
+    margin-top: 20px; /* Reduced from 3rem */
+}
+
+/* Service image container */
+.service-image {
+    position: relative;
+    overflow: hidden;
+    height: 100vh; /* Full viewport height */
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: var(--light-gray);
+    border-radius: 0; /* Remove border radius */
+}
+
+/* Fix image height to prevent overflow */
+.service-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center; /* Center the image */
+}
+
+/* Ensure consistent title positioning */
+.service-content .title {
+    margin-bottom: 60px;
+    position: relative;
+}
+
+/* Main content consistent positioning */
+.service-content .main-content {
+    position: relative;
+}
+
+/* Service title consistent positioning */
+.service-title {
+    font-size: 3rem;
+    font-weight: 400;
+    margin-bottom: 20px;
+}
+
+/* Ensure consistent description height */
+.service-description {
+    font-size: 1.5rem;
+    line-height: 1.6;
+    margin-bottom: 30px;
+    min-height: 150px;
+}
+
+/* Ensure buttons are consistently positioned */
+.service-buttons {
+    display: flex;
+    gap: 15px;
+    margin-top: 2rem; /* Consistent margin for all services */
+    position: relative;
+}
+
+.service-buttons a {
+    width: auto;
+    font-weight: 200;
+    text-transform: uppercase;
+    transition: all 0.3s ease;
+}
+
+/* First service section buttons */
+.service-item-initial .service-buttons a {
+    width: 200px;
+    padding: 10px 25px;
+}
+
+.service-content .service-number {
+    font-size: 7rem;
+    font-weight: lighter;
+    color: var(--light-gray-2);
+    margin-bottom: 50px;
+}
+
+/* Service Learn More Button - Original styling restored */
+.service-buttons .learn-more,
+.learn-more {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    max-width: 220px;
+    opacity: 1;
+    visibility: visible;
+    margin-left: 0;
+    margin-top: 15px;
+    margin-bottom: 2%;
+    color: var(--dark-color);
+    border-color: var(--dark-color);
+    border-bottom: 1px solid var(--dark-color);
+    padding-bottom: 5px;
+    padding-right: 10px;
+    text-decoration: none;
+    transition: color 0.3s ease;
+    font-size: 1.4rem;
+    font-weight: lighter;
+    position: relative;
+    bottom: 0;
+    left: 0;
+}
+
+/* Icon styling for all Learn More buttons - reverted to original */
+.service-buttons .learn-more i,
+.learn-more i {
+    margin-left: 15px;
+    transition: transform 0.3s ease;
+    transform: rotate(-45deg);
+}
+
+/* Simple hover effect without animations */
+.service-buttons .learn-more:hover,
+.learn-more:hover {
+    color: var(--primary-color);
+    border-color: var(--primary-color);
+}
+
+/* Restored original icon hover behavior */
+.service-buttons .learn-more:hover i,
+.learn-more:hover i {
+    color: var(--primary-color);
+}
+
+/* Remove previous button effects */
+.service-buttons .learn-more::after,
+.learn-more::after {
+    display: none;
+}
+
+/* Button background animation on hover */
+.service-buttons .btn-service {
+    background-color: var(--light-color);
+    color: var(--primary-color);
+    border: 1px solid var(--primary-color);
+    font-size: 16px;
+    transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    width: 220px;
+    position: relative;
+    overflow: hidden;
+    z-index: 1;
+}
+
+.service-buttons .btn-service::before {
+    content: '';
+    position: absolute;
+    top: -100%;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: var(--primary-color);
+    transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    z-index: -1;
+}
+
+.service-buttons .btn-service:hover {
+    color: var(--light-color);
+    border-color: var(--primary-color);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.service-buttons .btn-service:hover::before {
+    top: 0;
+}
+
+/* Custom styling for Education button only */
+.service-buttons .btn-education {
+    background-color: var(--primary-color);
+    color: var(--light-color);
+    border: 1px solid var(--primary-color);
+    width: 220px;
+    position: relative;
+    overflow: hidden;
+    z-index: 1;
+}
+
+.service-buttons .btn-education::before {
+    content: '';
+    position: absolute;
+    top: -100%;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: var(--light-color);
+    transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    z-index: -1;
+}
+
+.service-buttons .btn-education:hover {
+    color: var(--primary-color);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.service-buttons .btn-education:hover::before {
+    top: 0;
+}
+
+.educational-services {
+    margin-top: 160px;
+    margin-bottom: 30px;
+}
+
+.edu-services-title {
+    font-size: 3rem;
+    font-weight: 700;
+    /* margin-bottom: 4rem; */
+}
+
+.service-item {
+    padding: 20px 0;
+    border-bottom: 1px solid #eee;
+    transition: all 0.3s ease;
+}
+
+.service-num {
+    font-size: 5rem;
+    font-weight: 600;
+    color: #63809a;
+    margin-bottom: 0;
+    transition: color 0.3s ease;
+}
+
+.service-name {
+    font-size: 2.2rem;
+    font-weight: 600;
+    margin-bottom: 10px;
+    color: var(--dark-color);
+    transition: all 0.3s ease;
+    /* margin-left: 25%; */
+}
+
+.service-item.active .service-name {
+    color: var(--primary-color);
+}
+/* .service-item.active .service-name {
+    font-size: 2.3rem;
+    transition: all 0.3s ease;
+} */
+.service-item.active .service-desc {
+    font-size: 1.3rem;
+    transition: all 0.3s ease;
+}
+
+.service-desc {
+    font-size: 1.8rem;
+    line-height: 1.6;
+    font-weight: 200;
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease-out;
+    margin-bottom: 0;
+    /* text-indent: 40%; */
+    padding-top: 12px;
+}
+
+.service-item.active .service-desc {
+    max-height: 500px;
+    font-size: 1.8rem;
+    margin-bottom: 15px;
+    transition: max-height 0.5s ease-in;
+}
+
+.service-content-wrapper {
+    position: relative;
+    padding-bottom: 30px;
+    margin-top: 1rem;
+}
+
+/* Additional styling for service-content-wrapper learn more buttons */
+.service-content-wrapper .learn-more {
+    font-size: 1.4rem;
+    font-weight: lighter;
+    position: relative;
+    bottom: 0;
+    left: 0;
+    opacity: 0; /* Initially hidden, shown when active */
+    visibility: hidden; /* Initially hidden, shown when active */
+    transition: opacity 0.3s ease, visibility 0.3s ease, color 0.3s ease;
+}
+
+.service-content-wrapper .learn-more::after {
+    background-color: rgba(224, 40, 90, 0.05); /* Direct rgba value instead of variable */
+}
+
+.service-item.active .learn-more {
+    opacity: 1;
+    visibility: visible;
+}
+
+.service-toggle {
+    cursor: pointer;
+    width: 30px;
+    height: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: transform 0.3s ease;
+    font-size: 4rem;
+    margin-top: 1.3rem; /* Align with service-name */
+}
+
+.service-toggle i {
+    color: var(--dark-color);
+    transition: transform 0.3s ease, color 0.3s ease;
+}
+
+.service-item.active .service-toggle i {
+    transform: rotate(45deg);
+    color: var(--primary-color);
+}
+
+.statistics {
+    padding: 50px 0 30px;
+    text-align: center;
+}
+
+.stat-item {
+    padding: 20px;
+}
+
+.stat-number {
+    font-size: 2rem;
+    font-weight: 200;
+    margin-bottom: 10px;
+}
+
+.stat-text {
+    font-size: 1rem;
+    color: var(--gray-color);
+    font-weight: lighter;
+}
+
+/* Contact Section Styles */
+.contact-section {
+    padding: 80px 0;
+    padding-bottom: 0;
+    background-color: var(--light-color);
+}
+.contact-top {
+    /* margin-bottom: 40px; */
+    width: 100%;
+    display: block;
+}
+.footer-logo .logo {
+    width: 180px;
+    height: auto;
+}
+
+.contact-info {
+    margin-top: 0;
+}
+
+.locations {
+    margin-top: 0;
+}
+
+.contact-tagline {
+    font-size: 2.5rem;
+    font-weight: lighter;
+    padding-bottom: 10px;
+    color: var(--dark-color);
+}
+
+.let-talk {
+    font-size: 3.3rem;
+    font-weight: lighter;
+    margin-bottom: 30px;
+    color: var(--dark-color);
+}
+
+.location-title {
+    font-size: 2rem;
+    font-weight: 200;
+    margin-bottom: 10px;
+    color: var(--dark-color);
+}
+
+.location-address {
+    font-size: 1.2rem;
+    line-height: 1.6;
+    letter-spacing: .5px;
+    color: var(--gray-color);
+    font-weight: 200;
+}
+
+.contact-label {
+    font-weight: 600;
+    color: var(--dark-color);
+    display: inline-block;
+    width: 60px;
+    margin-right: 10px;
+}
+
+.contact-value {
+    color: var(--dark-color);
+}
+
+.contact-value a {
+    color: var(--dark-color);
+    text-decoration: none;
+    transition: all 0.3s ease;
+    cursor: pointer;
+    position: relative;
+    
+}
+
+.contact-value a:hover {
+    color: var(--primary-color);
+    background: linear-gradient(
+        90deg, 
+        var(--primary-color) 0%, 
+        #ff6b97 25%, 
+        var(--primary-color) 50%, 
+        #ff6b97 75%, 
+        var(--primary-color) 100%
+    );
+    background-size: 200% auto;
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    animation: shine 3s linear infinite;
+}
+
+.whatsapp-link {
+    display: inline-block;
+}
+
+.whatsapp-link:hover {
+    color: #25D366; /* WhatsApp green color */
+    background: linear-gradient(
+        90deg, 
+        #25D366 0%, 
+        #5cf396 25%, 
+        #25D366 50%, 
+        #5cf396 75%, 
+        #25D366 100%
+    );
+    background-size: 200% auto;
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    animation: shine 3s linear infinite;
+}
+
+.location-address a {
+    color: var(--dark-color);
+}
+
+.contact-form {
+    border-radius: 0;
+}
+
+.form-group {
+    position: relative;
+    margin-bottom: 25px;
+}
+
+.form-control {
+    border-radius: 0;
+    padding: 12px 0;
+    font-size: 1.1rem;
+    border: none;
+    border-bottom: 1px solid #ddd;
+    background-color: transparent;
+    transition: all 0.3s ease;
+}
+
+.form-control:focus {
+    box-shadow: none;
+    border-color: var(--primary-color);
+    outline: none;
+    padding: 12px 10px;
+    border: 1px solid var(--primary-color);
+}
+
+.form-label {
+    position: absolute;
+    top: 12px;
+    left: 0;
+    font-size: 1.2rem;
+    font-weight: lighter;
+    color: var(--gray-color);
+    pointer-events: none;
+    transition: all 0.3s ease;
+}
+
+.form-control:focus ~ .form-label,
+.form-control:not(:placeholder-shown) ~ .form-label {
+    top: -20px;
+    left: 0;
+    font-size: 0.75rem;
+    color: var(--primary-color);
+}
+
+.form-control:focus::placeholder {
+    opacity: 0;
+}
+
+textarea.form-control {
+    min-height: 120px;
+}
+
+textarea.form-control:focus {
+    border: 1px solid var(--primary-color);
+    padding: 12px 10px;
+}
+
+.btn-send {
+    background-color: transparent;
+    color: var(--dark-color);
+    font-size: 1rem;
+    font-weight: 300;
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    padding: 12px 0;
+    border: none;
+    margin-top: 30px;
+    position: relative;
+    overflow: hidden;
+    border-bottom: 1px solid #ddd;
+    transition: all 0.3s ease;
+}
+
+.btn-send:hover {
+    background-color: transparent;
+    color: var(--primary-color);
+    padding: 12px 15px;
+    border: 1px solid var(--primary-color);
+}
+
+.btn-send i {
+    transition: transform 0.3s ease;
+}
+
+.btn-send:hover i {
+    transform: translateX(5px);
+}
+
+.end-footer {
+    margin-top: 20px;
+    align-items: center;
+}
+
+.social-links {
+    display: flex;
+    gap: 20px;
+}
+
+.social-link {
+    display: inline-flex;
+    align-items: center;
+    justify-content: flex-start;
+    color: var(--dark-color);
+    font-size: 1.2rem;
+    transition: all 0.3s ease;
+}
+
+.social-link i {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 30px;
+    height: 30px;
+    border: 1px solid var(--dark-color);
+    border-radius: 50%;
+    margin-right: 10px;
+    transition: all 0.3s ease;
+}
+
+.social-link:hover {
+    color: var(--primary-color);
+}
+
+.social-link:hover i {
+    background-color: var(--primary-color);
+    border-color: var(--light-color);
+    color: var(--light-color);
+}
+
+.copyright {
+    font-size: 1.2rem;
+    color: var(--dark-color);
+    margin-bottom: 0;
+    font-weight: 300;
+}
+
+.jadco-shine {
+    position: relative;
+    color: var(--primary-color);
+    font-weight: 600;
+    background: linear-gradient(
+        90deg, 
+        var(--primary-color) 0%, 
+        #ff6b97 25%, 
+        var(--primary-color) 50%, 
+        #ff6b97 75%, 
+        var(--primary-color) 100%
+    );
+    background-size: 200% auto;
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    animation: shine 3s linear infinite;
+    overflow: hidden;
+}
+
+@keyframes shine {
+    to {
+        background-position: 200% center;
+    }
+}
+
+.developer a {
+    color: var(--primary-color);
+    font-weight: 500;
+    transition: all 0.3s ease;
+}
+
+.developer a:hover {
+    text-decoration: underline;
+}
+
+/* Custom Scrollbar Styling */
+::-webkit-scrollbar {
+    width: 2px;
+    background-color: var(--light-color);
+}
+
+::-webkit-scrollbar-thumb {
+    background-color: var(--primary-color);
+    border-radius: 4px;
+    border: 1px solid var(--light-color);
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background-color: #b0173f;
+}
+
+/* For Firefox */
+* {
+    scrollbar-width: thin;
+    scrollbar-color: var(--primary-color) var(--light-color);
+}
+
+
+/* About Section Styles */
+.about-section {
+    position: relative;
+    overflow: hidden;
+    margin-top: 130px;
+    margin-bottom: 130px;
+    padding: 30px 0 80px;
+}
+
+.about-heading {
+    display: flex;
+    align-items: center;
+}
+
+.about-heading img {
+    position: absolute;
+    left: 328px;
+    width: 570px;
+    height: 123px;
+    max-width: 100%;
+    transition: all var(--transition-speed) var(--transition-timing);
+}
+
+.about-section .section-title {
+    opacity: 1; /* Ensure text is visible by default */
+    position: relative;
+    z-index: 2;
+}
+
+.about-section .section-title.animate {
+    animation: fadeInRight 0.8s ease-out forwards;
+}
+
+.about-section .section-title span {
+    font-size: 10rem;
+    font-weight: var(--font-weight-extrabold);
+    opacity: 0.1;
+    position: absolute;
+    top: -0.5em;
+    left: 0.4em;
+    z-index: -1;
+    color: var(--dark-color);
+}
+
+.about-text-container {
+    position: relative;
+    margin-top: 3rem;
+    margin-bottom: 1rem;
+}
+
+.about-text {
+    opacity: 1; /* Ensure text is visible by default */
+    width: 90%;
+    max-width: 1465px;
+    font-size: 2.8rem;
+    line-height: 1.5;
+    font-weight: var(--font-weight-light);
+    color: var(--dark-color);
+    max-height: none;
+}
+
+.about-text.animate {
+    animation: fadeInRight 0.8s ease-out forwards;
+}
+
+.about-main-description {
+    opacity: 1; /* Ensure text is visible by default */
+    margin-top: 2.5rem;
+}
+
+.about-main-description.animate {
+    animation: fadeInLeft 0.8s ease-out forwards;
+}
+
+.about-description {
+    opacity: 1; /* Ensure text is visible by default */
+    line-height: 1.6;
+    color: var(--dark-color);
+    font-size: 1.125rem;
+}
+
+.about-description.animate {
+    animation: fadeInRight 0.8s ease-out forwards;
+}
+
+.about-description:nth-of-type(2).animate {
+    animation-delay: 0.2s;
+}
+
+/* About image container and wrapper */
+.about-image-wrapper {
+    position: relative;
+}
+
+.about-image-container {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    min-height: 500px;
+}
+
+.about-image-main {
+    position: relative;
+    width: 630px;
+    height: 370px;
+    overflow: hidden;
+    z-index: 1;
+    float: right;
+    opacity: 0;
+    transform: translateX(80px);
+    transition: opacity 0.5s ease, transform 0.5s ease;
+    will-change: transform; /* Better performance hint for browsers */
+}
+
+.about-image-main.animate {
+    opacity: 1;
+    transform: translateX(0);
+    animation: fadeInRight 0.8s ease-out forwards, enhancedParallax 5s cubic-bezier(0.445, 0.05, 0.55, 0.95) infinite;
+    transition: transform 1s ease-out;
+}
+
+/* When animation pauses due to scrolling or other events, this ensures a smooth return to original position */
+.about-image-main.animate[data-controlled-by-scroll="true"] {
+    animation: none;
+    transition: transform 1s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+@keyframes enhancedParallax {
+    0% {
+        transform: translate(0, 0);
+    }
+    25% {
+        transform: translate(15px, -10px);
+    }
+    50% {
+        transform: translate(0, 0);
+    }
+    75% {
+        transform: translate(-15px, 10px);
+    }
+    85% {
+        transform: translate(-15px, 10px);
+    }
+    100% {
+        transform: translate(0, 0);
+    }
+}
+
+.about-image-main img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.about-image-secondary {
+    position: absolute;
+    top: 55px;
+    left: 10px;
+    width: 330px;
+    height: 400px;
+    overflow: hidden;
+    /* border-radius: var(--border-radius-sm); */
+    z-index: 3;
+    transition: transform 2s ease-out;
+}
+
+.about-image-secondary img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* Header Column Animations */
+@keyframes fadeInLeft {
+    0% {
+        transform: translateX(-80px);
+        opacity: 0;
+    }
+    100% {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+@keyframes backInLeft {
+    0% {
+        transform: translateX(-1000px) scale(0.7);
+        opacity: 0.7;
+    }
+    80% {
+        transform: translateX(20px) scale(1);
+        opacity: 1;
+    }
+    100% {
+        transform: translateX(0) scale(1);
+        opacity: 1;
+    }
+}
+
+@keyframes backInRight {
+    0% {
+        transform: translateX(1000px) scale(0.7);
+        opacity: 0.7;
+    }
+    80% {
+        transform: translateX(-20px) scale(1);
+        opacity: 1;
+    }
+    100% {
+        transform: translateX(0) scale(1);
+        opacity: 1;
+    }
+}
+
+.about-image-main {
+    position: relative;
+    width: 630px;
+    height: 370px;
+    overflow: hidden;
+    border-radius: 5px;
+    z-index: 1;
+    float: right;
+    opacity: 0;
+    transform: translateX(80px);
+    transition: opacity 0.5s ease, transform 0.5s ease;
+}
+
+.about-image-main.animate {
+    opacity: 1;
+    transform: translateX(0);
+    animation: fadeInRight 0.8s ease-out forwards, bounce 1s 1s ease-in-out;
+}
+
+.about-image-main img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+@keyframes backOutLeft {
+    0% {
+        transform: translateX(0) scale(1);
+        opacity: 1;
+    }
+    20% {
+        transform: translateX(20px) scale(1);
+        opacity: 1;
+    }
+    100% {
+        transform: translateX(-1000px) scale(0.7);
+        opacity: 0.7;
+    }
+} 
+
+/* Carousel Transition Speed */
+.carousel-item {
+    transition: transform 2s ease-in-out;
+}
+
+/* Add rules for active services menu items */
+.heading .services-menu.active h3 {
+    color: var(--primary-color);
+}
+
+.heading .service-list .link-container a.active {
+    color: var(--primary-color);
+}
+
+.heading .service-list .link-container a.active i {
+    color: var(--primary-color);
+}
+
+/* Static header image for non-home pages */
+.static-header-image {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+}
+
+.static-header-image img {
+    object-fit: cover;
+    width: 100%;
+    height: 100%;
+    min-height: 400px;
+    transition: transform 0.5s ease;
+}
+
+.static-header-image:hover img {
+    transform: scale(1.03);
+}
+
+.services-section .section-title {
+    margin-bottom: 0;
+}
+
+.services-section .main-content {
+    padding-left: 185px;
+}
+
+.heading .service-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.heading .service-list li {
+    margin: 1.0625rem 0 0.9375rem 0;
+    font-size: 1.5rem;
+    font-weight: 100;
+    line-height: 1.33;
+    text-align: left;
+    color: var(--dark-color);
+    border-bottom: 1px solid var(--gray-color);
+    padding-bottom: 0.9375rem;
+    width: 97%;
+    transition: all 0.3s ease;
+}
+
+.heading .service-list li:hover a {
+    color: var(--primary-color);
+    transform: none;
+}
+
+.heading .service-list li a {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    color: var(--dark-color);
+    text-decoration: none;
+    width: 100%;
+    max-width: 765px;
+    transition: color 0.3s ease;
+    transform: none;
+}
+
+.heading .service-list li a i {
+    width: 29.7px;
+    height: 29.7px;
+    margin: 0 0 0 0.9375rem;
+    color: var(--dark-color);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    transform: rotate(-45deg);
+    transition: all 0.3s ease, transform 0.3s ease;
+}
+
+.heading .service-list li a:hover i {
+    color: var(--primary-color);
+}
+
+.header-main-carousel {
+    height: 100%;
+    padding-left: 0;
+    padding-right: 0;
+    margin-left: 0;
+    margin-right: 0;
+    max-width: 811px;
+    max-height: 811px;
+    overflow: hidden;
+    object-fit: cover;
+    background-size: contain;
+}
+
+.navbar-collapse {
+    display: flex;
+}
+
+.navbar-collapse.show,
+.navbar-collapse.collapsing {
+    background-color: var(--light-color);
+}
+
+.navbar-toggler {
+    border: none;
+    padding: 0.5rem;
+    outline: none;
+    transition: all var(--transition-speed) var(--transition-timing);
+}
+
+.navbar-toggler:focus {
+    box-shadow: none;
+    outline: none;
+}
+
+.navbar-toggler-icon {
+    width: 1.5rem;
+    height: 1.5rem;
+}
+
+.navbar-nav .nav-link {
+    font-weight: var(--font-weight-semibold);
+    font-size: 1.625rem;
+    line-height: 1.35;
+    text-align: left;
+    display: flex;
+    align-items: center;
+    color: var(--dark-color);
+}
+
+.nav-item .nav-link.active {
+    color: var(--primary-color);
+}
+
+.nav-link.about {
+    color: var(--dark-color);
+}
+.nav-link:hover{
+    color: var(--primary-color);
+    transition: all 0.8s ease;
+}
+
+/* About Section Animation Styles */
+.about-section .animate-ready {
+    opacity: 0;
+    transform: translateX(-60px);
+}
+
+.about-section .animate-ready.animate {
+    opacity: 1;
+    transform: translateX(0);
+    transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+}
+
+/* Keep text visible initially, but hidden when animate-ready class is applied */
+.about-section .section-title:not(.animate-ready),
+.about-text:not(.animate-ready),
+.about-main-description:not(.animate-ready),
+.about-description:not(.animate-ready) {
+    opacity: 1;
+    transform: none;
+}
+
+/* Override any JavaScript added inline styles for first service buttons */
+.first-service .service-buttons,
+.service-stack-item[data-service="1"] .service-buttons {
+    margin-top: 2rem !important;
+}

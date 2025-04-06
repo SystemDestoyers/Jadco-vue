@@ -1,0 +1,28 @@
+/**
+ * JADCO - Main CSS file
+ * This file imports all modular CSS files
+ */
+
+/* Import base styles and variables */
+@import '1-variables.css';
+@import '2-layout.css';
+/* @import 'services.css'; */
+@import 'responsive.css';
+
+/* Add this comment as a placeholder for future imports */
+/* 
+   Header styles have been consolidated into style.css
+   Additional CSS modules would be imported here:
+   @import '4-about.css';
+   @import '5-services.css';
+   etc.
+*/
+
+/* Utility classes */
+.no-scroll {
+  overflow: hidden;
+}
+
+.no-transition {
+  transition: none !important;
+} 
