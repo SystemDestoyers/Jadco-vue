@@ -246,6 +246,90 @@
             </div>
         </div>
     </section>
+
+    <!-- Educational Services Section -->
+    <section id="educational-section" class="educational-services py-5 section">
+        <div class="container">
+            <div class="row">
+                <div class="educational-services mt-5">
+                    <h3 class="edu-services-title">Educational Services</h3>
+
+                    <div class="service-item mt-4">
+                        <div class="row">
+                            <div class="col-md-3">
+                                <h3 class="service-num">01</h3>
+                            </div>
+                            <div class="col-md-7">
+                                <div class="service-content-wrapper">
+                                    <h4 class="service-name">Scholarship Programs Management</h4>
+                                    <p class="service-desc">
+                                        With more than 20 years in managing scholarship programs
+                                        with several Saudi governmental sponsors, we are experts of providing full and
+                                        comprehensive plans and services to meet the sponsor's vision and targets.
+                                    </p>
+                                    <router-link to="/services/scholarship-programs-management"
+                                        class="learn-more">LEARN MORE <i class="fas fa-arrow-right-long"></i></router-link>
+                                </div>
+                            </div>
+                            <div class="col-md-2 text-end">
+                                <div class="service-toggle">
+                                    <i class="fas fa-arrow-right-long"></i>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="service-item mt-4">
+                        <div class="row">
+                            <div class="col-md-3">
+                                <h3 class="service-num">02</h3>
+                            </div>
+                            <div class="col-md-7">
+                                <div class="service-content-wrapper">
+                                    <h4 class="service-name">STEM Education and Innovation Centers</h4>
+                                    <p class="service-desc">
+                                        Providing innovative STEM education approaches and establishing
+                                        cutting-edge innovation centers to foster creativity and practical skills.
+                                    </p>
+                                    <router-link to="/services/stem-education" class="learn-more">LEARN MORE <i
+                                            class="fas fa-arrow-right-long"></i></router-link>
+                                </div>
+                            </div>
+                            <div class="col-md-2 text-end">
+                                <div class="service-toggle">
+                                    <i class="fas fa-arrow-right-long"></i>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="service-item mt-4">
+                        <div class="row">
+                            <div class="col-md-3">
+                                <h3 class="service-num">03</h3>
+                            </div>
+                            <div class="col-md-7">
+                                <div class="service-content-wrapper">
+                                    <h4 class="service-name">K-12 International Schools</h4>
+                                    <p class="service-desc">
+                                        Development and management of international standard K-12 schools
+                                        with globally recognized curricula and excellent teaching staff.
+                                    </p>
+                                    <router-link to="/services/k12-international-schools" class="learn-more">Learn
+                                        More <i class="fas fa-arrow-right-long"></i></router-link>
+                                </div>
+                            </div>
+                            <div class="col-md-2 text-end">
+                                <div class="service-toggle">
+                                    <i class="fas fa-arrow-right-long"></i>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
 </template>
 
 <script>
@@ -259,20 +343,7 @@ export default {
         setCurrentService(serviceNumber) {
             this.currentService = serviceNumber;
             
-            // Update service display
-            const services = document.querySelectorAll('.service-stack-item');
-            services.forEach(service => {
-                const dataService = parseInt(service.getAttribute('data-service'));
-                if (dataService === serviceNumber) {
-                    service.style.opacity = 1;
-                    service.style.zIndex = 10;
-                } else {
-                    service.style.opacity = 0;
-                    service.style.zIndex = 1;
-                }
-            });
-            
-            // Update nav items
+            // Update nav items only, let services-section.js handle the display
             const navItems = document.querySelectorAll('.service-nav-item');
             navItems.forEach(item => {
                 const dataService = parseInt(item.getAttribute('data-service'));
@@ -299,54 +370,22 @@ export default {
     mounted() {
         console.log('Home component mounted');
         
-        // Initialize current service display
+        // Just set initial active states
         this.$nextTick(() => {
-            // Wait for DOM to update before initializing
-            setTimeout(() => {
-                this.initializeServices();
-                
-                // Let services-section.js also initialize
-                // This ensures both our Vue code and jQuery code work together
-                if (typeof jQuery !== 'undefined') {
-                    console.log('jQuery available in Home component');
-                    
-                    // Initialize services section jQuery functionality
-                    const serviceItems = jQuery('.service-stack-item');
-                    const serviceNavItems = jQuery('.service-nav-item');
-                    
-                    // Set initial active service
-                    const activeService = this.currentService;
-                    
-                    // Make all services visible briefly for jQuery to initialize properly
-                    serviceItems.css({
-                        'opacity': '1',
-                        'z-index': '1'
-                    });
-                    
-                    // Then set the current one as active
-                    setTimeout(() => {
-                        serviceItems.each(function() {
-                            const serviceNum = parseInt(jQuery(this).attr('data-service'));
-                            if (serviceNum === activeService) {
-                                jQuery(this).css({
-                                    'opacity': '1',
-                                    'z-index': '10'
-                                });
-                            } else {
-                                jQuery(this).css({
-                                    'opacity': '0',
-                                    'z-index': '1'
-                                });
-                            }
-                        });
-                    }, 100);
-                    
-                    // Trigger jQuery document ready manually
-                    jQuery(document).ready();
-                } else {
-                    console.warn('jQuery not available in Home component');
+            // Set initial active service in nav
+            const navItems = document.querySelectorAll('.service-nav-item');
+            navItems.forEach(item => {
+                const dataService = parseInt(item.getAttribute('data-service'));
+                if (dataService === this.currentService) {
+                    item.classList.add('active');
+                    // Change plus to X icon for the first service
+                    const icon = item.querySelector('.service-toggle-icon');
+                    if (icon) {
+                        icon.classList.remove('fa-plus');
+                        icon.classList.add('fa-xmark');
+                    }
                 }
-            }, 500);
+            });
         });
     }
 };

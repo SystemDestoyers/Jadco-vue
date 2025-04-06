@@ -7,13 +7,11 @@
         <title>JADCO - Education and Training to Innovation</title>
         
         <!-- jQuery - Load first to ensure availability -->
-        <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+        <!-- <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script> -->
         
         <!-- Bootstrap CSS -->
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
         
-        <!-- Font Awesome -->
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
         
         <!-- Custom CSS - Load in correct order -->
         <link rel="stylesheet" href="{{ asset('css/style.css') }}">
