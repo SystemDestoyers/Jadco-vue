@@ -1,4 +1,4 @@
-jQuery(document).ready(function () {
+$(document).ready(function () {
     // Static JavaScript functions and utilities
     // This file is for static, reusable JavaScript code
 
@@ -55,7 +55,7 @@ jQuery(document).ready(function () {
     window.addEventListener('resize', updateScrollIndicator, { passive: true });
 
     // Add click event to scroll indicator to scroll to top
-    jQuery(document).on('click', '.scroll-indicator-container', function () {
+    $(document).on('click', '.scroll-indicator-container', function () {
         // Reset the active section tracking
         if (typeof currentActiveSection !== 'undefined') {
             currentActiveSection = 'home';
@@ -68,61 +68,61 @@ jQuery(document).ready(function () {
         }
 
         // Scroll to top smoothly
-        jQuery('html, body').animate({
+        $('html, body').animate({
             scrollTop: 0
         }, 800, function () {
             // After scrolling completes, update active section in navbar
-            jQuery('.navbar-nav .nav-link').removeClass('active');
-            jQuery('.navbar-nav .nav-link[href="#home"]').addClass('active');
+            $('.navbar-nav .nav-link').removeClass('active');
+            $('.navbar-nav .nav-link[href="#home"]').addClass('active');
         });
     });
 
 
     // Form validation
-    jQuery('#contactForm').submit(function (event) {
+    $('#contactForm').submit(function (event) {
         event.preventDefault();
 
         // Basic validation
         var isValid = true;
-        var firstName = jQuery('#firstName').val();
-        var lastName = jQuery('#lastName').val();
-        var email = jQuery('#email').val();
-        var phone = jQuery('#phone').val();
-        var message = jQuery('#message').val();
+        var firstName = $('#firstName').val();
+        var lastName = $('#lastName').val();
+        var email = $('#email').val();
+        var phone = $('#phone').val();
+        var message = $('#message').val();
 
         if (firstName === '') {
             isValid = false;
-            jQuery('#firstName').addClass('is-invalid');
+            $('#firstName').addClass('is-invalid');
         } else {
-            jQuery('#firstName').removeClass('is-invalid');
+            $('#firstName').removeClass('is-invalid');
         }
 
         if (lastName === '') {
             isValid = false;
-            jQuery('#lastName').addClass('is-invalid');
+            $('#lastName').addClass('is-invalid');
         } else {
-            jQuery('#lastName').removeClass('is-invalid');
+            $('#lastName').removeClass('is-invalid');
         }
 
         if (email === '' || !isValidEmail(email)) {
             isValid = false;
-            jQuery('#email').addClass('is-invalid');
+            $('#email').addClass('is-invalid');
         } else {
-            jQuery('#email').removeClass('is-invalid');
+            $('#email').removeClass('is-invalid');
         }
 
         if (message === '') {
             isValid = false;
-            jQuery('#message').addClass('is-invalid');
+            $('#message').addClass('is-invalid');
         } else {
-            jQuery('#message').removeClass('is-invalid');
+            $('#message').removeClass('is-invalid');
         }
 
         if (isValid) {
             // Here you would normally send the form to the server
             // For now, just show a success message
-            jQuery('#contactForm').hide();
-            jQuery('.form-success').fadeIn();
+            $('#contactForm').hide();
+            $('.form-success').fadeIn();
         }
     });
 
@@ -136,13 +136,13 @@ jQuery(document).ready(function () {
 
     // Initialize the carousel for the educational services section
     // Make first educational service active by default and set its icon to X
-    jQuery('.educational-services .service-item:first').addClass('active');
-    jQuery('.educational-services .service-item:first .service-toggle i').removeClass('fa-arrow-right-long').addClass('fa-solid fa-xmark');
+    $('.educational-services .service-item:first').addClass('active');
+    $('.educational-services .service-item:first .service-toggle i').removeClass('fa-arrow-right-long').addClass('fa-solid fa-xmark');
 
     // Make service-name clickable like service-toggle
-    jQuery('.service-name').on('click', function() {
+    $('.service-name').on('click', function() {
         // Find the parent service item and its toggle button
-        const serviceItem = jQuery(this).closest('.service-item');
+        const serviceItem = $(this).closest('.service-item');
         const toggleButton = serviceItem.find('.service-toggle');
         
         // Trigger the click on the toggle button to reuse existing functionality
@@ -150,13 +150,13 @@ jQuery(document).ready(function () {
     });
 
     // Educational Services Toggle
-    jQuery('.service-toggle').on('click', function() {
-        const serviceItem = jQuery(this).closest('.service-item');
-        const toggleIcon = jQuery(this).find('i');
+    $('.service-toggle').on('click', function() {
+        const serviceItem = $(this).closest('.service-item');
+        const toggleIcon = $(this).find('i');
         
         // Close other open items
-        jQuery('.service-item.active').not(serviceItem).removeClass('active');
-        jQuery('.service-toggle i.fa-xmark').not(toggleIcon).removeClass('fa-xmark').addClass('fa-arrow-right-long');
+        $('.service-item.active').not(serviceItem).removeClass('active');
+        $('.service-toggle i.fa-xmark').not(toggleIcon).removeClass('fa-xmark').addClass('fa-arrow-right-long');
         
         // Toggle current item
         serviceItem.toggleClass('active');
@@ -170,7 +170,7 @@ jQuery(document).ready(function () {
     });
 
     // Ensure the service-menu links in the header work properly
-    jQuery('.services-menu .service-list li a').on('click', function() {
+    $('.services-menu .service-list li a').on('click', function() {
         // Allow default behavior to navigate to the service page
         return true;
     });
@@ -185,7 +185,7 @@ jQuery(document).ready(function () {
      * 3. Navigates to the contact section while the overlay is visible (hiding the scrolling)
      * 4. Fades out the overlay to reveal the contact section
      */
-    jQuery('.btn-talk').on('click', function(e) {
+    $('.btn-talk').on('click', function(e) {
         e.preventDefault();
         
         // Get the target section (contact)
@@ -194,7 +194,7 @@ jQuery(document).ready(function () {
         
         if (targetSection) {
             // Step 1: Create the overlay with proper styling
-            const flashOverlay = jQuery('<div id="flash-overlay"></div>').css({
+            const flashOverlay = $('<div id="flash-overlay"></div>').css({
                 'position': 'fixed',
                 'top': 0,
                 'left': 0,
@@ -211,7 +211,7 @@ jQuery(document).ready(function () {
             });
             
             // Step 2: Add logo to overlay
-            const logo = jQuery('<img>').attr({
+            const logo = $('<img>').attr({
                 'src': '/images/logo.png', // Using direct path for static.js
                 'alt': 'JADCO Logo'
             }).css({
@@ -222,7 +222,7 @@ jQuery(document).ready(function () {
             });
             
             // Step 3: Create text with animated dots
-            const loadingTextContainer = jQuery('<div>').css({
+            const loadingTextContainer = $('<div>').css({
                 'font-size': '1rem',
                 'font-weight': 'bold',
                 'color': '#e0285a', // Primary brand color
@@ -233,7 +233,7 @@ jQuery(document).ready(function () {
             // Step 4: Add elements to DOM
             flashOverlay.append(logo);
             flashOverlay.append(loadingTextContainer);
-            jQuery('body').append(flashOverlay);
+            $('body').append(flashOverlay);
             
             // Step 5: Set up dots animation
             let dotCount = 0;
@@ -272,7 +272,7 @@ jQuery(document).ready(function () {
                     }, 300, function() {
                         // Step 10: Clean up
                         clearInterval(updateDots); // Stop the animation
-                        jQuery(this).remove(); // Remove overlay from DOM
+                        $(this).remove(); // Remove overlay from DOM
                     });
                 }, 450); // Hold overlay visible for 450ms
             });

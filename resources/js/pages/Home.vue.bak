@@ -370,28 +370,68 @@ export default {
     mounted() {
         console.log('Home component mounted');
         
-        // Let services-section.js handle everything
-        // this.$nextTick(() => {
-        //     // Set initial active service in nav
-        //     const navItems = document.querySelectorAll('.service-nav-item');
-        //     navItems.forEach(item => {
-        //         const dataService = parseInt(item.getAttribute('data-service'));
-        //         if (dataService === this.currentService) {
-        //             item.classList.add('active');
-        //             // Change plus to X icon for the first service
-        //             const icon = item.querySelector('.service-toggle-icon');
-        //             if (icon) {
-        //                 icon.classList.remove('fa-plus');
-        //                 icon.classList.add('fa-xmark');
-        //             }
-        //         }
-        //     });
+        // Just set initial active states
+        this.$nextTick(() => {
+            // Set initial active service in nav
+            const navItems = document.querySelectorAll('.service-nav-item');
+            navItems.forEach(item => {
+                const dataService = parseInt(item.getAttribute('data-service'));
+                if (dataService === this.currentService) {
+                    item.classList.add('active');
+                    // Change plus to X icon for the first service
+                    const icon = item.querySelector('.service-toggle-icon');
+                    if (icon) {
+                        icon.classList.remove('fa-plus');
+                        icon.classList.add('fa-xmark');
+                    }
+                }
+            });
             
-        //     // Trigger jQuery document ready manually to initialize services-section.js
-        //     if (typeof jQuery !== 'undefined') {
-        //         jQuery(document).ready();
-        //     }
-        // });
+            // Initialize educational services with vanilla JavaScript
+            // This won't interfere with services-section.js
+            setTimeout(() => {
+                // Make first educational service active
+                document.querySelector('#educational-section .service-item').classList.add('active');
+                
+                // Add click events to all toggles
+                const eduToggles = document.querySelectorAll('#educational-section .service-toggle');
+                eduToggles.forEach(toggle => {
+                    toggle.addEventListener('click', function() {
+                        const serviceItem = this.closest('.service-item');
+                        
+                        if (serviceItem.classList.contains('active')) {
+                            serviceItem.classList.remove('active');
+                        } else {
+                            // Remove active class from all items
+                            document.querySelectorAll('#educational-section .service-item').forEach(item => {
+                                item.classList.remove('active');
+                            });
+                            // Add active class to clicked item
+                            serviceItem.classList.add('active');
+                        }
+                    });
+                });
+                
+                // Make service names clickable too
+                const eduServiceNames = document.querySelectorAll('#educational-section .service-name');
+                eduServiceNames.forEach(name => {
+                    name.addEventListener('click', function() {
+                        const serviceItem = this.closest('.service-item');
+                        
+                        if (serviceItem.classList.contains('active')) {
+                            serviceItem.classList.remove('active');
+                        } else {
+                            // Remove active class from all items
+                            document.querySelectorAll('#educational-section .service-item').forEach(item => {
+                                item.classList.remove('active');
+                            });
+                            // Add active class to clicked item
+                            serviceItem.classList.add('active');
+                        }
+                    });
+                });
+            }, 100);
+        });
     }
 };
 </script> 

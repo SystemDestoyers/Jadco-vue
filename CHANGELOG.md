@@ -3,6 +3,28 @@
 ## [July 2025]
 
 ### Added
+- Implemented conditional loading of services.js and services.css:
+  - Added route-based asset loading in App.vue
+  - Services assets now load on all pages except the home page
+  - Created automatic initialization for services.js with DOMContentLoaded event triggering
+  - Added detection of current route with Vue Router to control asset loading
+  - Improved page performance by only loading services assets when needed
+
+### Fixed
+- Fixed services assets loading on home page issue:
+  - Enhanced route detection with immediate checking at component mount time
+  - Added cleanup mechanism to remove services assets when navigating to home page
+  - Improved route change detection with console logging for debugging
+  - Fixed edge case where services assets would load on initial page load
+
+- Fixed services visibility issues when navigating between pages:
+  - Added short delay before initializing services.js to ensure DOM is fully rendered
+  - Implemented automatic cleanup of hidden elements when navigating back to home page
+  - Added restoration of element visibility by resetting opacity, transform, visibility and display styles
+  - Ensured both DOMContentLoaded and jQuery document ready events are triggered for proper initialization
+  - Fixed services-menu visibility issue when navigating from Home to service pages
+  
+### Added
 - Converted frontend to Vue.js Single Page Application (SPA):
   - Created Vue components from Blade templates
   - Implemented Vue Router for client-side routing

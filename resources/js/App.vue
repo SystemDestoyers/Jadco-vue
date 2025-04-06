@@ -40,7 +40,8 @@ export default {
             isLoading: true,
             scrollPercent: 0,
             showDebug: true,
-            scriptsLoaded: false
+            scriptsLoaded: false,
+            servicesLoaded: false
         };
     },
     mounted() {
@@ -65,6 +66,21 @@ export default {
 
         // Load all required scripts
         this.loadAllScripts();
+        
+        // Check current route immediately
+        this.$nextTick(() => {
+            console.log('Current route:', this.$route.name);
+            this.handleServicesAssets(this.$route.name);
+        });
+        
+        // Watch for route changes to load services scripts when needed
+        this.$watch(
+            () => this.$route.name,
+            (newRouteName) => {
+                console.log('Route changed to:', newRouteName);
+                this.handleServicesAssets(newRouteName);
+            }
+        );
     },
     beforeUnmount() {
         window.removeEventListener('scroll', this.updateScrollIndicator);
@@ -74,6 +90,89 @@ export default {
             const winScroll = document.body.scrollTop || document.documentElement.scrollTop;
             const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
             this.scrollPercent = (winScroll / height) * 100;
+        },
+        handleServicesAssets(routeName) {
+            // Only load services assets if not on home page
+            if (routeName !== 'home') {
+                this.loadServicesAssets();
+            } else {
+                // If we're on home page, make sure we don't load services assets
+                console.log('On home page, services assets not needed');
+                
+                // If services assets were loaded, remove them and restore any modified elements
+                if (this.servicesLoaded) {
+                    // Remove the CSS and JS files
+                    const servicesCSS = document.querySelector('link[href="/css/services.css"]');
+                    const servicesJS = document.querySelector('script[src="/js/services.js"]');
+                    
+                    if (servicesCSS) {
+                        servicesCSS.remove();
+                    }
+                    
+                    if (servicesJS) {
+                        servicesJS.remove();
+                    }
+                    
+                    // Cleanup any modifications made by services.js
+                    // Reset visibility of any elements that might have been hidden
+                    document.querySelectorAll('.service-hero-section, .service-list, .service-list li').forEach(el => {
+                        el.style.opacity = '';
+                        el.style.transform = '';
+                        el.style.visibility = '';
+                        el.style.display = '';
+                    });
+                    
+                    this.servicesLoaded = false;
+                }
+            }
+        },
+        loadServicesAssets() {
+            if (this.servicesLoaded) return;
+            
+            console.log('Loading services assets...');
+            
+            // Load services CSS
+            const servicesCSS = document.createElement('link');
+            servicesCSS.rel = 'stylesheet';
+            servicesCSS.href = '/css/services.css';
+            document.head.appendChild(servicesCSS);
+            
+            // First mark as loaded to prevent multiple loads
+            this.servicesLoaded = true;
+            
+            // Load services JS with simpler initialization
+            const servicesJS = document.createElement('script');
+            servicesJS.src = '/js/services.js';
+            servicesJS.async = false;
+            servicesJS.onload = () => {
+                console.log('Services JS loaded, initializing...');
+                
+                // Direct initialization of service menus and sections
+                const serviceMenus = document.querySelectorAll('.service-list, .services-menu');
+                if (serviceMenus.length) {
+                    serviceMenus.forEach(menu => {
+                        menu.style.opacity = '1';
+                        menu.style.transform = 'none';
+                        menu.style.visibility = 'visible';
+                        menu.style.display = 'block';
+                    });
+                    
+                    // Make sure list items are visible too
+                    document.querySelectorAll('.service-list li').forEach(item => {
+                        item.style.opacity = '1';
+                        item.style.transform = 'none';
+                    });
+                    
+                    console.log('Service menus initialized:', serviceMenus.length);
+                } else {
+                    console.log('No service menus found to initialize');
+                }
+                
+                // Trigger DOMContentLoaded for other scripts
+                const event = new Event('DOMContentLoaded');
+                document.dispatchEvent(event);
+            };
+            document.head.appendChild(servicesJS);
         },
         loadAllScripts() {
             if (this.scriptsLoaded) return;
