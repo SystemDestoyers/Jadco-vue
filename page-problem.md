@@ -1,3 +1,76 @@
+# SCROLL JANK SOLUTION - APRIL 2025
+
+## Original Problem Description
+
+> "I have a problem with my website where there's lag when scrolling from the header to the about section. The transition isn't smooth and causes a jumping or janky effect. I've tried different scripts to fix it but nothing has worked. When I remove the about section completely, the scrolling works fine without any lag. Even when I replace the about section with a simple test section that has no animations, the lag still happens. But when the section is gone completely, everything is smooth."
+
+## Problem Identified
+
+After extensive testing, we identified that the scroll jank between the header and about section was caused by a **paint boundary/layer issue** in the browser's rendering engine. When scrolling between these sections, the browser was performing expensive repaints and layout calculations.
+
+The key insight came when we discovered that:
+1. Removing the about section entirely fixed the jank
+2. Replacing it with a simple test section (even without animations) still showed the jank
+3. The difference between 90px and 100px scroll limits had a significant impact on performance
+4. Adding hardware acceleration to the section fixed the issue completely
+
+## Solution Implemented
+We applied hardware acceleration to the about section using two CSS properties:
+
+```css
+style="will-change: transform; transform: translateZ(0);"
+```
+
+These properties force the browser to:
+1. Create a separate composite layer for the section
+2. Use the GPU for rendering this section
+3. Avoid expensive repaints during scrolling
+
+We also applied hardware acceleration to the images container within the about section:
+
+```css
+style="transform: translateZ(0);"
+```
+
+## Why This Works
+- **Separate Composite Layer**: The section now renders on its own layer, preventing it from affecting other elements during scroll
+- **GPU Rendering**: Moving rendering to the GPU offloads work from the main thread
+- **Paint Optimization**: The browser no longer needs to recalculate layout and repaint during the transition
+
+## Troubleshooting Process
+
+### Initial Attempts
+1. Created various scroll-handling scripts:
+   - `scroll.js` - Basic scroll event handling
+   - `header-about-fix.js` - Targeted fix for header-about transition
+   - `extreme-scroll-fix.js` - Aggressive approach to pause animations during scroll
+
+### Testing Different Approaches
+1. **JavaScript Solutions (Failed)**
+   - Tried throttling/debouncing scroll events
+   - Attempted to clone and swap sections during scroll
+   - Created a scroll delay mechanism
+   - None of these approaches fixed the core issue
+
+2. **CSS Modifications (Failed)**
+   - Added `scroll-behavior: smooth` to HTML element
+   - Implemented various animation optimizations
+   - These helped slightly but didn't resolve the jank
+
+3. **Controlled Testing**
+   - Created test sections with different optimization techniques
+   - Found that hardware acceleration was the key solution
+
+4. **Scroll Speed Control (Partial Success)**
+   - Created a script to limit scroll speed to 20px increments
+   - This helped reduce the jank but didn't eliminate it
+   - Discovered that the difference between 90px and 100px limits had a significant impact
+
+### Final Solution
+The breakthrough came when we tested sections with hardware acceleration properties. This approach completely eliminated the jank by addressing the root cause - browser paint boundaries.
+
+---
+
 # IMPORTANT: RULES FOR AI ASSISTANTS
 
 ## Previously Tried Solutions (DO NOT RECOMMEND THESE AGAIN)
