@@ -6,9 +6,9 @@
             <nav class="navbar navbar-expand-lg">
                 <div class="container-fluid">
                     <!-- Logo Container (Left-aligned) -->
-                    <router-link class="navbar-brand" to="/">
+                    <a class="navbar-brand" href="/">
                         <img src="/images/logo.png" alt="JADCO Logo" class="logo">
-                    </router-link>
+                    </a>
                     
                     <!-- Mobile Toggle Button (Right-aligned) -->
                     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" 
@@ -21,12 +21,12 @@
                     <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
                         <ul class="navbar-nav me-3">
                             <li class="nav-item">
-                                <router-link class="nav-link home" 
-                                             :class="{ 'active': $route.name === 'home' }" 
-                                             to="/" 
-                                             id="home-nav-link">
+                                <a class="nav-link home" 
+                                   :class="{ 'active': isHome }" 
+                                   href="/" 
+                                   id="home-nav-link">
                                     HOME
-                                </router-link>
+                                </a>
                             </li>
                             <li class="nav-item">
                                 <router-link class="nav-link about" 
@@ -36,7 +36,7 @@
                                 </router-link>
                             </li>
                         </ul>
-                        <router-link to="/#contact" class="btn btn-talk" @click="handleLetsTalkClick">Let's Talk</router-link>
+                        <a href="/#contact" class="btn btn-talk" @click.prevent="handleLetsTalkClick">Let's Talk</a>
                     </div>
                 </div>
             </nav>
@@ -53,6 +53,11 @@ export default {
     components: {
         Header
     },
+    computed: {
+        isHome() {
+            return window.location.pathname === '/';
+        }
+    },
     methods: {
         handleLetsTalkClick(e) {
             // Recreate the flash effect from static.js
@@ -67,6 +72,18 @@ export default {
                         contactSection.scrollIntoView({ behavior: 'smooth' });
                     }
                 }, 1200); // Adjust timing based on flash effect duration
+            } else {
+                // If we're on the home page, scroll to contact section
+                if (this.isHome) {
+                    e.preventDefault();
+                    const contactSection = document.getElementById('contact');
+                    if (contactSection) {
+                        contactSection.scrollIntoView({ behavior: 'smooth' });
+                    }
+                } else {
+                    // Navigate to home page with contact hash
+                    window.location.href = '/#contact';
+                }
             }
         }
     },

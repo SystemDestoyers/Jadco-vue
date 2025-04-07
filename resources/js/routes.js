@@ -1,5 +1,4 @@
 // Import page components
-import Home from './pages/Home.vue';
 import About from './pages/About.vue';
 import EducationAndScholarship from './pages/services/EducationAndScholarship.vue';
 import TrainingAndProfessionalDevelopment from './pages/services/TrainingAndProfessionalDevelopment.vue';
@@ -9,11 +8,7 @@ import ArtsAndEntertainment from './pages/services/ArtsAndEntertainment.vue';
 import ScholarshipProgramsManagement from './pages/services/ScholarshipProgramsManagement.vue';
 
 const routes = [
-    {
-        path: '/',
-        name: 'home',
-        component: Home
-    },
+    // Home route removed - handled by Laravel Blade template
     {
         path: '/about',
         name: 'about',

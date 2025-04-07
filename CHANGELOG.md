@@ -10,6 +10,13 @@
   - Added detection of current route with Vue Router to control asset loading
   - Improved page performance by only loading services assets when needed
 
+- Implemented hybrid routing approach for better performance:
+  - Home page now uses Laravel Blade template for faster initial load
+  - Other routes (about, services, etc.) use Vue.js SPA for smooth navigation
+  - Modified router configuration to handle this mixed approach
+  - Updated navbar links to use appropriate navigation methods for each route type
+  - Preserved seamless user experience despite the hybrid architecture
+
 ### Fixed
 - Fixed services assets loading on home page issue:
   - Enhanced route detection with immediate checking at component mount time
