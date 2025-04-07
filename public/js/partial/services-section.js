@@ -36,12 +36,12 @@ $(document).ready(function () {
             // Position all items at the top
             item.style.top = '0';
             item.style.height = '100vh';
+            item.style.width = '100%';
             
-            // Make sure we keep the horizontal centering transform
-            if (!item.style.transform || !item.style.transform.includes('translateX(-50%)')) {
-                item.style.left = '50%';
-                item.style.transform = 'translateX(-50%)';
-            }
+            // Remove any horizontal centering transform
+            item.style.left = '0';
+            item.style.right = '0';
+            item.style.transform = 'none';
             
             // Add data attribute for easier targeting
             item.setAttribute('data-service-index', index);
@@ -91,22 +91,13 @@ $(document).ready(function () {
         if (windowScroll >= sectionStart && windowScroll < (sectionEnd - viewportHeight)) {
             // Only apply these changes when first becoming fixed
             if (!servicesContainer.classList.contains('fixed')) {
-                // First get the container's current position
-                const containerRect = servicesContainer.getBoundingClientRect();
-                
-                // Calculate the container's current left position relative to the viewport
-                const currentLeft = containerRect.left;
-                
                 // Apply fixed positioning
                 servicesContainer.classList.add('fixed');
                 servicesContainer.style.position = 'fixed';
                 servicesContainer.style.top = '0';
-                
-                // Set the left position to maintain visual position
-                servicesContainer.style.left = `${currentLeft}px`;
-                
-                // Ensure right is not affecting positioning
-                servicesContainer.style.right = 'auto';
+                servicesContainer.style.left = '0';
+                servicesContainer.style.right = '0';
+                servicesContainer.style.width = '100vw';
                 
                 // Ensure margin is not affecting positioning
                 servicesContainer.style.margin = '0';
@@ -147,8 +138,14 @@ $(document).ready(function () {
                 if (index < currentServiceIndex) {
                     // Services we've scrolled past - shrink to 0 height
                     item.style.height = '0vh';
-                    // Use much wider 500vw shadow for guaranteed full coverage
-                    item.style.boxShadow = 'inset 0 0 0 500vw rgba(0, 0, 0, 0.7)';
+                    // Use overlay instead of box-shadow
+                    let overlay = item.querySelector('.service-overlay');
+                    if (!overlay) {
+                        overlay = document.createElement('div');
+                        overlay.className = 'service-overlay';
+                        item.appendChild(overlay);
+                    }
+                    overlay.style.opacity = '0.7';
                     
                     // Keep content aligned to top
                     item.style.overflow = 'hidden';
@@ -161,8 +158,14 @@ $(document).ready(function () {
                     
                     // Add darker background based on scroll ratio
                     const opacity = serviceScrollProgress * 0.7; // Up to 70% black overlay
-                    // Use much wider 500vw shadow for guaranteed full coverage
-                    item.style.boxShadow = `inset 0 0 0 500vw rgba(0, 0, 0, ${opacity})`;
+                    // Use overlay instead of box-shadow
+                    let overlay = item.querySelector('.service-overlay');
+                    if (!overlay) {
+                        overlay = document.createElement('div');
+                        overlay.className = 'service-overlay';
+                        item.appendChild(overlay);
+                    }
+                    overlay.style.opacity = opacity;
                     
                     // Keep content aligned to top during transition
                     item.style.overflow = 'hidden';
@@ -171,8 +174,14 @@ $(document).ready(function () {
                 } else {
                     // Services we haven't reached yet - full height, no overlay
                     item.style.height = '100vh';
-                    // Clear box-shadow but keep the inset structure with 500vw width
-                    item.style.boxShadow = 'inset 0 0 0 500vw rgba(0, 0, 0, 0)';
+                    // Use overlay with 0 opacity
+                    let overlay = item.querySelector('.service-overlay');
+                    if (!overlay) {
+                        overlay = document.createElement('div');
+                        overlay.className = 'service-overlay';
+                        item.appendChild(overlay);
+                    }
+                    overlay.style.opacity = '0';
                     
                     // Reset alignment
                     item.style.overflow = 'hidden';
@@ -192,9 +201,10 @@ $(document).ready(function () {
             servicesContainer.classList.remove('fixed');
             servicesContainer.style.position = 'absolute';
             servicesContainer.style.top = `${sectionHeight - viewportHeight}px`;
-            servicesContainer.style.left = ''; 
-            servicesContainer.style.right = '';
-            servicesContainer.style.margin = '0 auto';
+            servicesContainer.style.left = '0'; 
+            servicesContainer.style.right = '0';
+            servicesContainer.style.margin = '0';
+            servicesContainer.style.width = '100vw';
             
             // Make all services except the last one collapsed
             serviceItems.forEach((item, index) => {
@@ -219,8 +229,14 @@ $(document).ready(function () {
                 
                 if (index < numServices - 1) {
                     item.style.height = '0vh';
-                    // Use much wider 500vw shadow for guaranteed full coverage
-                    item.style.boxShadow = 'inset 0 0 0 500vw rgba(0, 0, 0, 0.7)';
+                    // Instead of box-shadow, use a separate overlay element
+                    let overlay = item.querySelector('.service-overlay');
+                    if (!overlay) {
+                        overlay = document.createElement('div');
+                        overlay.className = 'service-overlay';
+                        item.appendChild(overlay);
+                    }
+                    overlay.style.opacity = '0.7';
                     
                     // Keep content aligned to top
                     item.style.overflow = 'hidden';
@@ -240,15 +256,22 @@ $(document).ready(function () {
             servicesContainer.classList.remove('fixed');
             servicesContainer.style.position = '';
             servicesContainer.style.top = '0';
-            servicesContainer.style.left = '';
-            servicesContainer.style.right = '';
-            servicesContainer.style.margin = '0 auto';
+            servicesContainer.style.left = '0';
+            servicesContainer.style.right = '0';
+            servicesContainer.style.margin = '0';
+            servicesContainer.style.width = '100vw';
             
             // Reset all services to default
             serviceItems.forEach(item => {
                 item.style.height = '100vh';
-                // Clear box-shadow but keep the inset structure with 500vw width
-                item.style.boxShadow = 'inset 0 0 0 500vw rgba(0, 0, 0, 0)';
+                // Use overlay instead of box-shadow
+                let overlay = item.querySelector('.service-overlay');
+                if (!overlay) {
+                    overlay = document.createElement('div');
+                    overlay.className = 'service-overlay';
+                    item.appendChild(overlay);
+                }
+                overlay.style.opacity = '0';
                 
                 // Reset alignment
                 item.style.overflow = 'hidden';

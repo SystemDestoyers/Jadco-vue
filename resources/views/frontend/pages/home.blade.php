@@ -57,43 +57,40 @@
 
     <!-- Services Section -->
     <section id="services" class="services-section py-5 section">
-        <div class="container">
-            <!-- Services Layer Container -->
-            <div class="services-layer-container">
-
-                <!-- First Service -->
-                <div class="service-stack-item" data-service="1">
-                    <div class="service-item-wrapper">
-                        <div class="container-fluid">
-                            <div class="row align-items-center full-screen md-h-auto">
-                                <div class="col-lg-6">
-                                    <div class="service-image">
-                                        <img src="{{ asset('images/Home_Serv_01.jpg') }}" alt="Classroom setting"
-                                            class="img-fluid">
-                                    </div>
+        <div class="services-layer-container">
+            <!-- First Service -->
+            <div class="service-stack-item" data-service="1">
+                <div class="service-overlay"></div>
+                <div class="service-item-wrapper">
+                    <div class="container">
+                        <div class="row align-items-center full-screen md-h-auto">
+                            <div class="col-lg-6">
+                                <div class="service-image">
+                                    <img src="{{ asset('images/Home_Serv_01.jpg') }}" alt="Classroom setting"
+                                        class="img-fluid">
                                 </div>
-                                <div class="col-lg-6">
-                                    <div class="service-content">
-                                        <div class="title">
-                                            <h2 class="section-title">SERVICES</h2>
-                                            <h3 class="service-number">01</h3>
-                                        </div>
+                            </div>
+                            <div class="col-lg-6">
+                                <div class="service-content">
+                                    <div class="title">
+                                        <h2 class="section-title">SERVICES</h2>
+                                        <h3 class="service-number">01</h3>
+                                    </div>
 
-                                        <div class="main-content">
-                                            <h3 class="service-title">Education and Training</h3>
-                                            <p class="service-description">
-                                                With more than 20 years in managing scholarship
-                                                programs with several Saudi governmental
-                                                sponsors, we are experts of providing full and
-                                                comprehensive plans and services to meet the
-                                                sponsor's vision and targets.
-                                            </p>
-                                            <div class="service-buttons">
-                                                <a href="{{ url('/services/education-and-scholarship') }}"
-                                                    class="btn btn-service btn-education">Education</a>
-                                                <a href="{{ url('/services/training-and-professional-development') }}"
-                                                    class="btn btn-service">Training</a>
-                                            </div>
+                                    <div class="main-content">
+                                        <h3 class="service-title">Education and Training</h3>
+                                        <p class="service-description">
+                                            With more than 20 years in managing scholarship
+                                            programs with several Saudi governmental
+                                            sponsors, we are experts of providing full and
+                                            comprehensive plans and services to meet the
+                                            sponsor's vision and targets.
+                                        </p>
+                                        <div class="service-buttons">
+                                            <a href="{{ url('/services/education-and-scholarship') }}"
+                                                class="btn btn-service btn-education">Education</a>
+                                            <a href="{{ url('/services/training-and-professional-development') }}"
+                                                class="btn btn-service">Training</a>
                                         </div>
                                     </div>
                                 </div>
@@ -101,40 +98,41 @@
                         </div>
                     </div>
                 </div>
+            </div>
 
-                <!-- Second Service -->
-                <div class="service-stack-item" data-service="2">
-                    <div class="service-item-wrapper">
-                        <div class="container-fluid">
-                            <div class="row align-items-center full-screen md-h-auto">
-                                <div class="col-lg-6">
-                                    <div class="service-image">
-                                        <img src="{{ asset('images/Home_Serv_02.jpg') }}" alt="AI Technology"
-                                            class="img-fluid">
-                                    </div>
+            <!-- Second Service -->
+            <div class="service-stack-item" data-service="2">
+                <div class="service-overlay"></div>
+                <div class="service-item-wrapper">
+                    <div class="container">
+                        <div class="row align-items-center full-screen md-h-auto">
+                            <div class="col-lg-6">
+                                <div class="service-image">
+                                    <img src="{{ asset('images/Home_Serv_02.jpg') }}" alt="AI Technology"
+                                        class="img-fluid">
                                 </div>
-                                <div class="col-lg-6">
-                                    <div class="service-content">
-                                        <div class="title">
-                                            <h2 class="section-title">SERVICES</h2>
-                                            <h3 class="service-number">02</h3>
-                                        </div>
+                            </div>
+                            <div class="col-lg-6">
+                                <div class="service-content">
+                                    <div class="title">
+                                        <h2 class="section-title">SERVICES</h2>
+                                        <h3 class="service-number">02</h3>
+                                    </div>
 
-                                        <div class="main-content">
-                                            <h3 class="service-title">AI and Advanced Technologies</h3>
-                                            <p class="service-description">
-                                                AI represents a transformative technology with
-                                                the potential to revolutionize organizations
-                                                services and operations.
-                                                By leveraging AI, organizations can enhance
-                                                efficiency, improve decision-making and deliver
-                                                superior to public.
-                                            </p>
-                                            <div class="service-buttons">
-                                                <a href="{{ url('/services/ai-and-advanced-technologies') }}"
-                                                    class="learn-more">LEARN MORE <i
-                                                        class="fas fa-arrow-right-long"></i></a>
-                                            </div>
+                                    <div class="main-content">
+                                        <h3 class="service-title">AI and Advanced Technologies</h3>
+                                        <p class="service-description">
+                                            AI represents a transformative technology with
+                                            the potential to revolutionize organizations
+                                            services and operations.
+                                            By leveraging AI, organizations can enhance
+                                            efficiency, improve decision-making and deliver
+                                            superior to public.
+                                        </p>
+                                        <div class="service-buttons">
+                                            <a href="{{ url('/services/ai-and-advanced-technologies') }}"
+                                                class="learn-more">LEARN MORE <i
+                                                    class="fas fa-arrow-right-long"></i></a>
                                         </div>
                                     </div>
                                 </div>
@@ -142,37 +140,38 @@
                         </div>
                     </div>
                 </div>
-                <!-- Third Service -->
-                <div class="service-stack-item" data-service="3">
-                    <div class="service-item-wrapper">
-                        <div class="container-fluid">
-                            <div class="row align-items-center full-screen md-h-auto">
-                                <div class="col-lg-6">
-                                    <div class="service-image">
-                                        <img src="{{ asset('images/Home_Serv_03.jpg') }}" alt="Gaming and Esports"
-                                            class="img-fluid">
-                                    </div>
+            </div>
+            <!-- Third Service -->
+            <div class="service-stack-item" data-service="3">
+                <div class="service-overlay"></div>
+                <div class="service-item-wrapper">
+                    <div class="container">
+                        <div class="row align-items-center full-screen md-h-auto">
+                            <div class="col-lg-6">
+                                <div class="service-image">
+                                    <img src="{{ asset('images/Home_Serv_03.jpg') }}" alt="Gaming and Esports"
+                                        class="img-fluid">
                                 </div>
-                                <div class="col-lg-6">
-                                    <div class="service-content">
-                                        <div class="title">
-                                            <h2 class="section-title">SERVICES</h2>
-                                            <h3 class="service-number">03</h3>
-                                        </div>
+                            </div>
+                            <div class="col-lg-6">
+                                <div class="service-content">
+                                    <div class="title">
+                                        <h2 class="section-title">SERVICES</h2>
+                                        <h3 class="service-number">03</h3>
+                                    </div>
 
-                                        <div class="main-content">
-                                            <h3 class="service-title">E-Gaming and Esports</h3>
-                                            <p class="service-description">
-                                                JADCO and international partners in gaming and
-                                                eSport, USA highly ranked universities in gaming and
-                                                simulation development and integrated e-Arts
-                                                programs and a Consortium firm supported by
-                                                the U.S department of ...
-                                            </p>
-                                            <div class="service-buttons">
-                                                <a href="{{ url('/services/egaming-and-esport') }}" class="learn-more">Learn
-                                                    More <i class="fas fa-arrow-right-long"></i></a>
-                                            </div>
+                                    <div class="main-content">
+                                        <h3 class="service-title">E-Gaming and Esports</h3>
+                                        <p class="service-description">
+                                            JADCO and international partners in gaming and
+                                            eSport, USA highly ranked universities in gaming and
+                                            simulation development and integrated e-Arts
+                                            programs and a Consortium firm supported by
+                                            the U.S department of ...
+                                        </p>
+                                        <div class="service-buttons">
+                                            <a href="{{ url('/services/egaming-and-esport') }}" class="learn-more">Learn
+                                                More <i class="fas fa-arrow-right-long"></i></a>
                                         </div>
                                     </div>
                                 </div>
@@ -180,37 +179,38 @@
                         </div>
                     </div>
                 </div>
-                <!-- Fourth Service -->
-                <div class="service-stack-item" data-service="4">
-                    <div class="service-item-wrapper">
-                        <div class="container-fluid">
-                            <div class="row align-items-center full-screen md-h-auto">
-                                <div class="col-lg-6">
-                                    <div class="service-image">
-                                        <img src="{{ asset('images/Home_Serv_04.jpg') }}" alt="Arts and Entertainment"
-                                            class="img-fluid">
-                                    </div>
+            </div>
+            <!-- Fourth Service -->
+            <div class="service-stack-item" data-service="4">
+                <div class="service-overlay"></div>
+                <div class="service-item-wrapper">
+                    <div class="container">
+                        <div class="row align-items-center full-screen md-h-auto">
+                            <div class="col-lg-6">
+                                <div class="service-image">
+                                    <img src="{{ asset('images/Home_Serv_04.jpg') }}" alt="Arts and Entertainment"
+                                        class="img-fluid">
                                 </div>
-                                <div class="col-lg-6">
-                                    <div class="service-content">
-                                        <div class="title">
-                                            <h2 class="section-title">SERVICES</h2>
-                                            <h3 class="service-number">04</h3>
-                                        </div>
+                            </div>
+                            <div class="col-lg-6">
+                                <div class="service-content">
+                                    <div class="title">
+                                        <h2 class="section-title">SERVICES</h2>
+                                        <h3 class="service-number">04</h3>
+                                    </div>
 
-                                        <div class="main-content">
-                                            <h3 class="service-title">Arts and Entertainment</h3>
-                                            <p class="service-description">
-                                                Bringing the fine Arts, culture and entertainment
-                                                from the globe to enrich the local diversity and
-                                                enhance the picture of the Arabian culture
-                                                overseas by adding value to the industry.
-                                            </p>
-                                            <div class="service-buttons">
-                                                <a href="{{ url('/services/arts-and-entertainment') }}"
-                                                    class="learn-more">LEARN MORE <i
-                                                        class="fas fa-arrow-right-long"></i></a>
-                                            </div>
+                                    <div class="main-content">
+                                        <h3 class="service-title">Arts and Entertainment</h3>
+                                        <p class="service-description">
+                                            Bringing the fine Arts, culture and entertainment
+                                            from the globe to enrich the local diversity and
+                                            enhance the picture of the Arabian culture
+                                            overseas by adding value to the industry.
+                                        </p>
+                                        <div class="service-buttons">
+                                            <a href="{{ url('/services/arts-and-entertainment') }}"
+                                                class="learn-more">LEARN MORE <i
+                                                    class="fas fa-arrow-right-long"></i></a>
                                         </div>
                                     </div>
                                 </div>

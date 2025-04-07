@@ -14,12 +14,17 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <!-- Page-specific styles -->
     @stack('styles')
+    <style>
+        html {
+            scroll-behavior: smooth;
+        }
+    </style>
 </head>
 <body>
     <!-- Preloader -->
-    <!-- <div class="preloader">
+    <div class="preloader">
         <img src="{{ asset('images/logo.png') }}" alt="JADCO Logo" class="preloader-logo">
-    </div> -->
+    </div>
 
     <!-- Scroll Indicator -->
     <div class="scroll-indicator-container">

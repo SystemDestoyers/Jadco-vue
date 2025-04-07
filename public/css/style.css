@@ -29,7 +29,9 @@ body.at-top .scroll-indicator-container {
 body {
     font-family: 'Outfit', sans-serif;
     color: var(--dark-color);
-    overflow-x: hidden;
+    overflow-y: scroll;
+    -webkit-overflow-scrolling: touch;
+    /* overflow-x: auto; */
     width: 100%; /* Ensure body doesn't expand beyond viewport */
 } 
 
@@ -641,14 +643,13 @@ section:after {
 /* Services Layer Container */
 .services-layer-container {
     height: 100vh;
-    width: 100%; /* This will be constrained by the parent container */
+    width: 100vw; /* Full viewport width for overlay effect */
     position: absolute;
     top: 0;
     left: 0;
     overflow: hidden;
-    max-width: var(--container-max-width);
-    margin: 0 auto;
-    right: 0; /* This helps center the container */
+    margin: 0;
+    right: 0;
 }
 
 .services-layer-container.fixed {
@@ -656,8 +657,8 @@ section:after {
     top: 0;
     left: 0;
     right: 0;
-    margin: 0 auto;
-    max-width: var(--container-max-width);
+    margin: 0;
+    width: 100vw;
 }
 
 /* Service items container styles */
@@ -668,15 +669,14 @@ section:after {
     overflow: hidden;
     display: flex;
     align-items: flex-start;
-    transition: height 0.3s ease-out, box-shadow 0.3s ease-out;
+    transition: height 0.3s ease-out;
     background-color: var(--light-color);
     top: 0;
     max-width: 100%; /* Ensure it doesn't exceed parent width */
-    /* New positioning to make the full-width overlay work better */
-    left: 50%;
-    transform: translateX(-50%);
+    left: 0;
+    right: 0;
+    transform: none;
     z-index: 1;
-    /* Much wider box shadow to guarantee full viewport coverage */
     box-shadow: 0 0 0 500vw rgba(0, 0, 0, 0) inset;
 }
 
@@ -686,6 +686,7 @@ section:after {
     padding-left: 0;
 }
 
+/* Service item wrapper - container for actual content */
 .service-item-wrapper {
     width: 100%;
     height: 100%;
@@ -694,6 +695,8 @@ section:after {
     justify-content: center;
     position: relative;
     transform-origin: top center;
+    max-width: var(--container-max-width);
+    margin: 0 auto;
 }
 
 .service-stack-item .row {
@@ -743,6 +746,20 @@ section:after {
     flex-direction: row; /* Ensure buttons are side by side */
     gap: 15px;
     margin-top: 20px; /* Reduced from 3rem */
+}
+
+/* Service overlay for darkening effect */
+.service-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 1);
+    opacity: 0;
+    transition: opacity 0.3s ease-out;
+    pointer-events: none;
+    z-index: 0;
 }
 
 /* Service image container */
