@@ -4,29 +4,84 @@
 
 > "I have a problem with my website where there's lag when scrolling from the header to the about section. The transition isn't smooth and causes a jumping or janky effect. I've tried different scripts to fix it but nothing has worked. When I remove the about section completely, the scrolling works fine without any lag. Even when I replace the about section with a simple test section that has no animations, the lag still happens. But when the section is gone completely, everything is smooth."
 
-## Problem Identified
+## Problem Investigation
 
-After extensive testing, we identified that the scroll jank between the header and about section was caused by a **paint boundary/layer issue** in the browser's rendering engine. When scrolling between these sections, the browser was performing expensive repaints and layout calculations.
+After extensive testing, we've identified several potential causes for the scroll jank between the header and about section:
 
-The key insight came when we discovered that:
-1. Removing the about section entirely fixed the jank
-2. Replacing it with a simple test section (even without animations) still showed the jank
-3. The difference between 90px and 100px scroll limits had a significant impact on performance
-4. Adding hardware acceleration to the section fixed the issue completely
+1. **Paint boundary/layer issues**: When scrolling between sections, the browser performs expensive repaints and layout calculations.
 
-## Solution Implemented
-We applied hardware acceleration to the about section using two CSS properties:
+2. **DOM complexity**: The about section has a complex DOM structure with nested elements that may cause layout thrashing.
+
+3. **Resource loading**: Images and other resources loading during scrolling may cause jank.
+
+4. **Rendering optimization conflicts**: Various hardware acceleration techniques may actually conflict with each other.
+
+5. **Browser-specific rendering issues**: The problem may be more pronounced in certain browsers or with specific hardware configurations.
+
+## Attempted Solutions (Unsuccessful)
+
+### 1. Hardware Acceleration
+We tried applying hardware acceleration to various elements:
 
 ```css
-style="will-change: transform; transform: translateZ(0);"
+will-change: transform;
+transform: translateZ(0);
+backface-visibility: hidden;
+perspective: 1000;
 ```
 
-These properties force the browser to:
-1. Create a separate composite layer for the section
-2. Use the GPU for rendering this section
-3. Avoid expensive repaints during scrolling
+While this approach seemed promising initially, it didn't fully resolve the jank issue and sometimes made it worse.
 
-We also applied hardware acceleration to the images container within the about section:
+### 2. DOM Simplification
+We simplified the DOM structure of the about section, reducing nesting and complexity. This moved the jank to different positions but didn't eliminate it.
+
+### 3. Buffer Zones
+We added buffer elements between sections to prevent paint boundary issues:
+
+```html
+<div class="section-buffer"></div>
+```
+
+This approach didn't significantly improve the scrolling experience.
+
+### 4. Image Preloading
+We added preload tags for critical images:
+
+```html
+<link rel="preload" href="images/About_01.jpg" as="image">
+```
+
+This improved initial loading but didn't address the scroll jank.
+
+### 5. JavaScript Scroll Optimization
+We created a scroll performance optimizer that:
+- Detected scroll direction and velocity
+- Optimized visible sections only
+- Temporarily disabled pointer events during scrolling
+
+This approach showed some improvement but didn't fully resolve the issue.
+
+## Key Insights
+
+1. The jank persists even with minimal content in the about section, suggesting a fundamental browser rendering issue rather than a content problem.
+
+2. The jank moves to different positions when the DOM structure changes, indicating it's related to how the browser handles rendering boundaries.
+
+3. The issue is more pronounced during large, fast scrolls than during small, slow scrolls.
+
+4. The problem may be related to how the browser handles transitions between sections with different z-index values or stacking contexts.
+
+## Next Steps to Explore
+
+1. **Virtual Scrolling**: Implement a virtual scrolling library that manages DOM rendering during scroll.
+
+2. **Section Lazy Loading**: Only render sections when they're about to enter the viewport.
+
+3. **Browser-Specific Solutions**: Test different approaches in various browsers to identify browser-specific solutions.
+
+4. **Reduce Animation Complexity**: Further simplify animations and transitions throughout the site.
+
+5. **Performance Profiling**: Use browser dev tools to identify specific paint and layout events causing the jank.
 
 ```css
 style="transform: translateZ(0);"
