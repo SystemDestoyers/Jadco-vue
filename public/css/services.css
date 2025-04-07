@@ -39,7 +39,9 @@
     /* line-height: 1px; */
     color: var(--dark-color);
 }
-
+.sub-page {
+    margin-top: 50px;
+}
 .educational-services .service-name, .service-item.active .service-name {
     padding: 0;
     float: inline-end;
