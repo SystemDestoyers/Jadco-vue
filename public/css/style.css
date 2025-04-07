@@ -1059,18 +1059,22 @@ section:after {
     transform: rotate(-45deg); /* Initially rotated to point bottom-right */
 }
 
-/* Hover effects for service toggle icons */
 .service-item:hover .service-toggle i {
     color: var(--primary-color);
 }
 
 .service-item.active .service-toggle i {
     color: var(--primary-color);
+    transform: rotate(90deg);
 }
 
-/* Special style for X icon without rotation */
-.service-toggle i.fa-xmark {
-    transform: none !important;
+/* Special style for arrow icon when active */
+.service-toggle i.fa-arrow-right-long {
+    transition: transform 0.3s ease, color 0.3s ease;
+}
+
+.service-item.active .service-toggle i.fa-arrow-right-long {
+    transform: rotate(45deg);
 }
 
 .statistics {

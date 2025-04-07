@@ -135,9 +135,8 @@ $(document).ready(function () {
 
 
     // Initialize the carousel for the educational services section
-    // Make first educational service active by default and set its icon to X
+    // Make first educational service active by default 
     $('.educational-services .service-item:first').addClass('active');
-    $('.educational-services .service-item:first .service-toggle i').removeClass('fa-arrow-right-long').addClass('fa-solid fa-xmark');
 
     // Make service-name clickable like service-toggle
     $('.service-name').on('click', function() {
@@ -156,17 +155,11 @@ $(document).ready(function () {
         
         // Close other open items
         $('.service-item.active').not(serviceItem).removeClass('active');
-        $('.service-toggle i.fa-xmark').not(toggleIcon).removeClass('fa-xmark').addClass('fa-arrow-right-long');
         
         // Toggle current item
         serviceItem.toggleClass('active');
         
-        // Toggle icon between arrow and X
-        if(serviceItem.hasClass('active')) {
-            toggleIcon.removeClass('fa-arrow-right-long').addClass('fa-solid fa-xmark');
-        } else {
-            toggleIcon.removeClass('fa-xmark').addClass('fa-arrow-right-long');
-        }
+        // No need to change icon class - CSS will handle rotation based on active state
     });
 
     // Ensure the service-menu links in the header work properly

@@ -17,9 +17,9 @@
 </head>
 <body>
     <!-- Preloader -->
-    <div class="preloader">
+    <!-- <div class="preloader">
         <img src="{{ asset('images/logo.png') }}" alt="JADCO Logo" class="preloader-logo">
-    </div>
+    </div> -->
 
     <!-- Scroll Indicator -->
     <div class="scroll-indicator-container">
