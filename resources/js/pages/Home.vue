@@ -365,33 +365,74 @@ export default {
                     }
                 }
             });
+        },
+        initializeEducationalServices() {
+            console.log('Initializing educational services section');
+            
+            // Make first educational service active by default and set its icon to X
+            const firstServiceItem = document.querySelector('.educational-services .service-item:first-child');
+            if (firstServiceItem) {
+                firstServiceItem.classList.add('active');
+                const toggleIcon = firstServiceItem.querySelector('.service-toggle i');
+                if (toggleIcon) {
+                    toggleIcon.classList.remove('fa-arrow-right-long');
+                    toggleIcon.classList.add('fa-solid', 'fa-xmark');
+                }
+            }
+
+            // Set up click handler for service names
+            const serviceNames = document.querySelectorAll('.service-name');
+            serviceNames.forEach(name => {
+                name.addEventListener('click', () => {
+                    const serviceItem = name.closest('.service-item');
+                    const toggleButton = serviceItem.querySelector('.service-toggle');
+                    if (toggleButton) {
+                        toggleButton.click(); // Trigger the toggle button click
+                    }
+                });
+            });
+
+            // Set up click handler for service toggles
+            const serviceToggles = document.querySelectorAll('.service-toggle');
+            serviceToggles.forEach(toggle => {
+                toggle.addEventListener('click', () => {
+                    const serviceItem = toggle.closest('.service-item');
+                    const toggleIcon = toggle.querySelector('i');
+                    
+                    // Close other open items
+                    document.querySelectorAll('.service-item.active').forEach(activeItem => {
+                        if (activeItem !== serviceItem) {
+                            activeItem.classList.remove('active');
+                            const activeIcon = activeItem.querySelector('.service-toggle i.fa-xmark');
+                            if (activeIcon) {
+                                activeIcon.classList.remove('fa-xmark');
+                                activeIcon.classList.add('fa-arrow-right-long');
+                            }
+                        }
+                    });
+                    
+                    // Toggle current item
+                    serviceItem.classList.toggle('active');
+                    
+                    // Toggle icon between arrow and X
+                    if (serviceItem.classList.contains('active')) {
+                        toggleIcon.classList.remove('fa-arrow-right-long');
+                        toggleIcon.classList.add('fa-solid', 'fa-xmark');
+                    } else {
+                        toggleIcon.classList.remove('fa-xmark');
+                        toggleIcon.classList.add('fa-arrow-right-long');
+                    }
+                });
+            });
         }
     },
     mounted() {
         console.log('Home component mounted');
         
-        // Let services-section.js handle everything
-        // this.$nextTick(() => {
-        //     // Set initial active service in nav
-        //     const navItems = document.querySelectorAll('.service-nav-item');
-        //     navItems.forEach(item => {
-        //         const dataService = parseInt(item.getAttribute('data-service'));
-        //         if (dataService === this.currentService) {
-        //             item.classList.add('active');
-        //             // Change plus to X icon for the first service
-        //             const icon = item.querySelector('.service-toggle-icon');
-        //             if (icon) {
-        //                 icon.classList.remove('fa-plus');
-        //                 icon.classList.add('fa-xmark');
-        //             }
-        //         }
-        //     });
-            
-        //     // Trigger jQuery document ready manually to initialize services-section.js
-        //     if (typeof jQuery !== 'undefined') {
-        //         jQuery(document).ready();
-        //     }
-        // });
+        // Initialize educational services section after Vue has rendered the component
+        this.$nextTick(() => {
+            this.initializeEducationalServices();
+        });
     }
 };
 </script> 

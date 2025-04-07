@@ -23,6 +23,29 @@
   - Added restoration of element visibility by resetting opacity, transform, visibility and display styles
   - Ensured both DOMContentLoaded and jQuery document ready events are triggered for proper initialization
   - Fixed services-menu visibility issue when navigating from Home to service pages
+
+- Fixed educational services section initialization in Home.vue:
+  - Moved educational services initialization code from static.js to Home.vue component
+  - Added proper initialization in the component's mounted hook
+  - Ensured initialization happens after Vue has rendered the component using $nextTick
+  - Replaced jQuery-based code with native JavaScript for better Vue integration
+  - Fixed issue where educational services weren't initializing correctly on page refresh
+
+- Fixed routing issues with missing components:
+  - Removed references to non-existent StemEducation.vue and K12InternationalSchools.vue components
+  - Removed corresponding routes for STEM Education and K-12 International Schools pages
+  - Resolved Vite import analysis errors during build process
+  - Streamlined route configuration to include only available components
+
+### Enhanced
+- Updated service page components with comprehensive structure:
+  - Migrated complete HTML structure from Blade templates to Vue components
+  - Added proper section styling and layout matching the original design
+  - Implemented service hero sections with correct image placement
+  - Created detailed service features lists with proper formatting
+  - Added call-to-action sections with router links for navigation
+  - Ensured consistent styling across all service pages
+  - Replaced asset URL helpers with direct paths for Vue compatibility
   
 ### Added
 - Converted frontend to Vue.js Single Page Application (SPA):

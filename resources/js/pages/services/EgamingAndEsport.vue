@@ -1,37 +1,55 @@
 <template>
-    <section class="service-detail-section py-5 section">
-        <div class="container">
-            <div class="service-heading">
-                <h2 class="section-title">E-Gaming and Esport</h2>
-            </div>
-            <div class="row">
-                <div class="col-lg-8 offset-lg-2">
-                    <div class="service-content">
+    <div class="sub-page">
+        <!-- Service Detail Hero Section -->
+        <section class="ai-pages service-hero-section py-10">
+            <div class="container">
+                <div class="row">
+                    <div class="col-12">
+                        <h1 class="service-title">eGaming and eSport</h1>
                         <p class="service-description">
-                            JADCO and international partners in gaming and eSport, USA highly ranked universities in gaming and simulation development and integrated e-Arts programs and a Consortium firm supported by the U.S. department are revolutionizing the eSport industry.
+                            JADCO and international partners in gaming and eSport, USA highly ranked
+                            universities in gaming and simulation development and integrated e-Arts
+                            programs and a Consortium firm supported by the U.S department of Commerce
+                            (International Trade Administration), are together forming a consortium to
+                            propose a broad-based support package and plans for e-gaming and eSport to
+                            help and greatly accelerate the Kingdom's positioning as a leader in this industry
+                            worldwide by leveraging international relevant partners, SMEs, and other
+                            resources to support developing the sector's entire value chain and achieve the
+                            objectives of the Saudi Arabia's newly gaming, eSport and AI strategy.
                         </p>
-                        <p class="service-description mt-4">
-                            Our E-Gaming and Esport services include:
-                        </p>
-                        <ul class="service-list">
-                            <li>Esports Tournament Organization</li>
-                            <li>Gaming Arena Development</li>
-                            <li>Game Development Training</li>
-                            <li>Esports Team Management</li>
-                            <li>Gaming Content Creation</li>
-                            <li>Gaming Ecosystem Development</li>
-                        </ul>
+                    </div>
+                </div>
+                <!-- Service Details -->
+                <div class="service-details py-5">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <img src="/images/05_eGame/01.jpg" alt="eGaming and eSport" class="img-fluid service-hero-image">
+                        </div>
+                        <div class="right-text col-md-6">
+                            <h2>What we do:</h2>
+                            <ul class="service-list">
+                                <li>Industry Analysis</li>
+                                <li>Policy and Regulatory Infrastructure</li>
+                                <li>Economic Impact</li>
+                                <li>Infrastructure and Facilities planning</li>
+                                <li>Education and Talent Development Strategy</li>
+                                <li>AI Engagement in e-gaming and esport</li>
+                                <li>Community engagement and outreach</li>
+                                <li>Event Management and Marketing Support</li>
+                                <li>Evaluation and Monitoring Framework</li>
+                            </ul>
+                        </div>
                     </div>
                 </div>
             </div>
-        </div>
-    </section>
+        </section>
+    </div>
 </template>
 
 <script>
 export default {
     mounted() {
-        document.title = 'JADCO - E-Gaming and Esport';
+        document.title = 'JADCO - eGaming and eSport';
     }
 };
 </script> 

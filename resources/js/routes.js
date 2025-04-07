@@ -7,8 +7,6 @@ import AiAndAdvancedTechnologies from './pages/services/AiAndAdvancedTechnologie
 import EgamingAndEsport from './pages/services/EgamingAndEsport.vue';
 import ArtsAndEntertainment from './pages/services/ArtsAndEntertainment.vue';
 import ScholarshipProgramsManagement from './pages/services/ScholarshipProgramsManagement.vue';
-import StemEducation from './pages/services/StemEducation.vue';
-import K12InternationalSchools from './pages/services/K12InternationalSchools.vue';
 
 const routes = [
     {
@@ -50,16 +48,6 @@ const routes = [
         path: '/services/scholarship-programs-management',
         name: 'services.scholarship',
         component: ScholarshipProgramsManagement
-    },
-    {
-        path: '/services/stem-education',
-        name: 'services.stem',
-        component: StemEducation
-    },
-    {
-        path: '/services/k12-international-schools',
-        name: 'services.k12',
-        component: K12InternationalSchools
     }
 ];
 
