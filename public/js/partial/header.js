@@ -173,9 +173,15 @@ $(document).ready(function () {
                 $('.heading-text.was-active').removeClass('was-active');
                 
                 // Make the new slide active (without animate-delay for transitions)
-                // Explicitly remove animate-delay to prevent double animations
-                $('.heading-text').removeClass('animate-delay');
-                $('.heading-text[data-slide="' + slideIndex + '"]').addClass('active');
+                // Explicitly remove animate-delay and any animation classes to prevent double animations
+                $('.heading-text').removeClass('animate-delay animate');
+                
+                // Add the active class without triggering animation
+                var newHeading = $('.heading-text[data-slide="' + slideIndex + '"]');
+                newHeading.addClass('active');
+                
+                // Force a reflow to ensure animations don't stack
+                void newHeading[0].offsetWidth;
             }, 400);
 
             // Update custom navigation
