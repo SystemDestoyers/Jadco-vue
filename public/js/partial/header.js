@@ -6,6 +6,19 @@ $(document).ready(function () {
         window.location.pathname === '/index.php' ||
         window.location.pathname === '/home';
 
+    /* DEBUG for heading-text class cycling issue */
+    window.activeSlideDebug = 0;
+    window.debugHeadingTextIssue = function() {
+        console.log("--- DEBUGGING HEADING TEXT CYCLING ---");
+        const headingTexts = document.querySelectorAll('.heading-text');
+        headingTexts.forEach((text, i) => {
+            const classes = Array.from(text.classList);
+            const dataSlide = text.getAttribute('data-slide');
+            console.log(`Heading ${i} [data-slide="${dataSlide}"]: ${classes.join(', ')}`);
+        });
+        console.log("-----------------------------------");
+    };
+
     // Handle preloader animation and removal
     const preloader = document.querySelector('.preloader');
     const preloaderLogo = document.querySelector('.preloader-logo');
@@ -31,6 +44,14 @@ $(document).ready(function () {
                     initializeCarousel();
                 }
 
+                // Debug after initialization
+                if (isHomePage) {
+                    setTimeout(() => {
+                        console.log("Initial classes after animation setup:");
+                        window.debugHeadingTextIssue();
+                    }, 1000);
+                }
+
                 // Remove preloader from DOM after fade out completes - REDUCED TIME
                 setTimeout(() => {
                     preloader.remove();
@@ -44,6 +65,14 @@ $(document).ready(function () {
         updateScrollIndicator();
         if (isHomePage) {
             initializeCarousel();
+        }
+        
+        // Debug after initialization
+        if (isHomePage) {
+            setTimeout(() => {
+                console.log("Initial classes after animation setup (no preloader):");
+                window.debugHeadingTextIssue();
+            }, 1000);
         }
     }
 
@@ -111,6 +140,7 @@ $(document).ready(function () {
             const firstHeadingText = document.querySelector('.heading-text[data-slide="0"]');
             if (firstHeadingText) {
                 firstHeadingText.classList.add('active', 'animate-delay');
+                console.log('Applied active, animate-delay to first heading text');
             }
         } else {
             // On other pages, activate the static heading text
@@ -138,6 +168,10 @@ $(document).ready(function () {
 
     // Initialize Bootstrap Carousel
     function initializeCarousel() {
+        // Create a unique transition ID for each slide event
+        let currentTransitionId = null;
+        let isTransitioning = false;
+        
         var headerCarousel = new bootstrap.Carousel(document.getElementById('headerCarousel'), {
             interval: 5000,
             wrap: true,
@@ -156,34 +190,64 @@ $(document).ready(function () {
 
         // Handle custom carousel navigation
         $('.nav-number').on('click', function () {
+            if (isTransitioning) return false;
+            
             var slideIndex = $(this).data('slide');
             $('#headerCarousel').carousel(slideIndex);
         });
 
+        // Completely remove existing handlers to prevent multiple bindings
+        $('#headerCarousel').off('slide.bs.carousel');
+        
         // Update the carousel slide event handling for keyframe animations
         $('#headerCarousel').on('slide.bs.carousel', function (event) {
             var slideIndex = event.to;
+            var fromIndex = event.from;
             
-            // Mark the current slide for exit
-            $('.heading-text.active').addClass('was-active').removeClass('active');
+            // Only handle events for new transitions
+            if (isTransitioning) {
+                event.preventDefault();
+                return false;
+            }
             
-            // After a brief delay, make the new slide active and clean up
+            // Generate a unique ID for this transition
+            currentTransitionId = Date.now();
+            const thisTransitionId = currentTransitionId;
+            isTransitioning = true;
+            
+            console.log(`Starting transition ${thisTransitionId}: ${fromIndex} -> ${slideIndex}`);
+            
+            // Get the current and next headings
+            const currentHeading = $(`.heading-text[data-slide="${fromIndex}"]`);
+            const nextHeading = $(`.heading-text[data-slide="${slideIndex}"]`);
+            
+            // 1. First mark the old slide as exiting
+            if (currentHeading.hasClass('active')) {
+                currentHeading.removeClass('active').addClass('was-active');
+            }
+            
+            // 2. After the exit animation completes, set up the new slide
             setTimeout(function() {
-                // Remove the was-active class from all slides
-                $('.heading-text.was-active').removeClass('was-active');
+                // Make sure this is still the most recent transition
+                if (thisTransitionId !== currentTransitionId) {
+                    console.log(`Transition ${thisTransitionId} was superseded, skipping`);
+                    return;
+                }
                 
-                // Make the new slide active (without animate-delay for transitions)
-                // Explicitly remove animate-delay and any animation classes to prevent double animations
-                $('.heading-text').removeClass('animate-delay animate');
+                // Remove all transition classes from all headings
+                $('.heading-text').removeClass('was-active animate-delay animate');
                 
-                // Add the active class without triggering animation
-                var newHeading = $('.heading-text[data-slide="' + slideIndex + '"]');
-                newHeading.addClass('active');
+                // Add active class to the new heading
+                nextHeading.addClass('active');
                 
-                // Force a reflow to ensure animations don't stack
-                void newHeading[0].offsetWidth;
-            }, 400);
-
+                // Force a reflow
+                void nextHeading[0].offsetWidth;
+                
+                // Clear the transition lock
+                isTransitioning = false;
+                console.log(`Completed transition ${thisTransitionId}`);
+            }, 800); // Match CSS animation duration
+            
             // Update custom navigation
             $('.nav-number').removeClass('active');
             $('.nav-number[data-slide="' + slideIndex + '"]').addClass('active');

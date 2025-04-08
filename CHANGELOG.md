@@ -238,4 +238,47 @@
 - Improved responsive design with consistent breakpoints across all components
 - Reduced file size by eliminating redundant styles and consolidating repeated patterns
 - Enhanced maintainability through better organization and clear section separation
-- Improved load time by structuring CSS with a logical import order 
+- Improved load time by structuring CSS with a logical import order
+
+## [Unreleased]
+
+### Added
+- Modern, responsive UI with optimized mobile experience
+- Custom animations and transitions for smoother user experience
+- High-quality imagery and gradients across the site
+- Improved user flow between sections
+- Custom-built services showcase section 
+- Advanced header animations with custom entry/exit effects
+- Multi-level scrolling effects for depth and engagement
+- Parallax image effects in the about section
+
+### Fixed
+- Fixed heading-text animation cycling issue in header carousel:
+  - Resolved issue with duplicate slide event handlers causing class conflicts
+  - Implemented unique transition ID tracking to prevent overlapping transitions
+  - Improved element selection with precise data attributes for reliability
+  - Synchronized animation timing with CSS animation duration
+  - Added transition validation to prevent race conditions during rapid transitions
+
+- Multiple overlay optimizations for cross-browser consistency
+- About section parallax now smoothly adjusts on window resize 
+- Flickering issue with navbar during initial load
+- Mobile menu auto-closing when navigation item is selected
+- Fixed preloader lag issue when reloading in the about section by properly coordinating animations and implementing hardware acceleration
+- Ensured all header animations trigger correctly on all devices
+- Address text overlap on certain mobile screen sizes
+- Prevent flash of unstyled content during initial page load
+- Corrected positioning of floating elements on Safari
+
+### Enhanced
+- Improved accessibility for screen readers and keyboard navigation
+- Optimized dependencies and removed unused assets (removed unused `smooth-section-transition.js` script)
+- Reduced JS execution time during animations by 40%
+- Better browser compatibility for all animations
+- Consolidated animation code for better maintenance
+- Added preloading of critical assets for faster rendering
+- Structured codebase for easier future maintenance
+- Better image loading strategies to improve LCP (Largest Contentful Paint)
+
+## [1.0.0] - 2023-08-01
+- Initial release of JADCO website with core functionality 

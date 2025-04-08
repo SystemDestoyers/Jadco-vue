@@ -2,8 +2,8 @@
 
 @section('content')
     <!-- About Section -->
-    <section id="about" class="about-section py-5 section">
-        <div class="container">
+    <section id="about" class="about-section py-5 section" style="transform: translateZ(0);"> 
+               <div class="container">
             <div class="about-heading">
                 <h2 class="section-title">ABOUT </h2>
                 <img src="{{ asset('images/jadoo-logo 2.png') }}" alt="JADCO Logo" class="about-logo">
