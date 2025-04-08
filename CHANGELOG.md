@@ -54,6 +54,12 @@
   - Ensured consistent styling across all service pages
   - Replaced asset URL helpers with direct paths for Vue compatibility
   
+- Optimized dependencies:
+  - Removed unused smooth-scrollbar dependency
+  - Reduced bundle size by eliminating unnecessary packages
+  - Leveraged native browser scrolling APIs and jQuery for smooth scrolling functionality
+  - Simplified dependency tree for easier maintenance
+
 ### Added
 - Converted frontend to Vue.js Single Page Application (SPA):
   - Created Vue components from Blade templates
