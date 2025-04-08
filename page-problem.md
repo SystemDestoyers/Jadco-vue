@@ -71,6 +71,72 @@ This approach showed some improvement but didn't fully resolve the issue.
 
 4. The problem may be related to how the browser handles transitions between sections with different z-index values or stacking contexts.
 
+## Solution: Limiting Scroll Indicator Height
+
+After extensive testing, we discovered that the scroll indicator was a key contributor to the scroll jump issue. The solution involved limiting the maximum height of the scroll indicator to 50px:
+
+```javascript
+// Limit the indicator height to 50px maximum
+const MAX_HEIGHT_PX = 50;
+const containerHeight = scrollIndicator.parentElement.offsetHeight;
+         
+// Calculate percentage that equals 50px
+const maxHeightPercent = (MAX_HEIGHT_PX / containerHeight) * 100;
+         
+// Limit scrolled value to maxHeightPercent
+const limitedScrolled = Math.min(scrolled, maxHeightPercent);
+         
+scrollIndicator.style.height = `${limitedScrolled}%`;
+```
+
+### Why This Fixed the Problem
+
+1. **Layout Thrashing Prevention**: The original scroll indicator was causing layout thrashing by constantly recalculating and updating its height based on the scroll position. The browser was forced to perform expensive operations on every scroll event.
+
+2. **Reduced DOM Updates**: By limiting the maximum height value, we reduced the frequency and magnitude of DOM updates, which improved performance during scrolling.
+
+3. **Smoother Visual Feedback**: The limited height change created smoother visual feedback without the jarring jump that occurred when the indicator tried to represent the full scroll distance.
+
+4. **Better Animation Performance**: Smaller DOM changes are handled more efficiently by the browser's rendering engine, resulting in smoother animations and transitions.
+
+5. **Reduced Composite Layers**: The smaller height changes may have reduced the number of composite layers the browser needed to manage during scroll events.
+
+### Technical Explanation
+
+When scrolling quickly, the browser must:
+1. Calculate the new scroll position
+2. Update the DOM (scroll indicator height)
+3. Reflow (recalculate layout)
+4. Repaint (update the visual display)
+
+With the unlimited scroll indicator height, these calculations were causing a cascade of expensive operations that couldn't keep up with rapid scrolling, especially between sections with complex layouts like the header and about section.
+
+By limiting the maximum height change to 50px, we effectively reduced the computational burden on each scroll step, allowing the browser to maintain a smooth scrolling experience without the jumps or jank previously experienced.
+
+## Additional Optimizations
+
+While limiting the scroll indicator height was the primary fix, we implemented several other optimizations to further improve performance:
+
+1. **Hardware Acceleration for Key Sections**:
+```css
+.about-section {
+    transform: translateZ(0);
+    will-change: transform;
+    backface-visibility: hidden;
+}
+```
+
+2. **Optimized JavaScript Event Handlers**:
+```javascript
+window.addEventListener('scroll', updateScrollIndicator, { passive: true });
+```
+
+3. **Improved Asset Loading**:
+```html
+<link rel="preload" href="images/About_01.jpg" as="image">
+<link rel="preload" href="images/About_02.jpg" as="image">
+```
+
 ## Next Steps to Explore
 
 1. **Virtual Scrolling**: Implement a virtual scrolling library that manages DOM rendering during scroll.

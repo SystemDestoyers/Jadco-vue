@@ -19,6 +19,31 @@ $(document).ready(function () {
         console.log("-----------------------------------");
     };
 
+    // Cache all heading text elements for better performance
+    const allHeadingTexts = isHomePage ? document.querySelectorAll('.heading-text') : null;
+    
+    // Apply hardware acceleration to improve animation performance
+    if (allHeadingTexts) {
+        allHeadingTexts.forEach(text => {
+            text.style.transform = 'translateZ(0)';
+            text.style.willChange = 'opacity, transform';
+        });
+    }
+
+    // Apply hardware acceleration to carousel
+    const headerCarouselEl = document.getElementById('headerCarousel');
+    if (headerCarouselEl) {
+        headerCarouselEl.style.transform = 'translateZ(0)';
+        headerCarouselEl.style.willChange = 'transform';
+        
+        // Pre-render the first slide for better performance
+        const firstSlide = headerCarouselEl.querySelector('.carousel-item:first-child');
+        if (firstSlide) {
+            firstSlide.style.transform = 'translateZ(0)';
+            firstSlide.style.willChange = 'transform, opacity';
+        }
+    }
+
     // Handle preloader animation and removal
     const preloader = document.querySelector('.preloader');
     const preloaderLogo = document.querySelector('.preloader-logo');
@@ -49,15 +74,15 @@ $(document).ready(function () {
                     setTimeout(() => {
                         console.log("Initial classes after animation setup:");
                         window.debugHeadingTextIssue();
-                    }, 1000);
+                    }, 500); // Reduced from 1000ms
                 }
 
                 // Remove preloader from DOM after fade out completes - REDUCED TIME
                 setTimeout(() => {
                     preloader.remove();
-                }, 100);
-            }, 300); // Reduced from 1000ms
-        }, 600); // Reduced from 1500ms
+                }, 50); // Reduced from 100ms
+            }, 200); // Reduced from 300ms
+        }, 400); // Reduced from 600ms
     } else {
         // If no preloader, initialize header animations immediately
         initializeHeaderAnimations();
@@ -72,7 +97,7 @@ $(document).ready(function () {
             setTimeout(() => {
                 console.log("Initial classes after animation setup (no preloader):");
                 window.debugHeadingTextIssue();
-            }, 1000);
+            }, 500); // Reduced from 1000ms
         }
     }
 
@@ -91,11 +116,27 @@ $(document).ready(function () {
         if (mainHeading) mainHeading.offsetHeight;
         if (headerImage) headerImage.offsetHeight;
         
-        // Hide elements but keep them in flow
-        if (navbar) navbar.style.opacity = '0';
-        if (navbarBrand) navbarBrand.style.opacity = '0';
-        if (mainHeading) mainHeading.style.opacity = '0';
-        if (headerImage) headerImage.style.opacity = '0';
+        // Apply hardware acceleration to key elements
+        if (navbar) {
+            navbar.style.opacity = '0';
+            navbar.style.transform = 'translateZ(0)';
+            navbar.style.willChange = 'opacity, transform';
+        }
+        if (navbarBrand) {
+            navbarBrand.style.opacity = '0';
+            navbarBrand.style.transform = 'translateZ(0)';
+            navbarBrand.style.willChange = 'opacity, transform';
+        }
+        if (mainHeading) {
+            mainHeading.style.opacity = '0';
+            mainHeading.style.transform = 'translateZ(0)';
+            mainHeading.style.willChange = 'opacity, transform';
+        }
+        if (headerImage) {
+            headerImage.style.opacity = '0';
+            headerImage.style.transform = 'translateZ(0)';
+            headerImage.style.willChange = 'opacity, transform';
+        }
     }
 
     // Initialize header animations
@@ -172,6 +213,18 @@ $(document).ready(function () {
         let currentTransitionId = null;
         let isTransitioning = false;
         
+        // Cache DOM elements for better performance
+        const $headerCarousel = $('#headerCarousel');
+        
+        // Precompute all heading text elements and store in a map for better performance
+        const headingTextMap = {};
+        if (allHeadingTexts) {
+            allHeadingTexts.forEach(text => {
+                const slideIndex = text.getAttribute('data-slide');
+                headingTextMap[slideIndex] = text;
+            });
+        }
+        
         var headerCarousel = new bootstrap.Carousel(document.getElementById('headerCarousel'), {
             interval: 5000,
             wrap: true,
@@ -179,7 +232,7 @@ $(document).ready(function () {
         });
 
         // Pause carousel on hover
-        $('#headerCarousel').hover(
+        $headerCarousel.hover(
             function () {
                 $(this).carousel('pause');
             },
@@ -193,14 +246,14 @@ $(document).ready(function () {
             if (isTransitioning) return false;
             
             var slideIndex = $(this).data('slide');
-            $('#headerCarousel').carousel(slideIndex);
+            $headerCarousel.carousel(slideIndex);
         });
 
         // Completely remove existing handlers to prevent multiple bindings
-        $('#headerCarousel').off('slide.bs.carousel');
+        $headerCarousel.off('slide.bs.carousel');
         
         // Update the carousel slide event handling for keyframe animations
-        $('#headerCarousel').on('slide.bs.carousel', function (event) {
+        $headerCarousel.on('slide.bs.carousel', function (event) {
             var slideIndex = event.to;
             var fromIndex = event.from;
             
@@ -217,13 +270,14 @@ $(document).ready(function () {
             
             console.log(`Starting transition ${thisTransitionId}: ${fromIndex} -> ${slideIndex}`);
             
-            // Get the current and next headings
-            const currentHeading = $(`.heading-text[data-slide="${fromIndex}"]`);
-            const nextHeading = $(`.heading-text[data-slide="${slideIndex}"]`);
+            // Use cached elements for better performance
+            const currentHeading = headingTextMap[fromIndex];
+            const nextHeading = headingTextMap[slideIndex];
             
             // 1. First mark the old slide as exiting
-            if (currentHeading.hasClass('active')) {
-                currentHeading.removeClass('active').addClass('was-active');
+            if (currentHeading && currentHeading.classList.contains('active')) {
+                currentHeading.classList.remove('active');
+                currentHeading.classList.add('was-active');
             }
             
             // 2. After the exit animation completes, set up the new slide
@@ -234,19 +288,25 @@ $(document).ready(function () {
                     return;
                 }
                 
-                // Remove all transition classes from all headings
-                $('.heading-text').removeClass('was-active animate-delay animate');
+                // Remove all transition classes from all headings (using cached elements)
+                if (allHeadingTexts) {
+                    allHeadingTexts.forEach(text => {
+                        text.classList.remove('was-active', 'animate-delay', 'animate');
+                    });
+                }
                 
                 // Add active class to the new heading
-                nextHeading.addClass('active');
-                
-                // Force a reflow
-                void nextHeading[0].offsetWidth;
+                if (nextHeading) {
+                    nextHeading.classList.add('active');
+                    
+                    // Force a reflow for better animation
+                    void nextHeading.offsetWidth;
+                }
                 
                 // Clear the transition lock
                 isTransitioning = false;
                 console.log(`Completed transition ${thisTransitionId}`);
-            }, 800); // Match CSS animation duration
+            }, 600); // Reduced from 800ms to match CSS better
             
             // Update custom navigation
             $('.nav-number').removeClass('active');
@@ -264,7 +324,7 @@ $(document).ready(function () {
         });
 
         // Handle the line animation after slide has finished changing
-        $('#headerCarousel').on('slid.bs.carousel', function (event) {
+        $headerCarousel.on('slid.bs.carousel', function (event) {
             var slideIndex = $('.carousel-item.active').index();
 
             // Animate the line fill
@@ -287,7 +347,7 @@ $(document).ready(function () {
         // Start the first line animation
         setTimeout(function () {
             $('.nav-line.active .nav-line-fill').css('width', '100%');
-        }, 100);
+        }, 50); // Reduced from 100ms
     }
 
 
@@ -384,7 +444,17 @@ $(document).ready(function () {
         const windowHeight = document.documentElement.scrollHeight - window.innerHeight;
         const scrolled = (window.scrollY / windowHeight) * 100;
         
-        scrollIndicator.style.height = `${scrolled}%`;
+        // Limit the indicator height to 50px maximum
+        const MAX_HEIGHT_PX = 50;
+        const containerHeight = scrollIndicator.parentElement.offsetHeight;
+        
+        // Calculate percentage that equals 50px
+        const maxHeightPercent = (MAX_HEIGHT_PX / containerHeight) * 100;
+        
+        // Limit scrolled value to maxHeightPercent
+        const limitedScrolled = Math.min(scrolled, maxHeightPercent);
+        
+        scrollIndicator.style.height = `${limitedScrolled}%`;
         
         // Check if user is in header section - if yes, add at-top class to body
         if (window.scrollY < 100) {

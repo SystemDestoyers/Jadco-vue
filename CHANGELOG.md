@@ -18,6 +18,14 @@
   - Preserved seamless user experience despite the hybrid architecture
 
 ### Fixed
+- Fixed slow carousel transitions after page reload:
+  - Added hardware acceleration to heading elements with translateZ(0)
+  - Optimized animation chain by reducing transition delays by 30-50%
+  - Implemented DOM element caching to prevent repeated queries
+  - Added will-change hints for smoother browser rendering
+  - Reduced preloader animation timing for faster overall page initialization
+  - Pre-computed slide element references for better performance during transitions
+
 - Fixed services assets loading on home page issue:
   - Enhanced route detection with immediate checking at component mount time
   - Added cleanup mechanism to remove services assets when navigating to home page
@@ -259,6 +267,13 @@
   - Improved element selection with precise data attributes for reliability
   - Synchronized animation timing with CSS animation duration
   - Added transition validation to prevent race conditions during rapid transitions
+
+- Fixed slow carousel transitions and animations after page reload:
+  - Added hardware acceleration to carousel elements (translateZ, will-change properties)
+  - Implemented DOM element caching for better rendering performance 
+  - Reduced animation delays for faster visual feedback
+  - Optimized preloader timing for quicker transitions between loading and interaction
+  - Added browser rendering optimization with pre-computation of transitions
 
 - Multiple overlay optimizations for cross-browser consistency
 - About section parallax now smoothly adjusts on window resize 

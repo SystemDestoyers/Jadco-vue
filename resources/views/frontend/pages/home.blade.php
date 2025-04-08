@@ -307,7 +307,7 @@
     </section>
 
     <!-- Statistics Section -->
-    {{-- <section id="statistics" class="statistics-section py-5 section">
+    <!-- {{-- <section id="statistics" class="statistics-section py-5 section">
         <div class="container">
             <div class="row">
                 <div class="statistics mt-5">
@@ -334,5 +334,5 @@
                 </div>
             </div>
         </div>
-    </section> --}}
+    </section> --}} -->
 @endsection

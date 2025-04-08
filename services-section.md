@@ -17,20 +17,20 @@ The HTML structure consists of:
 
 ```html
 <section id="services" class="services-section py-5 section">
-  <div class="services-layer-container">
-    <!-- Service 1 -->
-    <div class="service-stack-item" data-service="1">
+    <div class="services-layer-container">
+      <!-- Service 1 -->
+      <div class="service-stack-item" data-service="1">
       <div class="service-overlay"></div>
-      <div class="service-item-wrapper">
+        <div class="service-item-wrapper">
         <div class="container">
-          <div class="row align-items-center full-screen md-h-auto">
-            <div class="col-lg-6">
-              <div class="service-image">
+            <div class="row align-items-center full-screen md-h-auto">
+              <div class="col-lg-6">
+                <div class="service-image">
                 <img src="images/service1.jpg" alt="Service 1" class="img-fluid">
+                </div>
               </div>
-            </div>
-            <div class="col-lg-6">
-              <div class="service-content">
+              <div class="col-lg-6">
+                <div class="service-content">
                 <div class="title">
                   <h2 class="section-title">SERVICES</h2>
                   <h3 class="service-number">01</h3>
