@@ -56,6 +56,7 @@
   
 - Optimized dependencies:
   - Removed unused smooth-scrollbar dependency
+  - Removed unused smooth-section-transition.js script file
   - Reduced bundle size by eliminating unnecessary packages
   - Leveraged native browser scrolling APIs and jQuery for smooth scrolling functionality
   - Simplified dependency tree for easier maintenance
