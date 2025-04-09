@@ -5,6 +5,9 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <meta name="csrf-token" content="{{ csrf_token() }}">
         <title>JADCO - Education and Training to Innovation</title>
+
+        <!-- Favicon -->
+    <link rel="icon" type="image/png" href="{{ asset('images/favicon.png') }}">
         
         <!-- jQuery - Load first to ensure availability -->
         <!-- <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script> -->
