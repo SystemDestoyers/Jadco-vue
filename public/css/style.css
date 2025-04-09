@@ -369,8 +369,8 @@ a:hover {
 }
 
 .nav-number {
-    font-size: 26px;
-    font-weight: lighter;
+    font-size: 2.2rem;
+    font-weight: 600;
     color: var(--light-color);
     cursor: pointer;
     transition: color 0.3s ease;
@@ -386,7 +386,7 @@ a:hover {
 
 .nav-line {
     width: 40px;
-    height: 2px;
+    height: 3px;
     background-color: rgba(41, 67, 89, 0.3);
     margin: 0 8px;
     position: relative;
