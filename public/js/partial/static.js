@@ -178,9 +178,8 @@ $(document).ready(function () {
      * 3. Navigates to the contact section while the overlay is visible (hiding the scrolling)
      * 4. Fades out the overlay to reveal the contact section
      */
-    $('.btn-talk').on('click', function(e) {
-        e.preventDefault();
-        
+    // Define the function globally so it can be called from Vue components
+    window.createFlashEffect = function() {
         // Get the target section (contact)
         const targetId = 'contact';
         const targetSection = document.getElementById(targetId);
@@ -253,8 +252,7 @@ $(document).ready(function () {
                 opacity: 1  // Fade to fully opaque (100%)
             }, 450, function() {
                 // Step 7: Navigate to contact section (hidden behind overlay)
-                // Remove the hash change to prevent URL modification
-                // window.location.hash = targetId;
+                // Scroll to the contact section on the current page
                 window.scrollTo(0, targetSection.offsetTop);
                 
                 // Step 8: Wait a brief moment before revealing
@@ -270,6 +268,12 @@ $(document).ready(function () {
                 }, 450); // Hold overlay visible for 450ms
             });
         }
+    };
+    
+    // Event handler for .btn-talk elements not controlled by Vue
+    $('.btn-talk').on('click', function(e) {
+        e.preventDefault();
+        window.createFlashEffect();
     });
 
 });

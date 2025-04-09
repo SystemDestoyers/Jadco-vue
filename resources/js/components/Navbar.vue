@@ -60,12 +60,13 @@ export default {
     },
     methods: {
         handleLetsTalkClick(e) {
-            // Recreate the flash effect from static.js
+            e.preventDefault();
+            
+            // Recreate the flash effect from static.js if available
             if (typeof createFlashEffect === 'function') {
-                e.preventDefault();
                 createFlashEffect();
                 
-                // Scroll to contact section after flash
+                // Scroll to contact section after flash with a delay
                 setTimeout(() => {
                     const contactSection = document.getElementById('contact');
                     if (contactSection) {
@@ -73,16 +74,10 @@ export default {
                     }
                 }, 1200); // Adjust timing based on flash effect duration
             } else {
-                // If we're on the home page, scroll to contact section
-                if (this.isHome) {
-                    e.preventDefault();
-                    const contactSection = document.getElementById('contact');
-                    if (contactSection) {
-                        contactSection.scrollIntoView({ behavior: 'smooth' });
-                    }
-                } else {
-                    // Navigate to home page with contact hash
-                    window.location.href = '/#contact';
+                // Directly scroll to contact section without flash effect
+                const contactSection = document.getElementById('contact');
+                if (contactSection) {
+                    contactSection.scrollIntoView({ behavior: 'smooth' });
                 }
             }
         }

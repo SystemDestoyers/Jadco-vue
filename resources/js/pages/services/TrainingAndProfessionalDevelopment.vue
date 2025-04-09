@@ -29,16 +29,16 @@
                         <img src="/images/03_Trining/01.jpg" alt="Training" class="img-fluid service-hero-image">
                     </div>
                     <div class="col-lg-6">
-                        <p class="mb-3">
+                        <h5 class="mb-3">
                             JADCO, in association with prestigious organizations from all sizes,
                             take your personal and professional development in an international
                             company in a global city to learn new skills, reskill or upskill yourself
                             and accelerate your career advancement.
-                        </p>
-                        <p class="mb-3">
+                        </h5>
+                        <h5 class="mb-3">
                             Gain experience, new skills, network, knowledge, culture, friends and
                             prepare yourself for a new workplace challenge:
-                        </p>
+                        </h5>
                         <ul class="service-list">
                             <li>In-person internship.</li>
                             <li>Any career field.</li>
@@ -79,13 +79,13 @@
                 
                 <div class="row mt-4">
                     <div class="col-lg-6">
-                        <p class="mb-3">
+                        <h5 class="mb-3">
                             In collaboration with our best TVTE providers in the U.S, UK and other
                             countries. These programs are hands-on diploma or associate degrees
                             of 2 years study and training of majors from all fields and sectors, that
                             make students equipped by all skills needed for the career job market.
-                        </p>
-                        <p class="mb-3">Example majors including:</p>
+                        </h5>
+                        <h5 class="mb-3">Example majors including:</h5>
                         <ul class="service-list">
                             <li>Advanced Transportation Technologies</li>
                             <li>Automotive Technology</li>
@@ -140,14 +140,14 @@
                         <img src="/images/03_Trining/04_Training.jpg" alt="Online Professional Programs" class="img-fluid service-hero-image">
                     </div>
                     <div class="col-lg-6">
-                        <p class="service-list">
+                        <h5 class="service-list">
                             JADCO in partnership with top ranked universities
                             in the world will serve to provide your organization
                             the best online learning experience and quality of
                             knowledge in all sectors, delivering programs that
                             develop the skills necessary to success in a changing
                             and challenging work environment.
-                        </p>
+                        </h5>
                     </div>
                 </div>
             </div>

@@ -18,6 +18,13 @@
   - Preserved seamless user experience despite the hybrid architecture
 
 ### Fixed
+- Fixed "Let's Talk" button behavior on subpages:
+  - Modified "Let's Talk" button to scroll to the contact section on the current page
+  - Maintained the branded flash effect animation when clicking the button
+  - Fixed issue where clicking "Let's Talk" on services pages would navigate back to home page
+  - Improved user experience by keeping users on their current page
+  - Globally exposed flash effect function for consistent behavior across all pages
+
 - Fixed slow carousel transitions after page reload:
   - Added hardware acceleration to heading elements with translateZ(0)
   - Optimized animation chain by reducing transition delays by 30-50%

@@ -66,7 +66,7 @@
                         </li>
                     </ul>
                     <!-- Copy of Let's Talk button for mobile view -->
-                    <router-link to="/#contact" class="btn btn-talk" @click="handleLetsTalkClick">Let's Talk</router-link>
+                    <a href="#contact" class="btn btn-talk" @click.prevent="handleLetsTalkClick">Let's Talk</a>
                 </div>
             </div>
             
@@ -152,18 +152,25 @@ export default {
             }
         },
         handleLetsTalkClick(e) {
-            // Recreate the flash effect from static.js
+            e.preventDefault();
+            
+            // Recreate the flash effect from static.js if available
             if (typeof createFlashEffect === 'function') {
-                e.preventDefault();
                 createFlashEffect();
                 
-                // Scroll to contact section after flash
+                // Scroll to contact section after flash with a delay
                 setTimeout(() => {
                     const contactSection = document.getElementById('contact');
                     if (contactSection) {
                         contactSection.scrollIntoView({ behavior: 'smooth' });
                     }
-                }, 1200);
+                }, 1200); // Adjust timing based on flash effect duration
+            } else {
+                // Directly scroll to contact section without flash effect
+                const contactSection = document.getElementById('contact');
+                if (contactSection) {
+                    contactSection.scrollIntoView({ behavior: 'smooth' });
+                }
             }
         },
         updateHeaderImage() {
