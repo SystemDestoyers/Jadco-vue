@@ -124,8 +124,10 @@
 .ai-pages .service-description {
     font-size: 2rem;
     font-weight: 200;
-    letter-spacing: .5px;
+    letter-spacing: .9px;
+    width: 95%;
 }
+
 .ai-pages .service-title {
     font-weight: 400;
     margin-top: 60px;
@@ -137,7 +139,9 @@
 }
 .ai-pages .right-text h2{
     font-size: 2.2rem;
-    letter-spacing: .7px;
+    letter-spacing: 1px;
+    width: 70%;
+    line-height: 3rem;
 }
 .ai-pages .right-text p {
     font-size: 1.5rem;
