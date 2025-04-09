@@ -31,19 +31,21 @@
                             class="img-fluid service-hero-image">
                     </div>
                     <div class="col-lg-6">
-                        <ul class="service-list">
-                            <li>Candidate Selection Criteria</li>
-                            <li>Universities Selection Criteria</li>
-                            <li>Program bylaws and regulations</li>
-                            <li>Student Journey plan</li>
-                            <li>Counseling & students development plans</li>
-                            <li>Pre-Departure preparatory programs</li>
-                            <li>Enroll students into international universities</li>
-                            <li>Workshops, awareness sessions and summits</li>
-                            <li>Pre travel and post travel logistics</li>
-                            <li>Overseas continual support</li>
-                            <li>And more</li>
-                        </ul>
+                        <div class="service-text-content">
+                            <ul class="service-list">
+                                <li>Candidate Selection Criteria</li>
+                                <li>Universities Selection Criteria</li>
+                                <li>Program bylaws and regulations</li>
+                                <li>Student Journey plan</li>
+                                <li>Counseling & students development plans</li>
+                                <li>Pre-Departure preparatory programs</li>
+                                <li>Enroll students into international universities</li>
+                                <li>Workshops, awareness sessions and summits</li>
+                                <li>Pre travel and post travel logistics</li>
+                                <li>Overseas continual support</li>
+                                <li>And more</li>
+                            </ul>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -82,25 +84,27 @@
 
                 <div class="row mt-4">
                     <div class="col-lg-6">
-                        <h5 class="mb-3">Our services including:</h5>
-                        <ul class="service-list" style="margin-top: 1rem;">
-                            <li>STEM Teacher Training.</li>
-                            <li>STEM Students Training.</li>
-                            <li>STEM Labs.</li>
-                            <li>Summer STEM Camps.</li>
-                            <li>Students Workshops.</li>
-                            <li>Research and development.</li>
-                            <li>Innovation Parks.</li>
-                            <li>K-12 after school programs (Coding, Robotics, Drones, AI, Cybersecurity, AR & VR, 3D
-                                Printing & more).</li>
-                            <li>Establishing new STEM Schools or Shift to STEM.</li>
-                            <li>STEM Innovation and Technology Centers:
-                                <p class="ms-3 mt-2">Together with our STEM partners, we design, build and provide full
-                                    turnkey solutions, training, programs and activities that support the
-                                    STEM & Technology parks and Centers for students, teachers
-                                    and community.</p>
-                            </li>
-                        </ul>
+                        <div class="service-text-content">
+                            <h5>Our services including:</h5>
+                            <ul class="service-list">
+                                <li>STEM Teacher Training.</li>
+                                <li>STEM Students Training.</li>
+                                <li>STEM Labs.</li>
+                                <li>Summer STEM Camps.</li>
+                                <li>Students Workshops.</li>
+                                <li>Research and development.</li>
+                                <li>Innovation Parks.</li>
+                                <li>K-12 after school programs (Coding, Robotics, Drones, AI, Cybersecurity, AR & VR, 3D
+                                    Printing & more).</li>
+                                <li>Establishing new STEM Schools or Shift to STEM.</li>
+                                <li>STEM Innovation and Technology Centers:
+                                    <p>Together with our STEM partners, we design, build and provide full
+                                        turnkey solutions, training, programs and activities that support the
+                                        STEM & Technology parks and Centers for students, teachers
+                                        and community.</p>
+                                </li>
+                            </ul>
+                        </div>
                     </div>
                     <div class="col-lg-6">
                         <img src="/images/03_EDU.jpg" alt="STEM Education"
@@ -145,14 +149,16 @@
                             class="img-fluid service-hero-image">
                     </div>
                     <div class="col-lg-6">
-                        <ul class="service-list">
-                            <li>School Operation and Management.</li>
-                            <li>Teacher Recruitment.</li>
-                            <li>Leadership Search.</li>
-                            <li>Professional Development.</li>
-                            <li>School Supply Services.</li>
-                            <li>Accounting and Finance.</li>
-                        </ul>
+                        <div class="service-text-content">
+                            <ul class="service-list">
+                                <li>School Operation and Management.</li>
+                                <li>Teacher Recruitment.</li>
+                                <li>Leadership Search.</li>
+                                <li>Professional Development.</li>
+                                <li>School Supply Services.</li>
+                                <li>Accounting and Finance.</li>
+                            </ul>
+                        </div>
                     </div>
                 </div>
             </div>

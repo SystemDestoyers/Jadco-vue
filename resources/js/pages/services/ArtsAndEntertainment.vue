@@ -20,13 +20,15 @@
                             <img src="/images/06_Arts/01.jpg" alt="Arts and Entertainment" class="img-fluid service-hero-image">
                         </div>
                         <div class="right-text col-md-6">
-                            <h2>
-                                From Training and education in
-                                Arts & Entertainment subjects,
-                                to customizing projects and live
-                                events in association with our
-                                local and international partners.
-                            </h2>
+                            <div class="service-text-content">
+                                <h2>
+                                    From Training and education in
+                                    Arts & Entertainment subjects,
+                                    to customizing projects and live
+                                    events in association with our
+                                    local and international partners.
+                                </h2>
+                            </div>
                         </div>
                     </div>
                 </div>

@@ -22,23 +22,25 @@
                         <div class="col-md-6">
                             <img src="/images/04_AI/01.jpg" alt="AI Technologies" class="img-fluid service-hero-image">
                         </div>
-                        <div class="right-text col-md-6">
-                            <h2>We Customize Transformation Projects</h2>
-                            <p>
-                                JADCO and partners support to harness the power of AI
-                                and digital technologies to help improve business operations
-                                and organization thrive.
-                                We help to explore ways to leverage new advances in digital-tech
-                                to re-invent how things get done and boost your organization
-                                positioning in its sector.
-                                We analyze the existing structure, navigate challenges and evaluate
-                                ways that technology can affect factors in your organization and
-                                identify new business models enabled by AI and explore
-                                opportunities presented by AI.
-                                Learn how to shape your AI business strategy, organizational
-                                dynamics, products, services innovation and evolving workforce
-                                skills and discover practical solutions to build business advantage.
-                            </p>
+                        <div class="col-md-6">
+                            <div class="service-text-content">
+                                <h2>We Customize Transformation Projects</h2>
+                                <p>
+                                    JADCO and partners support to harness the power of AI
+                                    and digital technologies to help improve business operations
+                                    and organization thrive.<br>
+                                    We help to explore ways to leverage new advances in digital-tech
+                                    to re-invent how things get done and boost your organization
+                                    positioning in its sector.<br>
+                                    We analyze the existing structure, navigate challenges and evaluate
+                                    ways that technology can affect factors in your organization and
+                                    identify new business models enabled by AI and explore
+                                    opportunities presented by AI.<br>
+                                    Learn how to shape your AI business strategy, organizational
+                                    dynamics, products, services innovation and evolving workforce
+                                    skills and discover practical solutions to build business advantage.
+                                </p>
+                            </div>
                         </div>
                     </div>
                 </div>

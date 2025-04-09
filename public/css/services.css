@@ -77,9 +77,79 @@
     margin-right: 1rem;
 }
 
+/* Service text content styling */
+.service-text-content {
+    padding: 30px 25px;
+    height: 100%;
+    width: 85%;
+    transition: all 0.3s ease;
+    transform: translateZ(0);
+    will-change: transform;
+}
+
+/* .service-text-content:hover {
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+    background-color: rgba(249, 249, 249, 0.8);
+} */
+
+/* Standardizing all text elements inside service-text-content */
+.service-text-content h2 {
+    margin-bottom: 1.3rem;
+    font-size: 2.3rem;
+    color: var(--dark-color);
+    font-weight: 500;
+    line-height: 1.4;
+}
+
+.service-text-content h3 {
+    font-size: 1.6rem;
+    font-weight: 500;
+    color: var(--dark-color);
+    margin-bottom: 1rem;
+}
+
+.service-text-content h5 {
+    font-size: 1.4rem;
+    font-weight: 400;
+    color: var(--dark-color);
+    line-height: 1.6;
+    margin-bottom: 1rem;
+}
+
+/* Make p and ul have the same styling */
+.service-text-content p,
+.service-text-content ul,
+.service-text-content .service-list,
+.service-text-content li {
+    font-size: 1.3rem;
+    line-height: 1.4;
+    color: var(--dark-color);
+    font-weight: 300;
+}
+
+.service-text-content ul li {
+    margin-bottom: 0.5rem;
+}
+
+/* Convert h4 to match h5 styling */
+.service-text-content h4 {
+    font-size: 1.4rem;
+    font-weight: 400;
+    color: var(--dark-color);
+}
+
+/* Convert any other elements to match paragraph styling */
+.service-text-content div,
+.service-text-content span {
+    font-size: 1.3rem;
+    line-height: 1.6;
+    color: var(--dark-color);
+    font-weight: 300;
+}
+
 /* Service list parent column styling */
 .service-hero-section .col-lg-6:last-child {
-    margin-top: 6rem;
+    margin-top: 2rem;
 }
 
 /* Make these selectors more specific to the education page */
@@ -174,6 +244,16 @@ section.service-hero-section:nth-of-type(2) .service-list li p {
 @media (max-width: 767px) {
     section.service-hero-section:nth-of-type(2) .col-lg-6:last-child {
         margin-top: 2rem;
+    }
+    
+    .service-text-content {
+        padding: 15px;
+        margin-bottom: 20px;
+        width: 100%;
+    }
+    
+    .service-text-content h2 {
+        font-size: 1.6rem;
     }
 }
 

@@ -29,22 +29,24 @@
                         <img src="/images/03_Trining/01.jpg" alt="Training" class="img-fluid service-hero-image">
                     </div>
                     <div class="col-lg-6">
-                        <h5 class="mb-3">
-                            JADCO, in association with prestigious organizations from all sizes,
-                            take your personal and professional development in an international
-                            company in a global city to learn new skills, reskill or upskill yourself
-                            and accelerate your career advancement.
-                        </h5>
-                        <h5 class="mb-3">
-                            Gain experience, new skills, network, knowledge, culture, friends and
-                            prepare yourself for a new workplace challenge:
-                        </h5>
-                        <ul class="service-list">
-                            <li>In-person internship.</li>
-                            <li>Any career field.</li>
-                            <li>Central Cities around the world.</li>
-                            <li>Boost your employability.</li>
-                        </ul>
+                        <div class="service-text-content">
+                            <p>
+                                JADCO, in association with prestigious organizations from all sizes,
+                                take your personal and professional development in an international
+                                company in a global city to learn new skills, reskill or upskill yourself
+                                and accelerate your career advancement.
+                            </p>
+                            <p>
+                                Gain experience, new skills, network, knowledge, culture, friends and
+                                prepare yourself for a new workplace challenge:
+                            </p>
+                            <ul class="service-list">
+                                <li>In-person internship.</li>
+                                <li>Any career field.</li>
+                                <li>Central Cities around the world.</li>
+                                <li>Boost your employability.</li>
+                            </ul>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -79,27 +81,29 @@
                 
                 <div class="row mt-4">
                     <div class="col-lg-6">
-                        <h5 class="mb-3">
-                            In collaboration with our best TVTE providers in the U.S, UK and other
-                            countries. These programs are hands-on diploma or associate degrees
-                            of 2 years study and training of majors from all fields and sectors, that
-                            make students equipped by all skills needed for the career job market.
-                        </h5>
-                        <h5 class="mb-3">Example majors including:</h5>
-                        <ul class="service-list">
-                            <li>Advanced Transportation Technologies</li>
-                            <li>Automotive Technology</li>
-                            <li>Architecture</li>
-                            <li>Baking & Pastry Arts</li>
-                            <li>Construction Technology</li>
-                            <li>Culinary Arts</li>
-                            <li>Cybersecurity</li>
-                            <li>Fashion</li>
-                            <li>Game Design</li>
-                            <li>Horticulture</li>
-                            <li>Nursing & Medical Assisting</li>
-                            <li>And more.</li>
-                        </ul>
+                        <div class="service-text-content">
+                            <p>
+                                In collaboration with our best TVTE providers in the U.S, UK and other
+                                countries. These programs are hands-on diploma or associate degrees
+                                of 2 years study and training of majors from all fields and sectors, that
+                                make students equipped by all skills needed for the career job market.
+                            </p>
+                            <h5>Example majors including:</h5>
+                            <ul class="service-list">
+                                <li>Advanced Transportation Technologies</li>
+                                <li>Automotive Technology</li>
+                                <li>Architecture</li>
+                                <li>Baking & Pastry Arts</li>
+                                <li>Construction Technology</li>
+                                <li>Culinary Arts</li>
+                                <li>Cybersecurity</li>
+                                <li>Fashion</li>
+                                <li>Game Design</li>
+                                <li>Horticulture</li>
+                                <li>Nursing & Medical Assisting</li>
+                                <li>And more.</li>
+                            </ul>
+                        </div>
                     </div>
                     <div class="col-lg-6">
                         <img src="/images/03_Trining/03_Training.jpg" alt="Technical and Vocational Training" class="img-fluid service-hero-image">
@@ -140,14 +144,16 @@
                         <img src="/images/03_Trining/04_Training.jpg" alt="Online Professional Programs" class="img-fluid service-hero-image">
                     </div>
                     <div class="col-lg-6">
-                        <h5 class="service-list">
-                            JADCO in partnership with top ranked universities
-                            in the world will serve to provide your organization
-                            the best online learning experience and quality of
-                            knowledge in all sectors, delivering programs that
-                            develop the skills necessary to success in a changing
-                            and challenging work environment.
-                        </h5>
+                        <div class="service-text-content">
+                            <p>
+                                JADCO in partnership with top ranked universities
+                                in the world will serve to provide your organization
+                                the best online learning experience and quality of
+                                knowledge in all sectors, delivering programs that
+                                develop the skills necessary to success in a changing
+                                and challenging work environment.
+                            </p>
+                        </div>
                     </div>
                 </div>
             </div>

@@ -12,45 +12,47 @@
                         </div>
                         
                         <div class="service-content">
-                            <p class="lead service-desc">
-                                With more than 20 years in managing scholarship programs with several Saudi governmental 
-                                sponsors, we are experts of providing full and comprehensive plans and services to meet 
-                                the sponsor's vision and targets.
-                            </p>
-                            
-                            <h3 class="mt-5 mb-3">Our Scholarship Management Services Include:</h3>
-                            
-                            <ul class="service-features service-list">
-                                <li>
-                                    <h5>Scholarship Program Design</h5>
-                                    <p>We develop customized scholarship program frameworks that align with your organizational objectives and educational goals.</p>
-                                </li>
+                            <div class="service-text-content">
+                                <p class="lead service-desc">
+                                    With more than 20 years in managing scholarship programs with several Saudi governmental 
+                                    sponsors, we are experts of providing full and comprehensive plans and services to meet 
+                                    the sponsor's vision and targets.
+                                </p>
                                 
-                                <li>
-                                    <h5>Student Selection & Placement</h5>
-                                    <p>Comprehensive assessment and selection processes to identify the most qualified candidates, followed by placement in appropriate educational institutions.</p>
-                                </li>
+                                <h2>Our Scholarship Management Services Include:</h2>
                                 
-                                <li>
-                                    <h5>Academic Monitoring & Support</h5>
-                                    <p>Continuous tracking of academic progress with intervention strategies to ensure scholar success and program completion.</p>
-                                </li>
-                                
-                                <li>
-                                    <h5>Financial Management</h5>
-                                    <p>Efficient handling of stipends, tuition payments, and other financial aspects of scholarship programs with transparent reporting.</p>
-                                </li>
-                                
-                                <li>
-                                    <h5>Cultural & Social Integration</h5>
-                                    <p>Programs to help scholars integrate into new educational and cultural environments while maintaining cultural identity.</p>
-                                </li>
-                                
-                                <li>
-                                    <h5>Career Development & Placement</h5>
-                                    <p>Post-graduation support to ensure scholars transition successfully into the workforce and contribute to their communities.</p>
-                                </li>
-                            </ul>
+                                <ul class="service-list">
+                                    <li>
+                                        <h5>Scholarship Program Design</h5>
+                                        <p>We develop customized scholarship program frameworks that align with your organizational objectives and educational goals.</p>
+                                    </li>
+                                    
+                                    <li>
+                                        <h5>Student Selection & Placement</h5>
+                                        <p>Comprehensive assessment and selection processes to identify the most qualified candidates, followed by placement in appropriate educational institutions.</p>
+                                    </li>
+                                    
+                                    <li>
+                                        <h5>Academic Monitoring & Support</h5>
+                                        <p>Continuous tracking of academic progress with intervention strategies to ensure scholar success and program completion.</p>
+                                    </li>
+                                    
+                                    <li>
+                                        <h5>Financial Management</h5>
+                                        <p>Efficient handling of stipends, tuition payments, and other financial aspects of scholarship programs with transparent reporting.</p>
+                                    </li>
+                                    
+                                    <li>
+                                        <h5>Cultural & Social Integration</h5>
+                                        <p>Programs to help scholars integrate into new educational and cultural environments while maintaining cultural identity.</p>
+                                    </li>
+                                    
+                                    <li>
+                                        <h5>Career Development & Placement</h5>
+                                        <p>Post-graduation support to ensure scholars transition successfully into the workforce and contribute to their communities.</p>
+                                    </li>
+                                </ul>
+                            </div>
                             
                             <div class="cta-section text-center mt-5 py-4">
                                 <h4>Interested in our Scholarship Programs Management services?</h4>

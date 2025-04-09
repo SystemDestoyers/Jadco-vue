@@ -25,19 +25,21 @@
                         <div class="col-md-6">
                             <img src="/images/05_eGame/01.jpg" alt="eGaming and eSport" class="img-fluid service-hero-image">
                         </div>
-                        <div class="right-text col-md-6">
-                            <h2>What we do:</h2>
-                            <ul class="service-list">
-                                <li>Industry Analysis</li>
-                                <li>Policy and Regulatory Infrastructure</li>
-                                <li>Economic Impact</li>
-                                <li>Infrastructure and Facilities planning</li>
-                                <li>Education and Talent Development Strategy</li>
-                                <li>AI Engagement in e-gaming and esport</li>
-                                <li>Community engagement and outreach</li>
-                                <li>Event Management and Marketing Support</li>
-                                <li>Evaluation and Monitoring Framework</li>
-                            </ul>
+                        <div class="col-md-6">
+                                <div class="service-text-content">
+                                <h2>What we do:</h2>
+                                <ul class="service-list">
+                                    <li>Industry Analysis</li>
+                                    <li>Policy and Regulatory Infrastructure</li>
+                                    <li>Economic Impact</li>
+                                    <li>Infrastructure and Facilities planning</li>
+                                    <li>Education and Talent Development Strategy</li>
+                                    <li>AI Engagement in e-gaming and esport</li>
+                                    <li>Community engagement and outreach</li>
+                                    <li>Event Management and Marketing Support</li>
+                                    <li>Evaluation and Monitoring Framework</li>
+                                </ul>
+                            </div>
                         </div>
                     </div>
                 </div>
