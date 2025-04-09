@@ -39,7 +39,7 @@ export default {
         return {
             isLoading: true,
             scrollPercent: 0,
-            showDebug: true,
+            showDebug: false,
             scriptsLoaded: false,
             servicesLoaded: false
         };
@@ -69,7 +69,6 @@ export default {
         
         // Check current route immediately
         this.$nextTick(() => {
-            console.log('Current route:', this.$route.name);
             this.handleServicesAssets(this.$route.name);
         });
         
@@ -77,7 +76,6 @@ export default {
         this.$watch(
             () => this.$route.name,
             (newRouteName) => {
-                console.log('Route changed to:', newRouteName);
                 this.handleServicesAssets(newRouteName);
             }
         );
@@ -97,7 +95,6 @@ export default {
                 this.loadServicesAssets();
             } else {
                 // If we're on home page, make sure we don't load services assets
-                console.log('On home page, services assets not needed');
                 
                 // If services assets were loaded, remove them and restore any modified elements
                 if (this.servicesLoaded) {
@@ -129,8 +126,6 @@ export default {
         loadServicesAssets() {
             if (this.servicesLoaded) return;
             
-            console.log('Loading services assets...');
-            
             // Load services CSS
             const servicesCSS = document.createElement('link');
             servicesCSS.rel = 'stylesheet';
@@ -145,8 +140,6 @@ export default {
             servicesJS.src = '/js/services.js';
             servicesJS.async = false;
             servicesJS.onload = () => {
-                console.log('Services JS loaded, initializing...');
-                
                 // Direct initialization of service menus and sections
                 const serviceMenus = document.querySelectorAll('.service-list, .services-menu');
                 if (serviceMenus.length) {
@@ -162,11 +155,7 @@ export default {
                         item.style.opacity = '1';
                         item.style.transform = 'none';
                     });
-                    
-                    console.log('Service menus initialized:', serviceMenus.length);
-                } else {
-                    console.log('No service menus found to initialize');
-                }
+                } 
                 
                 // Trigger DOMContentLoaded for other scripts
                 const event = new Event('DOMContentLoaded');
@@ -211,7 +200,6 @@ export default {
                 
                 // Track when loaded
                 scriptElement.onload = () => {
-                    console.log(`Script ${script.key} loaded`);
                     loadedScripts[script.key] = true;
                     
                     // Initialize any script-specific functions here if needed

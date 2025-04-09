@@ -1,6 +1,4 @@
 $(document).ready(function () {
-    console.log('Header.js loaded. Initializing header animations...');
-
     // Check if we're on the home page
     const isHomePage = window.location.pathname === '/' ||
         window.location.pathname === '/index.php' ||
@@ -9,14 +7,7 @@ $(document).ready(function () {
     /* DEBUG for heading-text class cycling issue */
     window.activeSlideDebug = 0;
     window.debugHeadingTextIssue = function() {
-        console.log("--- DEBUGGING HEADING TEXT CYCLING ---");
-        const headingTexts = document.querySelectorAll('.heading-text');
-        headingTexts.forEach((text, i) => {
-            const classes = Array.from(text.classList);
-            const dataSlide = text.getAttribute('data-slide');
-            console.log(`Heading ${i} [data-slide="${dataSlide}"]: ${classes.join(', ')}`);
-        });
-        console.log("-----------------------------------");
+        // Debugging function kept but console.log removed
     };
 
     // Cache all heading text elements for better performance
@@ -72,7 +63,6 @@ $(document).ready(function () {
                 // Debug after initialization
                 if (isHomePage) {
                     setTimeout(() => {
-                        console.log("Initial classes after animation setup:");
                         window.debugHeadingTextIssue();
                     }, 500); // Reduced from 1000ms
                 }
@@ -95,7 +85,6 @@ $(document).ready(function () {
         // Debug after initialization
         if (isHomePage) {
             setTimeout(() => {
-                console.log("Initial classes after animation setup (no preloader):");
                 window.debugHeadingTextIssue();
             }, 500); // Reduced from 1000ms
         }
@@ -141,8 +130,6 @@ $(document).ready(function () {
 
     // Initialize header animations
     function initializeHeaderAnimations() {
-        console.log('Running keyframe animations for header');
-        
         // Apply animation classes all at once - timing will be handled by CSS animation-delay
         
         // Navbar appears
@@ -181,7 +168,6 @@ $(document).ready(function () {
             const firstHeadingText = document.querySelector('.heading-text[data-slide="0"]');
             if (firstHeadingText) {
                 firstHeadingText.classList.add('active', 'animate-delay');
-                console.log('Applied active, animate-delay to first heading text');
             }
         } else {
             // On other pages, activate the static heading text
@@ -268,8 +254,6 @@ $(document).ready(function () {
             const thisTransitionId = currentTransitionId;
             isTransitioning = true;
             
-            console.log(`Starting transition ${thisTransitionId}: ${fromIndex} -> ${slideIndex}`);
-            
             // Use cached elements for better performance
             const currentHeading = headingTextMap[fromIndex];
             const nextHeading = headingTextMap[slideIndex];
@@ -284,7 +268,6 @@ $(document).ready(function () {
             setTimeout(function() {
                 // Make sure this is still the most recent transition
                 if (thisTransitionId !== currentTransitionId) {
-                    console.log(`Transition ${thisTransitionId} was superseded, skipping`);
                     return;
                 }
                 
@@ -305,7 +288,6 @@ $(document).ready(function () {
                 
                 // Clear the transition lock
                 isTransitioning = false;
-                console.log(`Completed transition ${thisTransitionId}`);
             }, 600); // Reduced from 800ms to match CSS better
             
             // Update custom navigation

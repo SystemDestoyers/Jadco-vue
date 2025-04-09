@@ -367,8 +367,6 @@ export default {
             });
         },
         initializeEducationalServices() {
-            console.log('Initializing educational services section');
-            
             // Make first educational service active by default and set its icon to X
             const firstServiceItem = document.querySelector('.educational-services .service-item:first-child');
             if (firstServiceItem) {
@@ -427,8 +425,6 @@ export default {
         }
     },
     mounted() {
-        console.log('Home component mounted');
-        
         // Initialize educational services section after Vue has rendered the component
         this.$nextTick(() => {
             this.initializeEducationalServices();

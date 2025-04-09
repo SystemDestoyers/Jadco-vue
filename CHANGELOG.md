@@ -29,7 +29,7 @@
 - Fixed services assets loading on home page issue:
   - Enhanced route detection with immediate checking at component mount time
   - Added cleanup mechanism to remove services assets when navigating to home page
-  - Improved route change detection with console logging for debugging
+  - Improved route change detection for better asset management
   - Fixed edge case where services assets would load on initial page load
 
 - Fixed services visibility issues when navigating between pages:
