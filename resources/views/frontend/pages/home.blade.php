@@ -242,7 +242,7 @@
                                         with several Saudi governmental sponsors, we are experts of providing full and
                                         comprehensive plans and services to meet the sponsor's vision and targets.
                                     </p>
-                                    <a href="{{ url('/services/scholarship-programs-management') }}"
+                                    <a href="{{ url('/services/education-and-scholarship') }}"
                                         class="learn-more">LEARN MORE <i class="fas fa-arrow-right-long"></i></a>
                                 </div>
                             </div>
@@ -266,7 +266,7 @@
                                         Providing innovative STEM education approaches and establishing
                                         cutting-edge innovation centers to foster creativity and practical skills.
                                     </p>
-                                    <a href="{{ url('/services/stem-education') }}" class="learn-more">LEARN MORE <i
+                                    <a href="{{ url('/services/education-and-scholarship') }}" class="learn-more">LEARN MORE <i
                                             class="fas fa-arrow-right-long"></i></a>
                                 </div>
                             </div>
@@ -290,8 +290,8 @@
                                         Development and management of international standard K-12 schools
                                         with globally recognized curricula and excellent teaching staff.
                                     </p>
-                                    <a href="{{ url('/services/k12-international-schools') }}" class="learn-more">Learn
-                                        More <i class="fas fa-arrow-right-long"></i></a>
+                                    <a href="{{ url('/services/education-and-scholarship') }}" class="learn-more">LEARN MORE <i
+                                            class="fas fa-arrow-right-long"></i></a>
                                 </div>
                             </div>
                             <div class="col-md-2 text-end">
