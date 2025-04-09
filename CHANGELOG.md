@@ -24,6 +24,7 @@
 - Improved hardware acceleration for smoother animations
 - Standardized text containers to create consistent visual hierarchy
 - Unified all text styling to follow a consistent pattern across service pages
+- Consolidated service description styles (.service-desc, .ai-pages .service-description, .service-description) to use consistent font-size, weight, and line-height
 
 ### Enhanced
 - Multi-level scrolling effects for depth and engagement
@@ -326,6 +327,10 @@
 - Added preloading of critical assets for faster rendering
 - Structured codebase for easier future maintenance
 - Better image loading strategies to improve LCP (Largest Contentful Paint)
+
+### Changed
+- Increased the scroll indicator maximum height from 50px to 60px for better visual feedback
+- Removed right-text class and its CSS styling from service pages for cleaner structure
 
 ## [1.0.0] - 2023-08-01
 - Initial release of JADCO website with core functionality 

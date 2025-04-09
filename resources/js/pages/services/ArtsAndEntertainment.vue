@@ -19,7 +19,7 @@
                         <div class="col-md-6">
                             <img src="/images/06_Arts/01.jpg" alt="Arts and Entertainment" class="img-fluid service-hero-image">
                         </div>
-                        <div class="right-text col-md-6">
+                        <div class="col-md-6">
                             <div class="service-text-content">
                                 <h2>
                                     From Training and education in
