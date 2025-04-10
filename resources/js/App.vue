@@ -7,7 +7,7 @@
 
         <!-- Preloader -->
         <div class="preloader" v-show="isLoading">
-            <img :src="'/images/logo.png'" alt="JADCO Logo" class="preloader-logo">
+            <img :src="'/images/logo.png'" alt="JADCO Logo" class="preloader-logo" ref="preloaderLogo">
         </div>
 
         <!-- Scroll Indicator -->
