@@ -1,4 +1,69 @@
 $(document).ready(function () {
+    // Header image debug logger
+    function debugHeaderImage(message, headerImage) {
+        const timestamp = new Date().toISOString().split('T')[1].split('.')[0]; // HH:MM:SS format
+        const classes = headerImage ? headerImage.classList.toString() : 'null';
+        const opacity = headerImage ? window.getComputedStyle(headerImage).opacity : 'null';
+        const transform = headerImage ? window.getComputedStyle(headerImage).transform : 'null';
+        const animation = headerImage ? window.getComputedStyle(headerImage).animation : 'null';
+        
+        console.log(
+            `[${timestamp}] [HEADER-IMAGE-DEBUG] ${message}\n` +
+            `  Classes: ${classes}\n` +
+            `  Opacity: ${opacity}\n` +
+            `  Transform: ${transform}\n` +
+            `  Animation: ${animation}`
+        );
+    }
+    
+    // Set up mutation observer to monitor header image changes
+    function setupHeaderImageObserver() {
+        const headerImage = document.querySelector('.header-image');
+        if (!headerImage) return;
+        
+        // Log initial state at observer setup
+        debugHeaderImage('Observer setup - initial state', headerImage);
+        
+        // Create a mutation observer to monitor class changes
+        const observer = new MutationObserver((mutations) => {
+            mutations.forEach((mutation) => {
+                if (mutation.type === 'attributes' && mutation.attributeName === 'class') {
+                    debugHeaderImage('Class attribute changed from outside', headerImage);
+                }
+                
+                if (mutation.type === 'attributes' && mutation.attributeName === 'style') {
+                    debugHeaderImage('Style attribute changed from outside', headerImage);
+                }
+            });
+        });
+        
+        // Start observing
+        observer.observe(headerImage, { 
+            attributes: true,
+            attributeFilter: ['class', 'style']
+        });
+        
+        console.log('[HEADER] Started header image mutation observer');
+        
+        // Additional monitoring for the window load event
+        window.addEventListener('load', () => {
+            debugHeaderImage('Window load event fired', headerImage);
+        });
+        
+        // Monitor scroll changes that might affect the header image
+        let lastScrollY = window.scrollY;
+        window.addEventListener('scroll', () => {
+            // Only log when scroll position changes significantly to avoid spam
+            if (Math.abs(window.scrollY - lastScrollY) > 50) {
+                debugHeaderImage(`Scroll position changed from ${lastScrollY} to ${window.scrollY}`, headerImage);
+                lastScrollY = window.scrollY;
+            }
+        }, { passive: true });
+    }
+    
+    // Call the setup function after a short delay to ensure the DOM is ready
+    setTimeout(setupHeaderImageObserver, 500);
+    
     // Check if we're on the home page
     const isHomePage = window.location.pathname === '/' ||
         window.location.pathname === '/index.php' ||
@@ -99,6 +164,9 @@ $(document).ready(function () {
         const mainHeading = document.querySelector('.main-heading');
         const headerImage = document.querySelector('.header-image');
         
+        // Log initial state for header image
+        debugHeaderImage('Initial state before preparation', headerImage);
+        
         // Force browser to compute layouts to avoid reflow when animations start
         if (navbar) navbar.offsetHeight;
         if (navbarBrand) navbarBrand.offsetHeight;
@@ -125,6 +193,7 @@ $(document).ready(function () {
             headerImage.style.opacity = '0';
             headerImage.style.transform = 'translateZ(0)';
             headerImage.style.willChange = 'opacity, transform';
+            debugHeaderImage('After applying hardware acceleration and initial styles', headerImage);
         }
     }
 
@@ -184,12 +253,48 @@ $(document).ready(function () {
             servicesMenu.classList.add('animate');
         }
 
-        // Header image
-        const headerImage = document.querySelector('.header-image');
-        if (headerImage) {
-            headerImage.style.opacity = ''; // Remove inline opacity
-            headerImage.style.animationDelay = '0.6s'; // Reduced delay
-            headerImage.classList.add('animate');
+        // Header image - use HeaderImageManager instead of direct manipulation
+        // This prevents multiple initializations of the header image animation
+        if (window.HeaderImageManager) {
+            // Let the manager handle the animation
+            debugHeaderImage('Delegating to HeaderImageManager', document.querySelector('.header-image'));
+            window.HeaderImageManager.init();
+        } else {
+            // Fallback if manager is not loaded
+            debugHeaderImage('HeaderImageManager not found, falling back to direct animation', document.querySelector('.header-image'));
+            
+            const headerImage = document.querySelector('.header-image');
+            if (headerImage) {
+                debugHeaderImage('Before animation initialization', headerImage);
+                
+                // First, remove the animate class if it exists
+                if (headerImage.classList.contains('animate')) {
+                    headerImage.classList.remove('animate');
+                    console.log('[HEADER] Removed existing animate class from header image');
+                    debugHeaderImage('After removing animate class', headerImage);
+                }
+                
+                // Force browser to perform a reflow to ensure removing and adding the class has an effect
+                void headerImage.offsetWidth;
+                
+                // Set up properties and add animate class with a slight delay
+                headerImage.style.opacity = ''; // Remove inline opacity
+                headerImage.style.animationDelay = '0.6s'; // Reduced delay
+                debugHeaderImage('After setting up properties', headerImage);
+                
+                // Add the animate class after a brief delay to ensure clean animation
+                setTimeout(() => {
+                    headerImage.classList.add('animate');
+                    console.log('[HEADER] Added animate class to header image');
+                    debugHeaderImage('After adding animate class', headerImage);
+                    
+                    // Monitor animation completion
+                    headerImage.addEventListener('animationend', function onAnimationEnd(e) {
+                        debugHeaderImage(`Animation completed: ${e.animationName}`, headerImage);
+                        headerImage.removeEventListener('animationend', onAnimationEnd);
+                    }, { once: true });
+                }, 50);
+            }
         }
     }
 

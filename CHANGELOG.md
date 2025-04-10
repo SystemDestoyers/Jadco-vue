@@ -9,6 +9,11 @@
 - Added service-text-content container class for consistent styling of service description sections
 - Added subtle visual styling to text content areas with hover effects and border accents
 - Added consistent typography with standardized headings, paragraph, and list styles
+- Added debugging tools for services-menu troubleshooting:
+  - Real-time visual debugging panel showing class changes and style properties
+  - Console logging of services-menu state in both App.vue and Header.vue
+  - Tracking of menu initialization to prevent duplicate animations
+  - Enhanced visibility for animation initialization and timing issues
 
 ### Changed
 - Refactored all service pages to follow a consistent structure and styling
@@ -30,6 +35,20 @@
   - Standardized link text casing for consistency (changed "Learn More" to "LEARN MORE")
   - Ensured proper icon placement and spacing in educational service links
   - Improved user experience by directing all education-related content to a single comprehensive page
+- Fixed services-menu double initialization issue:
+  - Created centralized services-menu-manager.js to prevent conflicting animations
+  - Implemented state tracking to ensure menu is only initialized once
+  - Coordinated initialization between Header.vue and App.vue components
+  - Added proper detection of service pages for consistent class management
+  - Eliminated flickering caused by competing component animations
+  - Removed class binding from Header.vue to prevent duplicate animations
+  - Added animation in progress flag to prevent overlapping animations
+  - Implemented delayed initialization to ensure proper timing between components
+- Enhanced header image animations when navigating between service pages:
+  - Added animation reset and replay functionality for header images
+  - Implemented specific route watcher to detect navigation between service pages
+  - Used force reflow technique to properly restart CSS animations
+  - Applied proper timing to ensure smooth transitions between pages
 
 ### Enhanced
 - Multi-level scrolling effects for depth and engagement
@@ -339,3 +358,33 @@
 
 ## [1.0.0] - 2023-08-01
 - Initial release of JADCO website with core functionality 
+
+## [1.2.0] - July 2025
+
+### Added
+- Conditional loading of service assets (services.js and services.css) for improved performance
+- Hybrid routing approach that preloads only the necessary resources for better UX
+- **Header Image Debug Tools**: 
+  - Added development-only diagnostic scripts that monitor header images in real-time
+  - Moved all debug tools from Blade templates to Vue components for proper SPA integration
+  - Implemented conditional loading based on NODE_ENV environment variable
+  - Added visual indicators showing when debug tools are active in development mode
+  - Automated removal of all debugging code in production builds
+  - Fixed issue with duplicate debuggers being loaded in both Blade and Vue by adding detection logic
+  - Enhanced console debugging with comprehensive header-image state tracking
+  - Added mutation observer to monitor external changes to header-image element
+  - Implemented detailed console logging of animation states, CSS properties, and class changes
+
+### Fixed
+- **Header Image Animation Issues**:
+  - Fixed issue where header image animation would sometimes appear stuck by properly resetting the animation
+  - Improved animation handling on page reload by removing and re-adding the animate class
+  - Added forced reflow between class removal and addition to ensure clean animation restart
+  - Ensured proper timing with a slight delay for animation application
+  - Added console logging for easier debugging and tracking of animation state
+  - **Implemented centralized header-image-manager.js** to prevent multiple animations from competing:
+    - Added state tracking to ensure animation runs only once
+    - Created similar architecture to services-menu-manager for consistency
+    - Prevented animation conflicts between different components
+    - Fixed duplicate animation issues during page reloads
+    - Applied final animation state directly to ensure proper completion 

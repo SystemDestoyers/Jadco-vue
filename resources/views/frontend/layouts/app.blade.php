@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>JADCO - Education and Training to Innovation</title>
+    <title>@yield('title', 'JADCO - Education and Training to Innovation')</title>
     <!-- Favicon -->
     <link rel="icon" type="image/png" href="{{ asset('images/favicon.png') }}">
     <!-- Bootstrap CSS -->
@@ -49,6 +49,7 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
     <!-- Custom JS -->
     <script src="{{ asset('js/partial/static.js') }}"></script>
+    <script src="{{ asset('js/partial/services-menu-manager.js') }}"></script>
     <script src="{{ asset('js/partial/services-section.js') }}"></script>
     <script src="{{ asset('js/partial/header.js') }}"></script>
     <script src="{{ asset('js/all.js') }}"></script>

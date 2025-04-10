@@ -135,31 +135,49 @@ export default {
             // First mark as loaded to prevent multiple loads
             this.servicesLoaded = true;
             
-            // Load services JS with simpler initialization
+            // Check if services-menu-manager is loaded
+            if (!window.ServicesMenuManager) {
+                // Load the services menu manager first
+                const managerScript = document.createElement('script');
+                managerScript.src = '/js/partial/services-menu-manager.js';
+                
+                // Add onload handler to load services.js after manager is loaded
+                managerScript.onload = () => {
+                    this.loadServicesJS();
+                };
+                
+                document.head.appendChild(managerScript);
+            } else {
+                // Manager already loaded, proceed with services.js
+                this.loadServicesJS();
+            }
+        },
+        
+        loadServicesJS() {
+            // Load services JS
             const servicesJS = document.createElement('script');
             servicesJS.src = '/js/services.js';
             servicesJS.async = false;
             servicesJS.onload = () => {
-                // Direct initialization of service menus and sections
-                const serviceMenus = document.querySelectorAll('.service-list, .services-menu');
-                if (serviceMenus.length) {
-                    serviceMenus.forEach(menu => {
-                        menu.style.opacity = '1';
-                        menu.style.transform = 'none';
-                        menu.style.visibility = 'visible';
-                        menu.style.display = 'block';
-                    });
-                    
-                    // Make sure list items are visible too
-                    document.querySelectorAll('.service-list li').forEach(item => {
-                        item.style.opacity = '1';
-                        item.style.transform = 'none';
-                    });
-                } 
+                // Initialize services menu if animation not in progress
+                if (window.ServicesMenuManager && !window.ServicesMenuManager.animationInProgress) {
+                    window.ServicesMenuManager.init();
+                }
                 
-                // Trigger DOMContentLoaded for other scripts
-                const event = new Event('DOMContentLoaded');
-                document.dispatchEvent(event);
+                // Make service sections visible after a delay
+                setTimeout(() => {
+                    // Initialize service content sections
+                    const serviceSections = document.querySelectorAll('.service-hero-section, .service-content-section');
+                    if (serviceSections.length) {
+                        serviceSections.forEach(section => {
+                            section.style.opacity = '1';
+                            section.style.visibility = 'visible';
+                        });
+                    }
+                    
+                    // Trigger DOMContentLoaded for other scripts
+                    document.dispatchEvent(new Event('DOMContentLoaded'));
+                }, 800);
             };
             document.head.appendChild(servicesJS);
         },
@@ -172,8 +190,10 @@ export default {
                 { src: 'https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js', key: 'bootstrap', dependencies: ['jquery'] },
                 { src: '/js/partial/static.js', key: 'static', dependencies: ['jquery'] },
                 // { src: '/js/services.js', key: 'services-extra', dependencies: ['jquery', 'services'] },
-                { src: '/js/partial/services-section.js', key: 'services', dependencies: ['jquery'] },
-                { src: '/js/partial/header.js', key: 'header', dependencies: ['jquery'] },
+                { src: '/js/partial/services-menu-manager.js', key: 'services-menu-manager', dependencies: ['jquery'] },
+                { src: '/js/partial/header-image-manager.js', key: 'header-image-manager', dependencies: ['jquery'] },
+                { src: '/js/partial/services-section.js', key: 'services', dependencies: ['jquery', 'services-menu-manager'] },
+                { src: '/js/partial/header.js', key: 'header', dependencies: ['jquery', 'header-image-manager'] },
                 { src: '/js/all.js', key: 'all', dependencies: ['jquery'] }
             ];
             

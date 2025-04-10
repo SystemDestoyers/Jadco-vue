@@ -21,7 +21,7 @@
                 </h1>
                 
                 <!-- Services Menu -->
-                <div class="services-menu" :class="{ 'active': isServicePage }">
+                <div class="services-menu">
                     <h3>SERVICES</h3>
                     <ul class="service-list">
                         <li>
@@ -133,7 +133,8 @@ export default {
         return {
             currentSlide: 0,
             carousel: null,
-            headerImage: '/images/Header/01_EDU_Home.jpg'
+            headerImage: '/images/Header/01_EDU_Home.jpg',
+            servicesMenuInitialized: false
         };
     },
     computed: {
@@ -188,10 +189,51 @@ export default {
             } else if (this.$route.path.includes('/services/training-and-professional-development')) {
                 this.headerImage = '/images/01_Training_Header.jpg';
             }
+            
+            // Reset and replay the header image animation on service page navigation
+            this.$nextTick(() => {
+                this.animateHeaderImage();
+            });
+        },
+        animateHeaderImage() {
+            const headerImage = document.querySelector('.header-image');
+            const staticImage = document.querySelector('.static-header-image');
+            
+            if (!headerImage) return;
+            
+            // Only animate when switching between service pages (not on initial load)
+            if (this.isServicePage && staticImage) {
+                // Remove the animate class
+                headerImage.classList.remove('animate');
+                
+                // Force a reflow to restart the animation
+                void headerImage.offsetWidth;
+                
+                // Add the animate class back after a short delay
+                setTimeout(() => {
+                    headerImage.classList.add('animate');
+                }, 10);
+            }
+        },
+        initServicesMenu() {
+            // Use the centralized services menu manager
+            if (window.ServicesMenuManager) {
+                window.ServicesMenuManager.init();
+                this.servicesMenuInitialized = true;
+                return;
+            }
         }
     },
     mounted() {
         this.updateHeaderImage();
+        
+        // Load the services menu manager first
+        const managerScript = document.createElement('script');
+        managerScript.src = '/js/partial/services-menu-manager.js';
+        managerScript.onload = () => {
+            setTimeout(this.initServicesMenu, 100);
+        };
+        document.head.appendChild(managerScript);
         
         // Initialize carousel with Bootstrap
         if (this.isHomePage) {
@@ -219,9 +261,36 @@ export default {
             }, 1000);
         }
     },
+    updated() {
+        // Re-check services menu initialization
+        if (!this.servicesMenuInitialized) {
+            this.initServicesMenu();
+        }
+    },
     watch: {
         $route() {
             this.updateHeaderImage();
+            
+            // Reset services menu manager on route change
+            if (window.resetServicesMenuManager) {
+                window.resetServicesMenuManager();
+            }
+            
+            this.servicesMenuInitialized = false; // Reset initialization flag
+            
+            // Re-initialize services menu with a short delay
+            setTimeout(this.initServicesMenu, 200);
+        },
+        // Watch specifically for changes in the service path segment
+        '$route.path': function(newPath, oldPath) {
+            // Only trigger animation when moving between service pages
+            if (newPath.includes('/services/') && oldPath.includes('/services/') && newPath !== oldPath) {
+                // Wait for DOM to update with new image
+                this.$nextTick(() => {
+                    // Force header image animation to replay
+                    this.animateHeaderImage();
+                });
+            }
         }
     }
 };
