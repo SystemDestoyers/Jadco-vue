@@ -357,6 +357,47 @@
 ## [Unreleased]
 
 ### Added
+- Made social links and copyright display as full width blocks on mobile screens
+- Added styles to center social links on mobile for better appearance
+- Modified end-footer row to use column direction on mobile screens
+- Imported responsive.css directly in the App.vue component using the style tag
+
+### Fixed
+- Fixed footer display on mobile by overriding flex container settings (d-flex, justify-content-between, align-items-center)
+- Applied !important flags to ensure flex settings are properly overridden on mobile screens
+- Ensured social links and copyright each occupy their own full-width line on small screens
+- Improved social links layout on mobile by placing icons beside text with inline-flex display
+- Added proper spacing between social icon and text with margin-right: 8px
+- Updated responsive CSS selectors to target both Blade template and Vue component elements
+- Ensured consistent header styling between traditional and Vue-based layouts
+- Unified service-list and services-menu styling for consistent appearance across all menu components
+- Added comprehensive styling for service list links and icons to maintain UI consistency
+- Fixed text overflow in head-content by adding proper word wrapping, width constraints, and padding
+- Disabled white-space: nowrap in service-content-wrapper to prevent text overflow on mobile
+- Updated service-item column classes in Vue components from col-md-3/7/12 to col-3/9/12 for better mobile layout
+- Enhanced active service description styling with optimized font size, line height, and padding
+
+### Changed
+- Removed educational services section from mobile view for simplified UI
+- Reduced page length on mobile by hiding #educational-section and .educational-services
+- Streamlined mobile experience by focusing on core content
+- Adjusted contact section spacing on mobile: removed top padding and set consistent bottom margin of 30px
+- Improved contact section visual hierarchy on mobile with tighter spacing
+- Set .contact-section .let-talk font-weight to 400 for better readability on mobile screens
+- Enhanced main-heading with backdrop-filter blur effect and text shadow for better readability
+- Made main-heading overflow visible to prevent text clipping on mobile devices
+- Set heading-text top position to 35px for better placement in mobile view
+- Fixed left column height to 453px for consistent mobile display
+- Modified educational-services display rule to only hide in Blade templates, not Vue components
+- Added data-vue-app attribute to body when Vue app is mounted for targeted CSS
+- Optimized service content spacing by removing top/bottom padding from service-text-content
+- Improved service list appearance by setting padding-bottom to 0 for service-hero-section list items
+- Removed padding from service-hero-section rows for tighter mobile layout
+- Standardized all service descriptions to use consistent styling (font-size: 1.3rem, line-height: 1.7rem, padding: 8px)
+
+## [1.0.0] - 2023-08-01
+
+### Added
 - Modern, responsive UI with optimized mobile experience
 - Custom animations and transitions for smoother user experience
 - High-quality imagery and gradients across the site
@@ -365,9 +406,6 @@
 - Advanced header animations with custom entry/exit effects
 - Multi-level scrolling effects for depth and engagement
 - Parallax image effects in the about section
-- Made social links and copyright display as full width blocks on mobile screens
-- Added styles to center social links on mobile for better appearance
-- Modified end-footer row to use column direction on mobile screens
 
 ### Fixed
 - Fixed heading-text animation cycling issue in header carousel:
@@ -407,24 +445,6 @@
 ### Changed
 - Increased the scroll indicator maximum height from 50px to 60px for better visual feedback
 - Removed right-text class and its CSS styling from service pages for cleaner structure
-
-### Fixed
-- Fixed footer display on mobile by overriding flex container settings (d-flex, justify-content-between, align-items-center)
-- Applied !important flags to ensure flex settings are properly overridden on mobile screens
-- Ensured social links and copyright each occupy their own full-width line on small screens
-- Improved social links layout on mobile by placing icons beside text with inline-flex display
-- Added proper spacing between social icon and text with margin-right: 8px
-
-### Changed
-- Removed educational services section from mobile view for simplified UI
-- Reduced page length on mobile by hiding #educational-section and .educational-services
-- Streamlined mobile experience by focusing on core content
-- Adjusted contact section spacing on mobile: removed top padding and set consistent bottom margin of 30px
-- Improved contact section visual hierarchy on mobile with tighter spacing
-- Set .contact-section .let-talk font-weight to 400 for better readability on mobile screens
-
-## [1.0.0] - 2023-08-01
-- Initial release of JADCO website with core functionality 
 
 ## [1.2.0] - July 2025
 

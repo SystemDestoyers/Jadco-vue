@@ -7,15 +7,15 @@
                     <div class="educational-services sub-section">                
                         <div class="service-item mt-4">
                             <div class="row">
-                                <div class="col-md-3">
+                                <div class="col-3">
                                     <h3 class="service-num">01</h3>
                                 </div>
-                                <div class="col-md-7 head-content">
+                                <div class="col-9 head-content">
                                     <div class="service-content-wrapper">
                                         <h4 class="service-title">Fellowship, Internship and Work Experience</h4>
                                     </div>
                                 </div>
-                                <div class="col-md-12">
+                                <div class="col-12">
                                     <p class="service-desc">
                                         For a new talented and future skilled generation, we draw the
                                         map and open the door for understanding the contemporary workplace and
@@ -59,15 +59,15 @@
                     <div class="educational-services sub-section">                
                         <div class="service-item mt-4">
                             <div class="row">
-                                <div class="col-md-3">
+                                <div class="col-3">
                                     <h3 class="service-num">02</h3>
                                 </div>
-                                <div class="col-md-7 head-content">
+                                <div class="col-9 head-content">
                                     <div class="service-content-wrapper">
                                         <h4 class="service-title">Technical and Vocational Training and Education (TVTE)</h4>
                                     </div>
                                 </div>
-                                <div class="col-md-12">
+                                <div class="col-12">
                                     <p class="service-desc">
                                         Studying overseas at leading colleges that provide students
                                         with academic, technical skills, Knowledge, career training necessary to succeed
@@ -119,15 +119,15 @@
                     <div class="educational-services sub-section">                
                         <div class="service-item mt-4">
                             <div class="row">
-                                <div class="col-md-3">
+                                <div class="col-3">
                                     <h3 class="service-num">03</h3>
                                 </div>
-                                <div class="col-md-7 head-content">
+                                <div class="col-9 head-content">
                                     <div class="service-content-wrapper">
                                         <h4 class="service-title">Online Professional Programs</h4>
                                     </div>
                                 </div>
-                                <div class="col-md-12">
+                                <div class="col-12">
                                     <p class="service-desc">
                                         Flexible learning for students and busy professionals with
                                         high quality teaching, blended learning activities with experts' instructors,

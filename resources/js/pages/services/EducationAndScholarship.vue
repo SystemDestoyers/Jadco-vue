@@ -7,15 +7,15 @@
                     <div class="educational-services sub-section">
                         <div class="service-item mt-4">
                             <div class="row">
-                                <div class="col-md-3">
+                                <div class="col-3">
                                     <h3 class="service-num">01</h3>
                                 </div>
-                                <div class="col-md-7 head-content">
+                                <div class="col-9 head-content">
                                     <div class="service-content-wrapper">
                                         <h4 class="service-title">Scholarship Programs Management</h4>
                                     </div>
                                 </div>
-                                <div class="col-md-12">
+                                <div class="col-12">
                                     <p class="service-desc">
                                         With more than 20 years in managing scholarship programs
                                         with several Saudi governmental sponsors, we are experts of providing full and
@@ -58,15 +58,15 @@
                     <div class="educational-services sub-section">
                         <div class="service-item mt-4">
                             <div class="row">
-                                <div class="col-md-3">
+                                <div class="col-3">
                                     <h3 class="service-num">02</h3>
                                 </div>
-                                <div class="col-md-7 head-content">
+                                <div class="col-9 head-content">
                                     <div class="service-content-wrapper">
                                         <h4 class="service-title">STEM Education and Innovation Centers</h4>
                                     </div>
                                 </div>
-                                <div class="col-md-12">
+                                <div class="col-12">
                                     <p class="service-desc">
                                         Education is changing, STEM (Since, Technology, Engineering
                                         and Math), is the pathway to reshaping the ecosystem to rethinking
@@ -121,15 +121,15 @@
                     <div class="educational-services sub-section">
                         <div class="service-item mt-4">
                             <div class="row">
-                                <div class="col-md-3">
+                                <div class="col-3">
                                     <h3 class="service-num">03</h3>
                                 </div>
-                                <div class="col-md-7 head-content">
+                                <div class="col-9 head-content">
                                     <div class="service-content-wrapper">
                                         <h4 class="service-title">K-12 International Schools</h4>
                                     </div>
                                 </div>
-                                <div class="col-md-12">
+                                <div class="col-12">
                                     <p class="service-desc">
                                         JADCO in partnership with the 1st international School
                                         Services Worldwide with more than 60 years of experience with track records,

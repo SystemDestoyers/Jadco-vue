@@ -407,8 +407,10 @@
 @media (max-width: 576px) {
     /* 
      * Header Elements - Mobile Specific Adjustments
+     * Applied to both Blade templates and Vue components
      */
-    .main-heading {
+    .main-heading,
+    .heading .main-heading {
         font-size: 1.7rem;
         padding: 1rem;
         height: 11%;
@@ -423,6 +425,16 @@
         /* box-shadow: 0 2px 10px rgb(0 0 0); */
         /* text-shadow: 0 1px 1px rgba(255, 255, 255, 0.5); */
         color: #ffffff;
+        overflow: visible;
+    }
+    
+    .heading .heading-text {
+        top: 0px;
+    }
+    
+    .heading .left-col {
+        height: 453px !important;
+        padding-top: 15px;
     }
     
     /* Contact Section - Mobile Adjustments */
@@ -438,34 +450,39 @@
         font-weight: 400;
     }
     
-    /* Hide the educational services section on mobile */
-    #educational-section, 
-    .educational-services {
+    /* Hide the educational services section on mobile - but ONLY in Blade templates, not Vue */
+    body:not([data-vue-app]) #educational-section, 
+    body:not([data-vue-app]) .educational-services {
         display: none;
     }
     
     /* 
      * Services Menu - Mobile Optimization
+     * Applied to both Blade templates and Vue components
      */
-    .heading .services-menu {
-        margin-top: 1.2rem;
+    .heading .services-menu,
+    .services-menu {
+        margin-top: 0;
     }
     
-    .heading .services-menu h3 {
-        font-size: 1.75rem;
+    .heading .services-menu h3,
+    .services-menu h3 {
         margin: 0;
-        font-weight: 600;
+        font-size: 2.4rem;
+        font-weight: 400;
     }
     
-    .heading .service-list li {
-        font-size: 1.2rem;
+    .heading .service-list li,
+    .service-list li {
+        font-size: 1.2rem !important;
         font-weight: 400;
         padding-bottom: 0.6rem;
     }
     
     /* Button Optimization for Mobile */
-    .heading .services-menu .btn-talk {
-        margin-top: 0;
+    .heading .services-menu .btn-talk,
+    .services-menu .btn-talk {
+        margin-top: 5px;
     }
     
     /* Carousel Navigation */
@@ -736,5 +753,39 @@
     
     .service-stack-item .row {
         flex-direction: column;
+    }
+
+
+    /* Fix service content word wrapping */
+    .service-item .service-content-wrapper {
+        white-space: normal !important;
+        /* overflow-wrap: break-word; */
+        /* word-wrap: break-word; */
+        /* word-break: break-word; */
+        margin-left: 15px;
+    }
+    
+    /* Active service description styling */
+    .service-item.active .service-desc,
+    .service-desc,
+    .service-description {
+        font-size: 1.3rem !important;
+        margin-bottom: 0;
+        line-height: 1.7rem;
+        padding: 8px;
+    }
+    
+    /* Service Content Adjustments */
+    .service-text-content {
+        padding-top: 0 !important;
+        padding-bottom: 0 !important;
+    }
+    
+    .service-hero-section .service-list li {
+        padding-bottom: 0 !important;
+    }
+    
+    section.service-hero-section .row {
+        padding: 0 !important;
     }
 }

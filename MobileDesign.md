@@ -108,6 +108,22 @@ The site employs the following breakpoints for responsive design:
 
 ## Recent Mobile Updates
 
+- **October 19, 2023**: Standardized all service descriptions to use consistent styling regardless of active state
+- **October 19, 2023**: Removed padding from service-hero-section rows for tighter layout
+- **October 19, 2023**: Removed padding from service-text-content elements and set service-hero-section list item padding-bottom to 0
+- **October 19, 2023**: Refined active service descriptions with 1.3rem font size, 1.7rem line height, and 8px padding
+- **October 19, 2023**: Expanded head-content width from col-7 to col-9 for better text display in service items
+- **October 19, 2023**: Updated Vue service components to use col-3/9/12 instead of col-md-3/7/12 for better mobile layout
+- **October 19, 2023**: Disabled white-space: nowrap in service-content-wrapper to prevent text overflow on mobile
+- **October 19, 2023**: Fixed head-content text overflow with proper word wrapping and width constraints
+- **October 19, 2023**: Modified educational-services display rule to show in Vue components while hiding in Blade templates
+- **October 19, 2023**: Added data-vue-app attribute to body when Vue app is mounted for targeted CSS rules
+- **October 19, 2023**: Set fixed height (453px) for .heading .left-col on mobile for consistent layout
+- **October 19, 2023**: Made main-heading overflow visible to prevent text clipping on mobile
+- **October 19, 2023**: Set .heading .heading-text top position to 35px for better placement
+- **October 19, 2023**: Updated header styles in Vue components to match existing mobile optimizations
+- **October 19, 2023**: Added backdrop-filter and text shadow to main-heading for better readability on mobile
+- **October 19, 2023**: Added responsive.css import to Vue application for consistent mobile styling
 - **October 19, 2023**: Increased contact section .let-talk font-weight to 400 for better readability on mobile
 - **October 19, 2023**: Removed contact-section top padding and set contact-top margin-bottom to 30px for better mobile spacing
 - **October 19, 2023**: Removed educational services section from mobile view for cleaner UI
