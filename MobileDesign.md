@@ -46,8 +46,25 @@ The site employs the following breakpoints for responsive design:
 - Set "Let's Talk" button margin-top to 0 for tighter spacing in mobile view
 
 ### Services Section
-- Service images height reduced to 400px on mobile
-- Service content padding and spacing optimized for smaller screens
+- Optimized service description text:
+  - Set font-size to 1.4rem for better readability on mobile
+  - Applied line-height of 1.4 for improved legibility
+  - Added 30px bottom margin for spacing
+  - Set minimum height of 150px to maintain consistent layout
+- Repositioned service title elements:
+  - Moved service-number and service-title to the top of the section above both columns
+  - Added semi-transparent white background with blur effect for better readability
+  - Positioned as an absolute element with z-index to overlay the image
+  - Maintained horizontal layout with service-number on left, service-title on right
+  - Added padding and border-radius for a polished appearance
+- Reorganized column order for mobile view:
+  - Image column (col-lg-6) now appears first (order: 1)
+  - Content column appears below the image (order: 2)
+  - Added 20px margin-top to content column for proper spacing
+  - Applied flex-direction: column to service rows
+- Service images height set to 457px for consistent display
+- Service content padding reduced to 0 for better fit on small screens
+- Added 1rem top margin to service content for better spacing
 - Simplified layout with vertical stacking of content
 
 ### About Section
@@ -91,6 +108,20 @@ The site employs the following breakpoints for responsive design:
 
 ## Recent Mobile Updates
 
+- **October 19, 2023**: Increased contact section .let-talk font-weight to 400 for better readability on mobile
+- **October 19, 2023**: Removed contact-section top padding and set contact-top margin-bottom to 30px for better mobile spacing
+- **October 19, 2023**: Removed educational services section from mobile view for cleaner UI
+- **October 19, 2023**: Improved social links layout by placing icons beside text with inline-flex and proper spacing
+- **October 19, 2023**: Fixed footer layout by overriding flex container settings to ensure proper stacking on mobile
+- **October 19, 2023**: Set social-links and copyright to 100% width and block display on mobile screens for better layout
+- **October 19, 2023**: Added column flex-direction to end-footer row to stack elements vertically on mobile
+- **October 19, 2023**: Set service-buttons margin-top to 0 in mobile view for consistent spacing
+- **October 19, 2023**: Optimized service description font size and line height for better mobile readability
+- **October 19, 2023**: Enhanced service-title display with inline-flex for better alignment beside service-number
+- **October 19, 2023**: Set services-section main-content padding to 0 for better mobile spacing
+- **October 19, 2023**: Reorganized service title layout - service number on left, section title on right with explicit ordering
+- **October 19, 2023**: Set service image height to 457px for consistent mobile display
+- **October 19, 2023**: Reorganized services section column order on mobile - image first, content below
 - **October 19, 2023**: Redesigned main-heading as an overlay on carousel with semi-transparent background and blur effect
 - **October 19, 2023**: Increased service list item font-weight to 400 for better readability on mobile
 - **October 19, 2023**: Increased services menu heading font-weight to 600 for better visibility on mobile

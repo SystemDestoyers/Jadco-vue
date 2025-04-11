@@ -34,6 +34,20 @@
   - Enhanced with subtle box-shadow and text-shadow for depth
   - Improved readability with larger padding and strategic positioning
   - Optimized for better visual hierarchy on small screens
+- Reorganized services section for improved mobile experience:
+  - Changed column order for better visual flow (image first, content second)
+  - Repositioned service titles (number and title) to the top of the section as an overlay
+  - Added semi-transparent background with blur effect to service titles for readability
+  - Used absolute positioning with z-index to properly layer elements
+  - Implemented flex-direction: column for stacked display
+  - Optimized service description with 1.4rem font size, 1.4 line-height, and consistent spacing
+  - Set service image height to 457px for consistent display
+  - Hid section-title and positioned service-title directly beside service-number
+  - Enhanced service-title with display: inline-flex for proper alignment beside number
+  - Set services-section main-content padding to 0 for full-width display
+  - Added proper spacing between image and content columns
+  - Optimized padding and margins for service content
+  - Simplified content layout for better readability on small screens
 
 ## [July 2025]
 
@@ -351,6 +365,9 @@
 - Advanced header animations with custom entry/exit effects
 - Multi-level scrolling effects for depth and engagement
 - Parallax image effects in the about section
+- Made social links and copyright display as full width blocks on mobile screens
+- Added styles to center social links on mobile for better appearance
+- Modified end-footer row to use column direction on mobile screens
 
 ### Fixed
 - Fixed heading-text animation cycling issue in header carousel:
@@ -390,6 +407,21 @@
 ### Changed
 - Increased the scroll indicator maximum height from 50px to 60px for better visual feedback
 - Removed right-text class and its CSS styling from service pages for cleaner structure
+
+### Fixed
+- Fixed footer display on mobile by overriding flex container settings (d-flex, justify-content-between, align-items-center)
+- Applied !important flags to ensure flex settings are properly overridden on mobile screens
+- Ensured social links and copyright each occupy their own full-width line on small screens
+- Improved social links layout on mobile by placing icons beside text with inline-flex display
+- Added proper spacing between social icon and text with margin-right: 8px
+
+### Changed
+- Removed educational services section from mobile view for simplified UI
+- Reduced page length on mobile by hiding #educational-section and .educational-services
+- Streamlined mobile experience by focusing on core content
+- Adjusted contact section spacing on mobile: removed top padding and set consistent bottom margin of 30px
+- Improved contact section visual hierarchy on mobile with tighter spacing
+- Set .contact-section .let-talk font-weight to 400 for better readability on mobile screens
 
 ## [1.0.0] - 2023-08-01
 - Initial release of JADCO website with core functionality 

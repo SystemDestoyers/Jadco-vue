@@ -66,6 +66,7 @@
     /* Service Images */
     .service-image {
         height: 800px;
+        margin-top: 110px;
     }
 
     /* About Section - Medium Desktop */
@@ -278,7 +279,7 @@
         margin-top: 0;
         margin-bottom: 3rem;
         height: auto;
-        min-height: 400px;
+        /* min-height: 400px; */
     }
     
     .about-image-wrapper {
@@ -406,9 +407,6 @@
 @media (max-width: 576px) {
     /* 
      * Header Elements - Mobile Specific Adjustments
-     * - Positioned as overlay on carousel with subtle background
-     * - Semi-transparent layered effect for better visual design
-     * - Improved readability with subtle text shadow
      */
     .main-heading {
         font-size: 1.7rem;
@@ -427,11 +425,27 @@
         color: #ffffff;
     }
     
+    /* Contact Section - Mobile Adjustments */
+    .contact-section {
+        padding-top: 0;
+    }
+    
+    .contact-top {
+        margin-bottom: 30px;
+    }
+    
+    .contact-section .let-talk {
+        font-weight: 400;
+    }
+    
+    /* Hide the educational services section on mobile */
+    #educational-section, 
+    .educational-services {
+        display: none;
+    }
+    
     /* 
      * Services Menu - Mobile Optimization
-     * - Zero margin for tighter layout on small screens
-     * - Adjusted heading and list text sizes
-     * - Better spacing and alignment for mobile display
      */
     .heading .services-menu {
         margin-top: 1.2rem;
@@ -512,10 +526,123 @@
         min-height: 350px;
     } */
 
+    /* Footer - Social Links and Copyright */
+    .social-links {
+        width: 100%;
+        display: block;
+        text-align: center;
+        margin-bottom: 15px;
+    }
+    
+    .social-link {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        margin: 5px 25px;
+    }
+    
+    .social-link i {
+        margin-right: 8px;
+    }
+    
+    .copyright {
+        width: 100%;
+        display: block;
+        text-align: center;
+        margin: 15px 0;
+    }
+    
+    .end-footer .row {
+        flex-direction: column;
+    }
+    
+    .end-footer .d-flex {
+        flex-direction: column !important;
+    }
+    
+    .end-footer .justify-content-between {
+        justify-content: center !important;
+    }
+    
+    .end-footer .align-items-center {
+        align-items: center !important;
+        margin-top: 10px;
+    }
+
     /* Service Images */
     .service-image {
         height: 400px;
-        min-height: 350px;
+        min-height: 400px;
+    }
+    
+    /* Service Section Layout - Title at Top */
+    .service-stack-item .row {
+        flex-direction: column;
+    }
+    
+    .service-content .title {
+        position: absolute;
+        top: -525px;
+        left: 10px;
+        z-index: 5;
+        display: flex
+;
+        flex-direction: row;
+        align-items: center;
+        margin-bottom: 30px;
+        width: 100%;
+        /* background-color: rgba(255, 255, 255, 0.8); */
+        padding: 10px;
+        /* backdrop-filter: blur(2px); */
+        border-radius: 4px;
+    }
+    
+    .service-content .service-number {
+        font-size: 5.5rem;
+        margin-right: 6px;
+        margin-bottom: 0;
+        line-height: 1;
+        order: 1;
+        opacity: 1;
+    }
+    
+    .service-content .section-title {
+        display: none;
+    }
+    
+    .service-content .service-title {
+        font-size: 1.9rem;
+        margin-bottom: 0;
+        line-height: 1.2;
+        order: 2;
+        display: inline-flex;
+        position: absolute;
+        top: -503px;
+        left: 130px;
+        color: var(--dark-color);
+        font-weight: 600;
+    }
+    
+    .service-stack-item .col-lg-6:first-child {
+        order: 1;
+        order: 1;
+        width: 100%;
+        height: 483px !important;
+        margin-top: 15px;
+    }
+    
+    .service-stack-item .col-lg-6:last-child {
+        order: 2;
+        margin-top: 20px; /* Add space below the image */
+    }
+    
+    .service-content {
+        margin-top: 1rem;
+        padding: 0 1rem;
+    }
+    
+    .services-section .main-content {
+        padding: 0;
     }
 
     /* About Section - Mobile */
@@ -591,6 +718,23 @@
     }
 
     .about-image-wrapper {
-        height: auto;
+        height: 290px;
+    }
+
+    /* Service Section Layout - Mobile-specific styles */
+    .main-content .service-buttons {
+        margin-top: 0;
+    }
+    
+    .main-content .service-description {
+        font-size: 1.4rem;
+        line-height: 1.4;
+        margin-bottom: 10px;
+        min-height: 150px;
+        margin-top: 20px;
+    }
+    
+    .service-stack-item .row {
+        flex-direction: column;
     }
 }
