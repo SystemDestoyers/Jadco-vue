@@ -404,18 +404,54 @@
    ========================================== */
 
 @media (max-width: 576px) {
-    /* Header Elements */
+    /* 
+     * Header Elements - Mobile Specific Adjustments
+     * - Positioned as overlay on carousel with subtle background
+     * - Semi-transparent layered effect for better visual design
+     * - Improved readability with subtle text shadow
+     */
     .main-heading {
-        font-size: 2rem;
-        padding-top: 0.5rem;
+        font-size: 1.7rem;
+        padding: 1rem;
+        height: 11%;
+        position: absolute;
+        z-index: 10;
+        /* background-color: rgba(255, 255, 255, 0.4); */
+        /* backdrop-filter: blur(2px); */
+        width: 80%;
+        left: 9%;
+        top: 36%;
+        /* border-radius: 15px; */
+        /* box-shadow: 0 2px 10px rgb(0 0 0); */
+        /* text-shadow: 0 1px 1px rgba(255, 255, 255, 0.5); */
+        color: #ffffff;
     }
     
-    .services-menu h3 {
+    /* 
+     * Services Menu - Mobile Optimization
+     * - Zero margin for tighter layout on small screens
+     * - Adjusted heading and list text sizes
+     * - Better spacing and alignment for mobile display
+     */
+    .heading .services-menu {
+        margin-top: 1.2rem;
+    }
+    
+    .heading .services-menu h3 {
         font-size: 1.75rem;
+        margin: 0;
+        font-weight: 600;
     }
     
-    .service-list li {
-        font-size: 1.25rem;
+    .heading .service-list li {
+        font-size: 1.2rem;
+        font-weight: 400;
+        padding-bottom: 0.6rem;
+    }
+    
+    /* Button Optimization for Mobile */
+    .heading .services-menu .btn-talk {
+        margin-top: 0;
     }
     
     /* Carousel Navigation */
@@ -462,14 +498,19 @@
     /* Header Images */
     .header-image {
         height: 400px;
-        margin-top: 30px; /* Add space for navbar dropdown */
+        margin-bottom: 0;
     }
     
-    #headerCarousel, 
+    /* Header Main Carousel - Mobile Adjustments */
+    .header-main-carousel {
+        margin-bottom: 0 !important;
+    }
+    
+    /* #headerCarousel, 
     #headerCarousel .carousel-inner, 
     #headerCarousel .carousel-item {
         min-height: 350px;
-    }
+    } */
 
     /* Service Images */
     .service-image {
@@ -500,7 +541,8 @@
     }
     
     .about-text {
-        font-size: 1.5rem;
+        font-size: 1.4rem;
+        line-height: 1.2;
     }
     
     .about-image-container {
@@ -511,9 +553,10 @@
     }
     
     .about-image-main {
-        height: 220px;
-        width: 93%;
+        height: 230px;
+        width: 85%;
         float: right;
+        overflow: hidden;
     }
 
     .about-image-main img {
@@ -523,7 +566,7 @@
     
     .about-image-secondary {
         width: 80%;
-        height: 180px;
+        height: 192px;
         top: -30px;
         position: relative;
         overflow: visible;
@@ -534,8 +577,8 @@
         width: 50%;
         height: 100%;
         object-fit: fill;
-        left: -40px;
-        top: 68px;
+        left: -208px;
+        top: 62px;
     }
 
     .about-description {
@@ -548,6 +591,6 @@
     }
 
     .about-image-wrapper {
-        height: 315px;
+        height: auto;
     }
 }
