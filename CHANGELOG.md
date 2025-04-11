@@ -394,6 +394,8 @@
 - Improved service list appearance by setting padding-bottom to 0 for service-hero-section list items
 - Removed padding from service-hero-section rows for tighter mobile layout
 - Standardized all service descriptions to use consistent styling (font-size: 1.3rem, line-height: 1.7rem, padding: 8px)
+- Adjusted about-image-secondary positioning on about page (-45px left instead of -208px) for better visibility
+- Completely repositioned about-image-secondary in about page (width: 80%, height: 192px, top: -38px, left: 361px)
 
 ## [1.0.0] - 2023-08-01
 

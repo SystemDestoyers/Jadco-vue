@@ -724,6 +724,17 @@
         left: -208px;
         top: 62px;
     }
+    
+    /* About page specific styles (different from homepage) */
+    .sub-page .about-image-secondary {
+        width: 80%;
+        top: -38px;
+        left: 361px;
+    }
+    
+    .sub-page .about-image-secondary img {
+        left: -45px;
+    }
 
     .about-description {
         font-size: 1rem;

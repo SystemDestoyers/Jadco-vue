@@ -108,6 +108,8 @@ The site employs the following breakpoints for responsive design:
 
 ## Recent Mobile Updates
 
+- **October 19, 2023**: Completely repositioned about-image-secondary in about page (left: 361px, top: -38px)
+- **October 19, 2023**: Adjusted about-image-secondary positioning specifically for about page with left: -45px
 - **October 19, 2023**: Standardized all service descriptions to use consistent styling regardless of active state
 - **October 19, 2023**: Removed padding from service-hero-section rows for tighter layout
 - **October 19, 2023**: Removed padding from service-text-content elements and set service-hero-section list item padding-bottom to 0
