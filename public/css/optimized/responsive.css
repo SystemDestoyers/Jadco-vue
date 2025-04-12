@@ -422,14 +422,14 @@
     .main-heading,
     .heading .main-heading {
         font-size: 1.7rem;
-        padding: 1rem;
+        padding: 0;
         height: 11%;
         position: absolute;
         z-index: 10;
         /* background-color: rgba(255, 255, 255, 0.4); */
         /* backdrop-filter: blur(2px); */
         width: 80%;
-        left: 9%;
+        left: 8%;
         top: 36%;
         /* border-radius: 15px; */
         /* box-shadow: 0 2px 10px rgb(0 0 0); */
@@ -438,8 +438,15 @@
         overflow: visible;
     }
     
+    /* Adjust main heading position for Vue subpages */
+    body[data-vue-app]:not([data-route="/"]) .main-heading,
+    body[data-vue-app]:not([data-route="/"]) .heading .main-heading {
+        top: 34%;
+        font-size: 1.6rem;
+    }
+    
     .heading .heading-text {
-        top: 0px;
+        top: -21px;
     }
     
     .heading .left-col {
@@ -473,6 +480,12 @@
     .heading .services-menu,
     .services-menu {
         margin-top: 0;
+    }
+    
+    /* Vue-specific services menu adjustment */
+    body[data-vue-app] .heading .services-menu,
+    body[data-vue-app] .services-menu {
+        margin-top: 2rem;
     }
     
     .heading .services-menu h3,
@@ -538,8 +551,21 @@
     
     /* Header Images */
     .header-image {
-        height: 38vh;
+        height: 100%;
         margin-bottom: 0;
+    }
+    
+    /* Header carousel size */
+    #headerCarousel,
+    #headerCarousel .carousel-inner,
+    #headerCarousel .carousel-item {
+        height: 40vh;
+        min-height: 100%;
+    }
+    
+    /* Subpage header height */
+    .static-header-image {
+        height: 30vh;
     }
     
     /* Static header image fix */
