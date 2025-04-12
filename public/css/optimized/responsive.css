@@ -405,6 +405,16 @@
    ========================================== */
 
 @media (max-width: 576px) {
+    /* Mobile viewport height fix */
+    html {
+        height: -webkit-fill-available;
+    }
+    
+    body {
+        min-height: 100vh;
+        min-height: -webkit-fill-available;
+    }
+    
     /* 
      * Header Elements - Mobile Specific Adjustments
      * Applied to both Blade templates and Vue components
@@ -509,7 +519,7 @@
     
     .navbar {
         min-height: 80px;
-        padding: 1rem 0;
+        padding: 0;
     }
     
     .navbar-collapse {
@@ -528,8 +538,13 @@
     
     /* Header Images */
     .header-image {
-        height: 400px;
+        height: 350px;
         margin-bottom: 0;
+    }
+    
+    /* Static header image fix */
+    .static-header-image img {
+        min-height: 100%;
     }
     
     /* Header Main Carousel - Mobile Adjustments */
