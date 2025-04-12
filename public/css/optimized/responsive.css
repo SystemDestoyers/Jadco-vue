@@ -482,7 +482,7 @@
     /* Button Optimization for Mobile */
     .heading .services-menu .btn-talk,
     .services-menu .btn-talk {
-        margin-top: 5px;
+        margin-top: 1rem;
     }
     
     /* Carousel Navigation */
@@ -678,7 +678,7 @@
     }
 
     .about-section .about-heading img {
-        width: 15.5rem;
+        width: 17.5rem;
         height: 3.8rem;
         left: 103px;
         top: 44px;
@@ -747,6 +747,17 @@
 
     .about-image-wrapper {
         height: 290px;
+    }
+
+    /* Sub-page margin fix */
+    .sub-page {
+        margin-top: 0;
+    }
+
+    /* Section padding reset */
+    section {
+        padding-top: 0;
+        padding-bottom: 0;
     }
 
     /* Service Section Layout - Mobile-specific styles */
