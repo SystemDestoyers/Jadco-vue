@@ -15,7 +15,7 @@
                     <span v-if="$route.path.includes('services/education-and-scholarship')" class="heading-text active">From Education and Training to Innovation</span>
                     <span v-if="$route.path.includes('services/ai-and-advanced-technologies')" class="heading-text active">The Latest AI and Technologies</span>
                     <span v-if="$route.path.includes('services/egaming-and-esport')" class="heading-text active">Innovative Efforts in Revolutionizing the eSport Industry</span>
-                    <span v-if="$route.path.includes('services/arts-and-entertainment')" class="heading-text active">Bringing the global Arts and Entertainment Events to town</span>
+                    <span v-if="$route.path.includes('services/arts-and-entertainment')" class="heading-text active">Bringing the Global Arts and Entertainment Events to town</span>
                     <span v-if="$route.path.includes('services/training-and-professional-development')" class="heading-text active">From Education and Training to Innovation</span>
                     <span v-if="!isHomePage && !$route.path.includes('about') && !$route.path.includes('services/')" class="heading-text active">JADCO Error page</span>
                 </h1>

@@ -29,20 +29,20 @@
             <!-- Dynamic Heading Text -->
             <h1 class="main-heading">
                 @if($isHomePage)
-                <span class="heading-text active" data-slide="0">From Education and Training to Innovation</span>
-                <span class="heading-text" data-slide="1">The Latest AI and Technologiess</span>
-                <span class="heading-text" data-slide="2">Innovative Efforts in Revolutionizing the eSport Industry</span>
-                <span class="heading-text" data-slide="3">Bringing the global Arts and Entertainment Events to town</span>
+                <span class="heading-text active" data-slide="0">FROM EDUCATION AND TRAINING TO INNOVATION</span>
+                <span class="heading-text" data-slide="1">THE LATEST AI AND TECHNOLOGIES</span>
+                <span class="heading-text" data-slide="2">INNOVATIVE EFFORTS IN REVOLUTIONIZING THE ESPORT INDUSTRY</span>
+                <span class="heading-text" data-slide="3">BRINGING THE GLOBAL ARTS AND ENTERTAINMENT EVENTS TO TOWN</span>
                 @elseif(request()->is('about*'))
                 <span class="heading-text active">We Listen, design your vision and bring it to life... Let's talk</span>
                 @elseif(request()->is('services/education-and-scholarship*'))
                 <span class="heading-text active">FROM EDUCATION AND TRAINING TO INNOVATION</span>
                 @elseif(request()->is('services/ai-and-advanced-technologies*'))
-                <span class="heading-text active">The Latest AI and Technologies</span>
+                <span class="heading-text active">THE LATEST AI AND TECHNOLOGIES</span>
                 @elseif(request()->is('services/egaming-and-esport*'))
-                <span class="heading-text active">Innovative Efforts in Revolutionizing the eSport Industry</span>
+                <span class="heading-text active">INNOVATIVE EFFORTS IN REVOLUTIONIZING THE ESPORT INDUSTRY</span>
                 @elseif(request()->is('services/arts-and-entertainment*'))
-                <span class="heading-text active">Bringing the global Arts and Entertainment Events to town</span>
+                <span class="heading-text active">BRINGING THE GLOBAL ARTS AND ENTERTAINMENT EVENTS TO TOWN</span>
                 @elseif(request()->is('services/training-and-professional-development*'))
                 <span class="heading-text active">FROM EDUCATION AND TRAINING TO INNOVATION</span>
                 @else

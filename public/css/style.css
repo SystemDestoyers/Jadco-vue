@@ -1152,7 +1152,7 @@ section:after {
 
 .let-talk {
     font-size: 3.3rem;
-    font-weight: 600;
+    font-weight: 800;
     margin-bottom: 30px;
     color: var(--primary-color);
 }
@@ -1542,7 +1542,7 @@ textarea.form-control:focus {
     z-index: 1;
     float: right;
     opacity: 1;
-    /* No transitions or animations */
+    transition: transform 2s ease-out;
 }
 
 .about-image-main.animate {
@@ -1849,10 +1849,10 @@ textarea.form-control:focus {
     margin-bottom: 30px;
 }
 
-.about-image-main {
+/* .about-image-main {
     position: relative;
     transition: transform 0.5s ease-out;
-}
+} */
 
 .about-image-main img, 
 .about-image-secondary img {

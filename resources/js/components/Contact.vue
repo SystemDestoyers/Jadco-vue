@@ -52,7 +52,7 @@
 
                 <div class="col-lg-9">
                     <h3 class="contact-tagline">We Listen, design your vision and bring it to life...</h3>
-                    <h2 class="let-talk">Let's Talk.</h2>
+                    <h2 class="let-talk">LET'S TALK.</h2>
 
                     <div class="contact-form">
                         <form @submit.prevent="submitForm">
