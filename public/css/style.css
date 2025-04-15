@@ -226,7 +226,7 @@ a:hover {
 
 .main-heading {
     width: 100%;
-    font-size: 4.9rem;
+    font-size: 4rem;
     font-weight: 650;
     line-height: 1.26;
     text-align: left;
@@ -257,9 +257,7 @@ a:hover {
     width: 100%;
     /* text-transform: lowercase; */
 }
-.heading-text::first-letter {
-    text-transform: uppercase;
-}
+
 
 /* Active slide - base animation */
 .heading-text.active {
