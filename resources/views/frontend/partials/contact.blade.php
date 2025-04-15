@@ -19,11 +19,9 @@
                                 Riyadh 13519, Saudi Arabia.<br>
                                 <span class="contact-label">Tel:</span>
                                 <span class="contact-value">
-                                    <a href="https://wa.me/966123456789" class="whatsapp-link" target="_blank">+966
-                                        123456789</a></span><br>
+                                    <a href="https://wa.me/966115256175" class="whatsapp-link" target="_blank">(+966) 115256175</a></span><br>
                                 <span class="contact-label">Mobile:</span> <span class="contact-value"><a
-                                        href="https://wa.me/966123456789" class="whatsapp-link" target="_blank">+966
-                                        123456789</a></span><br>
+                                        href="https://wa.me/966569292048" class="whatsapp-link" target="_blank">(+966) 569292048</a></span><br>
                                 <span class="contact-label">Email: </span> 
                                 <span class="contact-value" style="padding-left: 5px">
                                     <a href="mailto:jad@jadco.co">jad@jadco.co</a>

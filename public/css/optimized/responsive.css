@@ -39,6 +39,9 @@
         width: 310px;
         height: 380px;
     }
+    .about-section .about-heading img {
+        left: 16rem;
+    }
 }
 
 /* ==========================================
@@ -86,6 +89,9 @@
     .about-image-main {
         width: 550px;
         height: 320px;
+    }
+    .about-section .about-heading img {
+        left: 200px;
     }
     
     .about-image-secondary {

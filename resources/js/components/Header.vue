@@ -6,10 +6,10 @@
             <div class="left-col col-lg-6 order-lg-1 order-2">
                 <!-- Dynamic Heading Text -->
                 <h1 class="main-heading">
-                    <span v-if="isHomePage" class="heading-text" :class="{ 'active': currentSlide === 0 }" data-slide="0">FROM EDUCATION AND TRAINING TO INNOVATION</span>
-                    <span v-if="isHomePage" class="heading-text" :class="{ 'active': currentSlide === 1 }" data-slide="1">ADVANCED AI TECHNOLOGIES FOR THE FUTURE</span>
-                    <span v-if="isHomePage" class="heading-text" :class="{ 'active': currentSlide === 2 }" data-slide="2">E-GAMING AND ESPORTS DEVELOPMENT</span>
-                    <span v-if="isHomePage" class="heading-text" :class="{ 'active': currentSlide === 3 }" data-slide="3">ARTS AND ENTERTAINMENT EXCELLENCE</span>
+                    <span v-if="isHomePage" class="heading-text" :class="{ 'active': currentSlide === 0 }" data-slide="0">From Education and Training to Innovation</span>
+                    <span v-if="isHomePage" class="heading-text" :class="{ 'active': currentSlide === 1 }" data-slide="1">The Latest AI and Technologies</span>
+                    <span v-if="isHomePage" class="heading-text" :class="{ 'active': currentSlide === 2 }" data-slide="2">Innovative Efforts in Revolutionizing the eSport Industry</span>
+                    <span v-if="isHomePage" class="heading-text" :class="{ 'active': currentSlide === 3 }" data-slide="3">Bringing the global Arts and Entertainment Events to town.</span>
                     
                     <span v-if="$route.path.includes('about')" class="heading-text active">We Listen, design your vision and bring it to life... Let's talk</span>
                     <span v-if="$route.path.includes('services/education-and-scholarship')" class="heading-text active">FROM EDUCATION AND TRAINING TO INNOVATION</span>

@@ -255,6 +255,10 @@ a:hover {
     visibility: hidden;
     transform: translateX(100px);
     width: 100%;
+    text-transform: lowercase;
+}
+.heading-text::first-letter {
+    text-transform: uppercase;
 }
 
 /* Active slide - base animation */
@@ -1148,9 +1152,9 @@ section:after {
 
 .let-talk {
     font-size: 3.3rem;
-    font-weight: lighter;
+    font-weight: 600;
     margin-bottom: 30px;
-    color: var(--dark-color);
+    color: var(--primary-color);
 }
 
 .location-title {
@@ -1445,7 +1449,7 @@ textarea.form-control:focus {
 
 .about-heading img {
     position: absolute;
-    left: 328px;
+    left: 14rem;
     width: 570px;
     height: 123px;
     max-width: 100%;

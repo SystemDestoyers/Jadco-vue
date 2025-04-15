@@ -29,10 +29,10 @@
             <!-- Dynamic Heading Text -->
             <h1 class="main-heading">
                 @if($isHomePage)
-                <span class="heading-text active" data-slide="0">FROM EDUCATION AND TRAINING TO INNOVATION</span>
-                <span class="heading-text" data-slide="1">ADVANCED AI TECHNOLOGIES FOR THE FUTURE</span>
-                <span class="heading-text" data-slide="2">E-GAMING AND ESPORTS DEVELOPMENT</span>
-                <span class="heading-text" data-slide="3">ARTS AND ENTERTAINMENT EXCELLENCE</span>
+                <span class="heading-text active" data-slide="0">From Education and Training to Innovation.</span>
+                <span class="heading-text" data-slide="1">The Latest AI and Technologies.</span>
+                <span class="heading-text" data-slide="2">Innovative Efforts in Revolutionizing the eSport Industry.</span>
+                <span class="heading-text" data-slide="3">Bringing the global Arts and Entertainment Events to town.</span>
                 @elseif(request()->is('about*'))
                 <span class="heading-text active">We Listen, design your vision and bring it to life... Let's talk</span>
                 @elseif(request()->is('services/education-and-scholarship*'))
