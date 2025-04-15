@@ -30,7 +30,7 @@
                             </li>
                             <li class="nav-item">
                                 <router-link class="nav-link about" 
-                                             :class="{ 'active': $route.name === 'about' }" 
+                                             :class="{ 'active': isAboutActive }" 
                                              to="/about">
                                     ABOUT
                                 </router-link>
@@ -56,6 +56,9 @@ export default {
     computed: {
         isHome() {
             return window.location.pathname === '/';
+        },
+        isAboutActive() {
+            return this.$route.name === 'about' || window.location.pathname === '/about';
         }
     },
     methods: {
@@ -89,4 +92,11 @@ export default {
         document.head.appendChild(script);
     }
 };
-</script> 
+</script>
+
+<style scoped>
+.nav-link.active {
+    color: var(--primary-color) !important;
+    font-weight: 500;
+}
+</style> 
