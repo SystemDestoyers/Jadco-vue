@@ -17,7 +17,6 @@ body {
     scrollbar-gutter: stable; /* Modern browsers: reserve space for scrollbar */
 }
 
-/* Common section styles */
 section {
     min-height: 100vh;
     padding: 80px 0;
@@ -28,19 +27,12 @@ section {
     overflow: hidden;
 }
 
-/* Section titles */
 .section-title {
     font-size: 4rem;
     font-weight: 400;
     margin-bottom: 30px;
 }
 
-/* Transition class for section animations */
-/* .section-animate {
-    animation: sectionFadeIn 1.5s ease forwards;
-} */
-
-/* Animation keyframes */
 @keyframes sectionFadeIn {
     0% {
         opacity: 0.8;
@@ -87,7 +79,6 @@ section {
     }
 }
 
-/* Common animation classes */
 .animate-element-left {
     animation: fadeInLeft 1.2s ease-out forwards;
     will-change: transform, opacity;
@@ -98,7 +89,6 @@ section {
     will-change: transform, opacity;
 }
 
-/* Vertical Scroll Indicator */
 .scroll-indicator-container {
     position: fixed;
     right: 50px;
@@ -133,7 +123,6 @@ section:first-of-type.is-active ~ .scroll-indicator-container,
     background-color: transparent;
 }
 
-/* Text label */
 .scroll-indicator-container::after {
     content: 'SCROLL';
     position: absolute;
@@ -148,7 +137,6 @@ section:first-of-type.is-active ~ .scroll-indicator-container,
     transition: all 0.3s ease;
 }
 
-/* Scroll indicator fill */
 .scroll-indicator {
     width: 100%;
     background-color: var(--primary-color);
@@ -160,7 +148,6 @@ section:first-of-type.is-active ~ .scroll-indicator-container,
     transition: height 0.1s ease-out;
 }
 
-/* Preloader Styles */
 .preloader {
     position: fixed;
     top: 0;
