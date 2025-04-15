@@ -1449,7 +1449,7 @@ textarea.form-control:focus {
 
 .about-heading img {
     position: absolute;
-    left: 14rem;
+    left: 19rem;
     width: 570px;
     height: 123px;
     max-width: 100%;
@@ -1458,7 +1458,7 @@ textarea.form-control:focus {
 
 .about-section .section-title {
     opacity: 1; /* Ensure text is visible by default */
-    position: relative;
+    position: relative; 
     z-index: 2;
 }
 
