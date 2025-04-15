@@ -161,7 +161,7 @@
                                     </div>
 
                                     <div class="main-content">
-                                        <h3 class="service-title">E-Gaming and Esports</h3>
+                                        <h3 class="service-title">eGaming and eSport</h3>
                                         <p class="service-description">
                                             JADCO and international partners in gaming and
                                             eSport, USA highly ranked universities in gaming and

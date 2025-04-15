@@ -255,7 +255,7 @@ a:hover {
     visibility: hidden;
     transform: translateX(100px);
     width: 100%;
-    text-transform: lowercase;
+    /* text-transform: lowercase; */
 }
 .heading-text::first-letter {
     text-transform: uppercase;
