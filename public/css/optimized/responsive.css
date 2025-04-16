@@ -51,7 +51,7 @@
 @media (max-width: 1400px) {
     /* Header Elements */
     .main-heading {
-        font-size: 3.5rem;
+        font-size: 3rem;
     }
     
     .services-menu h3 {
@@ -102,7 +102,9 @@
     
     .about-main-description {
         padding-top: 2rem;
+        font-size: 1rem;
     }
+
 }
 
 /* ==========================================

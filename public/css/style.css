@@ -1499,6 +1499,7 @@ textarea.form-control:focus {
 .about-main-description {
     opacity: 1; /* Ensure text is visible by default */
     margin-top: 2.5rem;
+    font-size: 1.6rem;
 }
 
 .about-main-description.animate {
@@ -1509,7 +1510,7 @@ textarea.form-control:focus {
     opacity: 1; /* Ensure text is visible by default */
     line-height: 1.6;
     color: var(--dark-color);
-    font-size: 1.6rem;
+    /* font-size: 1.6rem; */
 }
 
 .about-description.animate {
