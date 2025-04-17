@@ -24,23 +24,121 @@
     .container {
         max-width: 1400px !important;
     }
+    .section-title {
+        font-size: 3rem;
+    }
 
+    /* Header Elements */
+    .main-heading {
+        font-size: 3.5rem;
+        font-weight: 600;
+    }
+    
+    .heading .services-menu h3 {
+        font-size: 2.5rem;
+        font-weight: 400;
+        margin-bottom: 1rem;
+    }
+    
+    .service-list li {
+        font-size: 1.5rem;
+        font-weight: 200;
+        margin: 0.9rem 0;
+    }
+    
+    /* Navigation and Buttons */
+    .navbar-nav .nav-item {
+        padding-right: 7rem;
+    }
+    
+    .navbar-nav .nav-link {
+        font-size: 1.4rem;
+    }
+    
+    .btn-talk {
+        font-size: 1.4rem;
+        width: 270px;
+        height: 48px;
+    }
+    
+    .logo {
+        width: 200px;
+    }
+    
+    .about-text {
+        font-size: 2.2rem;
+        max-width: 1200px;
+    }
+    .about-main-description {
+        /* padding-top: 2rem; */
+        font-size: 1.4rem;
+    }
     /* About Section - Large Desktop */
     .about-section .section-title span {
         font-size: 9rem;
     }
     
+    .about-section .section-title {
+        font-size: 3.5rem;
+        font-weight: var(--font-weight-semibold);
+    }
+    
     .about-image-main {
-        width: 580px;
+        width: 550px;
         height: 340px;
     }
     
     .about-image-secondary {
-        width: 310px;
+        width: 280px;
         height: 380px;
     }
+    
     .about-section .about-heading img {
         left: 16rem;
+    }
+    
+    /* Service Content */
+    .service-content {
+        padding: 6% 0 0 6%;
+    }
+    
+    .service-content .service-number {
+        font-size: 6.5rem;
+        margin-bottom: 0;
+    }
+    .service-name {
+        font-size: 2rem;
+    }
+    .service-num {
+        font-size: 4.7rem;
+    }
+    .service-item.active .service-desc {
+        font-size: 1.5rem;
+    }
+    .service-toggle {
+        font-size: 2.5rem;
+    }
+    .service-title {
+        font-size: 2.6rem;
+    }
+    
+    .service-description {
+        font-size: 1.3rem;
+        margin-bottom: 1.5rem;
+    }
+    
+    .service-content .main-content {
+        font-size: 1.3rem;
+    }
+    
+    .service-buttons {
+        margin-top: 1rem;
+    }
+    
+    
+    .service-buttons .learn-more, .learn-more {
+        max-width: 200px;
+        font-size: 1.3rem;
     }
 }
 
@@ -114,9 +212,9 @@
         width: 450px;
         height: auto;
     }
-    .about-section .section-title {
+    /* .about-section .section-title {
         font-size: 3.2rem;
-    }
+    } */
     
     .about-image-secondary {
         width: 270px;

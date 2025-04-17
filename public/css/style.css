@@ -1460,8 +1460,8 @@ textarea.form-control:focus {
 .about-heading img {
     position: absolute;
     left: 19rem;
-    width: 570px;
-    height: 123px;
+    width: 31%;
+    max-height: 125px;
     max-width: 100%;
     transition: all var(--transition-speed) var(--transition-timing);
 }
