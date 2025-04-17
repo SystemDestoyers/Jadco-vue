@@ -227,7 +227,7 @@
         <div class="container">
             <div class="row">
                 <div class="educational-services mt-5">
-                    <h3 class="edu-services-title">Educational Services</h3>
+                    <h3 class="edu-services-title section-title">Educational Services</h3>
 
                     <div class="service-item mt-4">
                         <div class="row">

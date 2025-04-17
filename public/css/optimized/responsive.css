@@ -48,30 +48,49 @@
    LARGE SCREENS (max-width: 1400px)
    ========================================== */
 
-@media (max-width: 1400px) {
+@media (max-width: 1366px) {
+    .container {
+        max-width: 1200px !important;
+    }
+
+    .navbar-nav .nav-item {
+        padding-right: 5.5rem;
+    }
+    .navbar-nav .nav-link {
+        font-size: 1.25rem;
+    }
+    .btn-talk {
+        font-size: 1.25rem;
+        width: 240px;
+        height: 45px;
+    }
+    .logo {
+        width: 190px;
+    }
+
+    .carousel-nav-numbers {
+        padding: 0;
+    }
+    .header-image {
+        padding-bottom: 17px;
+    }
+
     /* Header Elements */
     .main-heading {
-        font-size: 3rem;
+        font-size: 2.8rem;
+        /* height: 34%; */
     }
     
-    .services-menu h3 {
-        font-size: 2.25rem;
+    .heading .services-menu h3 {
+        font-size: 2rem;
+        margin-bottom: 0;
     }
     
     .service-list li {
         font-size: 1.25rem;
     }
     
-    .navbar-nav .nav-item {
-        padding-right: 4rem;
-    }
-
-    /* Service Images */
-    .service-image {
-        height: 800px;
-        margin-top: 110px;
-    }
-
+    
     /* About Section - Medium Desktop */
     .about-section {
         margin-top: 100px;
@@ -87,24 +106,116 @@
     }
     
     .about-image-main {
-        width: 550px;
+        width: 480px;
         height: 320px;
     }
     .about-section .about-heading img {
-        left: 200px;
+        left: 14rem;
+        width: 450px;
+        height: auto;
+    }
+    .about-section .section-title {
+        font-size: 3.2rem;
     }
     
     .about-image-secondary {
-        width: 300px;
-        height: 350px;
+        width: 270px;
+        height: 326px;
         top: 40px;
     }
     
     .about-main-description {
-        padding-top: 2rem;
-        font-size: 1rem;
+        /* padding-top: 2rem; */
+        font-size: 1.2rem;
     }
 
+    .service-content .service-number {
+        font-size: 6rem;
+    }
+    .service-content .title { 
+        margin-bottom: 0;
+    }
+    .service-title {
+        font-size: 2.2rem;
+    }
+    .service-description {
+        font-size: 1.1rem;
+        margin-bottom: 1rem;
+    }
+    .service-content .main-content {
+        font-size: 1.1rem;
+    }
+
+
+
+
+
+    .section-title {
+        font-size: 2.8rem;
+    }
+    .service-item {
+        padding: 10px 0;
+    }
+    .service-name {
+        font-size: 1.8rem;
+    }
+    .service-num {
+        font-size: 4.5rem;
+    }
+    .service-item.active .service-desc {
+        font-size: 1.2rem;
+    }
+    .service-toggle {
+        font-size: 2.2rem;
+    }
+    .service-content-wrapper .learn-more {
+        font-size: 1.2rem;
+    }
+    .service-buttons .learn-more, .learn-more {
+        max-width: 180px;
+        font-size: 1.2rem;
+    }
+    .service-buttons {
+        margin-top: 0;
+    }
+
+
+
+
+    .contact-tagline {
+        font-size: 2rem;
+    }
+    .let-talk {
+        font-size: 2.7rem;
+    }
+    .footer-logo .logo {
+        width: 160px;
+    }
+    .location-title {
+        font-size: 1.7rem;
+    }
+    .location-address {
+        font-size: 1rem;
+    }
+    .form-control {
+        font-size: 1rem;
+    }
+    .form-label {
+        font-size: 1rem;
+    }
+    .btn-send {
+        margin-top: 0;
+    }
+    .copyright {
+        font-size: 1rem;
+    }
+    .social-link {
+        font-size: 1rem;
+    }
+    .social-link i {
+        font-size: 1rem;
+    }
+    
 }
 
 /* ==========================================
@@ -824,6 +935,7 @@
         margin-bottom: 10px;
         min-height: 150px;
         margin-top: 20px;
+
     }
     
     .service-stack-item .row {

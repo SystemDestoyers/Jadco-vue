@@ -27,11 +27,11 @@ section {
     overflow: hidden;
 }
 
-.section-title {
+/* .section-title {
     font-size: 4rem;
     font-weight: 400;
     margin-bottom: 30px;
-}
+} */
 
 @keyframes sectionFadeIn {
     0% {
