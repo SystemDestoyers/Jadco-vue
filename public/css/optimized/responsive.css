@@ -33,6 +33,9 @@
         font-size: 3.5rem;
         font-weight: 600;
     }
+    .header-image {
+        padding-bottom: 17px;
+    }
     
     .heading .services-menu h3 {
         font-size: 2.5rem;
